@@ -281,3 +281,14 @@ Patient has logged in
    </td>
   </tr>
 </table>
+##need to finish##
+## Use Case #: Nolan
+| **Use Case**    | View_Triage_Application **history**: created  2024-09-17 **history**:: created  2024-09-17               |
+| --------------- | ------------------------------------------------------------------------------------------------- |
+| **Description** | The Nurse views the current triage and can update the current triage or notify patients.             |
+| **Assumptions** | Nurse is logged in, Patient's triage application is correct |
+| **Actors**      | Nurse  |
+| **Steps**       | 1. Nurse views a triage application 2. Patient gives pain scales for each symptom from 1-10 3. Patient inputs time line for symptoms  4. Patient inputs any relevant medical history like previous surgeries, medication they take or previous Injuries and sicknesses 5. Patient inputs if pain is from an injury or is a sickness or unknown  6. Patient signs form saying everything they wrote is true  7. Patient submits this information  |
+| **Variations**  | **#7.** there is a network error in submitting the data. Required boxes are unfilled so patient is asked to fill out those required boxes  |
+| **Non-functional** | patient information is kept secure and confidential via encryption while sent over the network. Users are given an approximate timeline for how long it will take to be triaged |
+| **Issues**      | How are nurses properly alerted of triage information being sent in? What if the patient is unable to describe what they are feeling? 
