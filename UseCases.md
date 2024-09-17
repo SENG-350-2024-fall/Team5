@@ -5,9 +5,9 @@
 | **Description** | user creates their account, where personal information is needed such as their PHN, name, birthdate, contact information, emergency contact information and possibly their place of residence, and a password  |
 | **Assumptions** | user accepts the terms of registration, has all the required information and does not already have an account   |
 | **Actors**      | User (primary) |
-| **Steps**       | 1. Patient selects register account 2. Patient inputs their information 3. Government health database gets checked to confirm PHN is correct and associated properly with name and DOB 4. Database for user information saves inputted username and password for future login attempts 5. Patient is redirected to home page |
+| **Steps**       | 1. Patient selects register account 2. Patient inputs their information and submits photo of themselves holding their care card to confirm identity 3. Government health database gets checked to confirm PHN is correct and associated properly with name and DOB 4. Database for user information saves inputted username and password for future login attempts 5. Patient is redirected to home page |
 | **Variations**  | **#3.** Patient already has account made under the PHN and are therefore notified that there is a persisting account and can go to forgot password instead  |
-| **Non-functional** | Time to authenticate user data is less then 1 second  Missing data inputs are clearly shown to users Required information is easily found |
+| **Non-functional** | Time to authenticate user data is less than 2 seconds. Missing data inputs are clearly shown to users Required information is easily found. Photo/identity verification takes less than 10 seconds. |
 | **Issues**      | user inputs incorrect data, I.e wrong PHN or wrong DOB or name associated with PHN                        |
 
 ## Use Case #: Aidan
