@@ -107,27 +107,29 @@ Users can opt to recover their password via the "Forgot Password" flow.
   <tr>
    <td>Use Case
    </td>
-   <td>Load Status
+   <td>View Clinic Capacity
 <p>
-<strong>Created</strong>: 2024-09-17
+<strong>Created: </strong>2024-09-17
    </td>
   </tr>
   <tr>
    <td>Description
    </td>
-   <td>Shows the patient’s appointment status.
+   <td>Shows a map or list of nearby clinics and their estimated capacity.
    </td>
   </tr>
   <tr>
    <td>Assumptions
    </td>
-   <td>The patient has submitted a triage application form and the system recommends seeing a professional.
+   <td>Capacity updated by healthcare prof
+<p>
+Patient has logged in
    </td>
   </tr>
   <tr>
    <td>Actors
    </td>
-   <td>Patient, Nurse
+   <td>Patient
    </td>
   </tr>
   <tr>
@@ -135,34 +137,30 @@ Users can opt to recover their password via the "Forgot Password" flow.
    </td>
    <td>
 <ol>
-<li>Click ‘view status’</li>
-<li>Show appointment status</li>
+
+<li>Patient clicks ‘view clinics near me’
+
+<li>System displays nearby clinics and capacity
+</li>
 </ol>
    </td>
   </tr>
   <tr>
    <td>Variations
    </td>
-   <td>
-There will be three possible outcomes:
-<p>
-<strong><span style="text-decoration:underline;">In Progress:</span></strong> an appointment is being created or scheduled.
-<p>
-<strong><span style="text-decoration:underline;">Found:</span></strong> an appointment has been made and the system will display the time and place of the appointment as well as the available doctor.
-<p>
-<strong><span style="text-decoration:underline;">Not Scheduled:</span></strong> no appointment is currently scheduled.
+   <td>The list/map will vary based on the patient and their location
    </td>
   </tr>
   <tr>
    <td>Non-functional
    </td>
-   <td>Appointment should be made within 10 minutes based on the triage application.
+   <td>Load fast
    </td>
   </tr>
   <tr>
    <td>Issues
    </td>
-   <td>System delays or errors in retrieving appointment data. No clear timeline on how long appointment scheduling should take.
+   <td>Requires location data
    </td>
   </tr>
 </table>
