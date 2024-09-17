@@ -20,4 +20,154 @@
 | **Variations**  | **#7.** there is a network error in submitting the data. Required boxes are unfilled so patient is asked to fill out those required boxes  |
 | **Non-functional** | patient information is kept secure and confidential via encryption while sent over the network. Users are given an approximate timeline for how long it will take to be triaged |
 | **Issues**      | How are nurses properly alerted of triage information being sent in? What if the patient is unable to describe what they are feeling?                                 |
-                                                                                                 |
+
+## Use Case #: Julian
+<table>
+  <tr>
+   <td>Use Case
+   </td>
+   <td>User Login
+<p>
+<strong>History</strong>: Created 2024-09-17
+   </td>
+  </tr>
+  <tr>
+   <td>Description
+   </td>
+   <td>Patients input their <strong>PHN</strong> (personal health number) and a password to verify their identity.
+   </td>
+  </tr>
+  <tr>
+   <td>Assumptions
+   </td>
+   <td>User has a PHN
+   </td>
+  </tr>
+  <tr>
+   <td>Actors
+   </td>
+   <td>Patient
+   </td>
+  </tr>
+  <tr>
+   <td>Steps
+   </td>
+   <td>
+<ol>
+
+<li>User clicks login
+
+<li>User inputs PHN into correct field
+
+<li>User inputs correct password into correct field
+
+<li>User submits info
+
+<li>System responds 
+<ol>
+ 
+<li>Password does not match PHN  
+<ol>
+  
+<li>Display ‘incorrect password’
+</li>  
+</ol>
+ 
+<li>Password matches PHN  
+<ol>
+  
+<li>Login successful
+</li>  
+</ol>
+</li>  
+</ol>
+</li>  
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td>Variations
+   </td>
+   <td>Administrator Login:
+<p>
+An admin will login with their work email address instead of their PHN.
+   </td>
+  </tr>
+  <tr>
+   <td>Non-functional
+   </td>
+   <td>Time to authenticate user data is less then 1 second 
+   </td>
+  </tr>
+  <tr>
+   <td>Issues
+   </td>
+   <td>Might want 2FA
+   </td>
+  </tr>
+</table>
+
+## Use Case #: Julian
+<table>
+  <tr>
+   <td>Use Case
+   </td>
+   <td>Load Status
+<p>
+<strong>Created</strong>: 2024-09-17
+   </td>
+  </tr>
+  <tr>
+   <td>Description
+   </td>
+   <td>Shows the patient’s appointment status
+   </td>
+  </tr>
+  <tr>
+   <td>Assumptions
+   </td>
+   <td>The patient has submitted a triage application form and the system recommends seeing a professional.
+   </td>
+  </tr>
+  <tr>
+   <td>Actors
+   </td>
+   <td>Patient, Nurse
+   </td>
+  </tr>
+  <tr>
+   <td>Steps
+   </td>
+   <td>
+<ol>
+
+<li>Click ‘view status’
+
+<li>Show appointment status
+</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td>Variations
+   </td>
+   <td>There will be two possible outcomes:
+<p>
+<strong><span style="text-decoration:underline;">In Progress:</span></strong> an appointment is being created or scheduled
+<p>
+<strong><span style="text-decoration:underline;">Found:</span></strong> an appointment has been made and the system will display the time and place of the appointment as well as the available doctor.
+   </td>
+  </tr>
+  <tr>
+   <td>Non-functional
+   </td>
+   <td>Appointment should be made within an amount of time based on the triage application
+   </td>
+  </tr>
+  <tr>
+   <td>Issues
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
