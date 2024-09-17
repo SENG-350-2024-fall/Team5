@@ -65,7 +65,7 @@
   </tr>
 </table>
 
-## Use Case #: Aidan                          |
+## Use Case #: Aidan                    
 <table>
   <tr>
    <td>Use Case
