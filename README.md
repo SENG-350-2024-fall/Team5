@@ -5,6 +5,6 @@ Group Members:
 - Muntaj Gill V00974711
 - Julian Lo V00977063
 - Nolan Curtis V00990044
-- 
+- Owen de Groot V00962387
 
 ![Alt](/UseCaseDiagram.drawio.png)
