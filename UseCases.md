@@ -40,7 +40,7 @@
   <tr>
    <td>Assumptions
    </td>
-   <td>User has a PHN
+   <td>User has a PHN and knows their password.
    </td>
   </tr>
   <tr>
@@ -54,55 +54,50 @@
    </td>
    <td>
 <ol>
-
-<li>User clicks login
-
-<li>User inputs PHN into correct field
-
-<li>User inputs correct password into correct field
-
-<li>User submits info
-
-<li>System responds 
+<li>User clicks login</li>
+<li>User inputs PHN into correct field</li>
+<li>User inputs password into correct field</li>
+<li>User submits info</li>
+<li>System checks for matching PHN and password
 <ol>
- 
-<li>Password does not match PHN  
+<li>Password does not match PHN
 <ol>
-  
-<li>Display ‘incorrect password’
-</li>  
+<li>Display ‘incorrect password’</li>
 </ol>
- 
-<li>Password matches PHN  
+</li>
+<li>Password matches PHN
 <ol>
-  
-<li>Login successful
-</li>  
+<li>Login successful</li>
 </ol>
-</li>  
+</li>
 </ol>
-</li>  
+</li>
 </ol>
    </td>
   </tr>
   <tr>
    <td>Variations
    </td>
-   <td>Administrator Login:
+   <td>
+Administrator Login:
 <p>
 An admin will login with their work email address instead of their PHN.
+<p>
+Forgot Password:
+<p>
+Users can opt to recover their password via the "Forgot Password" flow.
    </td>
   </tr>
   <tr>
    <td>Non-functional
    </td>
-   <td>Time to authenticate user data is less then 1 second 
+   <td>Time to authenticate user data is less than 1 second. 2FA adds up to 5 seconds for SMS verification.
    </td>
   </tr>
   <tr>
    <td>Issues
    </td>
-   <td>Might want 2FA
+   <td>Potential need for 2FA for added security. Account lockout after multiple failed login attempts.
    </td>
   </tr>
 </table>
@@ -120,7 +115,7 @@ An admin will login with their work email address instead of their PHN.
   <tr>
    <td>Description
    </td>
-   <td>Shows the patient’s appointment status
+   <td>Shows the patient’s appointment status.
    </td>
   </tr>
   <tr>
@@ -140,34 +135,34 @@ An admin will login with their work email address instead of their PHN.
    </td>
    <td>
 <ol>
-
-<li>Click ‘view status’
-
-<li>Show appointment status
-</li>
+<li>Click ‘view status’</li>
+<li>Show appointment status</li>
 </ol>
    </td>
   </tr>
   <tr>
    <td>Variations
    </td>
-   <td>There will be two possible outcomes:
+   <td>
+There will be three possible outcomes:
 <p>
-<strong><span style="text-decoration:underline;">In Progress:</span></strong> an appointment is being created or scheduled
+<strong><span style="text-decoration:underline;">In Progress:</span></strong> an appointment is being created or scheduled.
 <p>
 <strong><span style="text-decoration:underline;">Found:</span></strong> an appointment has been made and the system will display the time and place of the appointment as well as the available doctor.
+<p>
+<strong><span style="text-decoration:underline;">Not Scheduled:</span></strong> no appointment is currently scheduled.
    </td>
   </tr>
   <tr>
    <td>Non-functional
    </td>
-   <td>Appointment should be made within an amount of time based on the triage application
+   <td>Appointment should be made within 10 minutes based on the triage application.
    </td>
   </tr>
   <tr>
    <td>Issues
    </td>
-   <td>
+   <td>System delays or errors in retrieving appointment data. No clear timeline on how long appointment scheduling should take.
    </td>
   </tr>
 </table>
