@@ -138,6 +138,68 @@ Users are given approximate timeline for how long it will take to be triaged
   </tr>
 </table>
 
+## Use Case Extension #: Aidan    
+<table>
+  <tr>
+   <td>Use Case Extension
+   </td>
+   <td>Edit_Application  <strong>extends</strong> 2. Create_Triage_Application
+   </td>
+  </tr>
+  <tr>
+   <td>Description
+   </td>
+   <td>The Patient may wish to update their triage application if their symptoms or pain
+   </td>
+  </tr>
+  <tr>
+   <td>Steps
+   </td>
+   <td><strong>#1. If </strong>the user's symptoms change <strong>then </strong>they can change them
+<p>
+<strong>#2. If </strong>the user's pain changes <strong>then </strong>they edit the pain scale
+<p>
+<strong>#3. If</strong> a better timeline for symptoms is remembered <strong>then</strong> the the timeline is updated
+<p>
+<strong>#6. If </strong>any information was updated <strong>then</strong> the user must resubmit their triage application and the database plus nurse will be alerted of this change
+   </td>
+  </tr>
+  <tr>
+   <td>Issues
+   </td>
+   <td>How should a changed triage application affect a patient's already given triage? Do newly updated triages need to be reviewed again? 
+   </td>
+  </tr>
+</table>
+
+## Use Case Extension #: Aidan   
+<table>
+  <tr>
+   <td>Use Case Extension
+   </td>
+   <td>Delete_Application  <strong>extends</strong> 2. Create_Triage_Application
+   </td>
+  </tr>
+  <tr>
+   <td>Description
+   </td>
+   <td>The Patient may wish to delete their triage application if they no longer want to be triaged
+   </td>
+  </tr>
+  <tr>
+   <td>Steps
+   </td>
+   <td><strong>#6. If</strong> the user wishes to delete their application <strong>then</strong> the application can be deleted and the database will be alerted of this deletion
+   </td>
+  </tr>
+  <tr>
+   <td>Issues
+   </td>
+   <td>What kind of alerts should be given to a user when they wish to delete their triage? Should there be a comment box for users to input their reasons for deleting their application?
+   </td>
+  </tr>
+</table>
+
 ## Use Case #: Julian
 <table>
   <tr>
