@@ -32,15 +32,15 @@
    <td>
 <ol>
 
-<li>Patient selects register account
+<li>User selects register account
 
-<li>Patient inputs their information and submits photo of themselves holding their care card to confirm identity
+<li>User inputs their information and submits photo of themselves holding their care card to confirm identity
 
 <li>Government health database gets checked to confirm PHN is correct and associated properly with name and DOB
 
 <li>Database for user information saves inputted username and password for future login attempts 
 
-<li>Patient is redirected to home page
+<li>User is redirected to home page
 </li>
 </ol>
    </td>
@@ -48,7 +48,7 @@
   <tr>
    <td>Variations
    </td>
-   <td> <strong>#3.</strong> Patient already has account made under the PHN and are therefore notified that there is a persisting account and can go to forgot password instead 
+   <td> <strong>#3.</strong> User already has account made under the PHN and are therefore notified that there is a persisting account and can go to forgot password instead 
    </td>
   </tr>
   <tr>
