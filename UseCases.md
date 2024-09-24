@@ -344,12 +344,142 @@ Patient has logged in
   </tr>
 </table>
 
-| Use Case       | 2. View_Triage_Application  history: created 2024-09-12                                                                                                                                                 |
-|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Description    | The Nurse views a triage application and can determine the risk and update their position in the triage or delete their application.                                                                             |
-| Assumptions    | Nurse is logged in. Patient's triage application is correct                                                                                                                                                      |
-| Actors         | Nurse                                                                                                                                                                                                            |
-| Steps          |  1. Nurse views a triage application 2. Nurse determines the correct course of action to treat the patient 2.1 Nurse decides to send Patient Notification    2.2 Nurse deletes triage application    2.3 Nurse changes Triage order |
-| Variations     | Nurse views the triage application and does nothing.                                                                                                                                                             |
-| Non-functional | patient information is kept secure and confidential via encryption while sent over the network                                                                                                                   |
-| Issues         | How are nurses properly alerted of triage information being sent in? What if the patient is unable to describe what they are feeling? What if a triage application is removed mistakenly                         |
+## Use Case Extension #: Aidan   
+<table>
+  <tr>
+   <td>Use Case Extension
+   </td>
+   <td>Got to GP  <strong>extends</strong> 6. Patient_Notification
+   </td>
+  </tr>
+  <tr>
+   <td>Description
+   </td>
+   <td>The virtual triage program and nurse have decided the best course of action for the patient is to visit a GP and therefore the patient must be notified of this decision
+   </td>
+  </tr>
+  <tr>
+   <td>Steps
+   </td>
+   <td><strong>#3.3.1 If</strong> the best course of action for the patient has been decided to go to a GP <strong>then</strong> a notification will be sent to the patient with other provided information like possible GPs in their area.
+   </td>
+  </tr>
+  <tr>
+   <td>Issues
+   </td>
+   <td>Should the system give the patient a list of possible General Practitioners to visit? Will it just provide Clinics? What criteria should be used for choosing which GP the patient should visit? Should the triage application be deleted or saved for use by the GP?
+   </td>
+  </tr>
+</table>
+
+## Use Case Extension #: Aidan   
+<table>
+  <tr>
+   <td>Use Case Extension
+   </td>
+   <td>Contact Hotline  <strong>extends</strong> 6. Patient_Notification
+   </td>
+  </tr>
+  <tr>
+   <td>Description
+   </td>
+   <td>The virtual triage program and nurse have decided the best course of action for the patient is to call a hotline and therefore the patient must be notified of this decision
+   </td>
+  </tr>
+  <tr>
+   <td>Steps
+   </td>
+   <td><strong>#3.3.2 If</strong> the best course of action for the patient has been decided to call a hotline <strong>then</strong> a notification will be sent to the patient with other provided information like possible hotline phone numbers.
+   </td>
+  </tr>
+  <tr>
+   <td>Issues
+   </td>
+   <td>Should the system give the patient a list of possible hotlines to call? What criteria should be used for choosing which hotlines are provided to the patient? Should the triage application be available to send to the hotline operator?
+   </td>
+  </tr>
+</table>
+
+## Use Case Extension #: Aidan   
+<table>
+  <tr>
+   <td>Use Case Extension
+   </td>
+   <td>Over the Counter <strong>extends</strong> 6. Patient_Notification
+   </td>
+  </tr>
+  <tr>
+   <td>Description
+   </td>
+   <td>The virtual triage program and nurse have decided the best course of action for the patient is to get over the counter medication and therefore the patient must be notified of this decision
+   </td>
+  </tr>
+  <tr>
+   <td>Steps
+   </td>
+   <td><strong>#3.3.3 If</strong> the best course of action for the patient has been decided to get over the counter medication <strong>then</strong> a notification will be sent to the patient with the types of medication reccomended and possible pharmacies to visit.
+   </td>
+  </tr>
+  <tr>
+   <td>Issues
+   </td>
+   <td>Should the system give the patient a list of possible pharmacies in their area? What would the maximum distance or number of pharmacies recommended be? Should the nurse or doctor providing the drug/medication reccomendedations be able to recommend certain brands? How many options should be provided to the patient?
+   </td>
+  </tr>
+</table>
+
+## Use Case Extension #: Aidan   
+<table>
+  <tr>
+   <td>Use Case Extension
+   </td>
+   <td>Visit ER <strong>extends</strong> 6. Patient_Notification
+   </td>
+  </tr>
+  <tr>
+   <td>Description
+   </td>
+   <td>The virtual triage program and nurse have decided the best course of action for the patient is to visit the ER immediatly
+   </td>
+  </tr>
+  <tr>
+   <td>Steps
+   </td>
+   <td><strong>#3.1. If</strong> the best course of action for the patient has been decided to visit the ER immediatly <strong>then</strong> a notification will be sent to the patient stating they should visit the ER immediately.
+   </td>
+  </tr>
+  <tr>
+   <td>Issues
+   </td>
+   <td>Should the notification offer a route to get to the ER? If the issue is sever enough should an ambulance be called?
+   </td>
+  </tr>
+</table>
+
+## Use Case Extension #: Aidan   
+<table>
+  <tr>
+   <td>Use Case Extension
+   </td>
+   <td>Wait for ER <strong>extends</strong> 6. Patient_Notification
+   </td>
+  </tr>
+  <tr>
+   <td>Description
+   </td>
+   <td>The virtual triage program and nurse have decided the best course of action for the patient is to wait at home while being triaged in the ER
+   </td>
+  </tr>
+  <tr>
+   <td>Steps
+   </td>
+   <td><strong>#3.2. If</strong> the best course of action for the patient has been decided to wait for the ER <strong>then</strong> a notification will be sent to the patient stating how long they should wait until coming into the ER.
+   </td>
+  </tr>
+  <tr>
+   <td>Issues
+   </td>
+   <td>Should the notification offer a route to get to the ER? How in advance should the patient come to the ER before they are projected to be able to visit.
+   </td>
+  </tr>
+</table>
