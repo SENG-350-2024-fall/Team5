@@ -8,6 +8,7 @@ Group Members:
 - Owen de Groot V00962387
 
 Patient Use Case Diagram:
+\
 ![Alt](/useCaseDiagrams/UseCaseDiagram.drawio.png)
 
 Nurse Use Case Diagram:
