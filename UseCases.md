@@ -4,7 +4,7 @@
   <tr>
    <td>Use Case
    </td>
-   <td>1. Account_Registration 
+   <td>1. Register_Account 
 <strong>history: </strong>created  2024-09-10, modified 2024-09-11
    </td>
   </tr>
