@@ -14,9 +14,9 @@ Nurse Use Case Diagram:
 ![Alt](/useCaseDiagrams/NurseUseCaseDiagram.drawio.png)
 
 Hotline/Call Center Operator Use Case Diagram:
-/
+\
 ![Alt](/useCaseDiagrams/OpUseCaseDiagram.drawio.png)
 
 Doctor Use Case Diagram:
-/
+\
 ![Alt](/useCaseDiagrams/DocUseCaseDiagram.drawio.png)
