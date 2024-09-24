@@ -200,6 +200,93 @@ Users are given approximate timeline for how long it will take to be triaged
   </tr>
 </table>
 
+## Use Case #: Owen
+<table>
+  <tr>
+   <td><strong>Use Case</strong>
+   </td>
+   <td>6. Paitent_Notification \
+<strong>history </strong>created 2024-09-17, modified 2024-09-24
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Description</strong>
+   </td>
+   <td>System automatically provides real-time updates via email on the current Emergency Department (ED) load and recommends the best course of action based on virtual triage results.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Assumptions</strong>
+   </td>
+   <td>Patients have completed the virtual triage.
+<p>
+Patients' contact information exists in the system database.
+<p>
+Emergency Department (ED) load status exists in the system database. 
+<p>
+Nurse reviews and approves the triage application.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Actors</strong>
+   </td>
+   <td>Patient (primary), Nurse (secondary)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Steps</strong>
+   </td>
+   <td>
+<ol>
+
+<li>Write to notification that patient has been triaged.
+
+<li>Write to notification ED load status.
+
+<li>IF triage determines patient is at high risk THEN
+    3.1 Select type of triage required: Visit ER.
+<p>
+
+    ELSE IF triage determines patient is at moderate risk THEN
+<p>
+
+    3.2 Select type of triage required: Wait for ER.
+<p>
+
+    ELSE 
+<p>
+
+    3.3 Select type of triage required: 3.3.1 Contact Hotline, 3.3.2 Go to GP or 3.3.3 Over the Counter
+<ol>
+
+<li>Send notification to patient.
+</li>
+</ol>
+</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Variations</strong>
+   </td>
+   <td><strong>#1</strong>. Patients may be notified via automated phone call, <strong>or</strong> automated text message, <strong>or</strong> app notification banner.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Non-functional</strong>
+   </td>
+   <td><strong>Readability: </strong>Notifications must be easily readable, with clear and appropriately sized text for all patients, with options available in multiple languages. 
+<p>
+<strong>Responsiveness: </strong>Notifications must be sent within 10 minutes of completing the virtual triage and it being reviewed.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>How can it be verified that a patient has received and acknowledged the notification sent to them? How often should the ER wait times/load status be updated?
+   </td>
+  </tr>
+</table>
 
 
 ## Use Case Extension #: Aidan   
@@ -207,7 +294,7 @@ Users are given approximate timeline for how long it will take to be triaged
   <tr>
    <td>Use Case Extension
    </td>
-   <td>Got to GP  <strong>extends</strong> 6. Patient_Notification
+   <td>Go to GP  <strong>extends</strong> 6. Patient_Notification
    </td>
   </tr>
   <tr>
