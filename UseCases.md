@@ -571,6 +571,7 @@ Patient has logged in
    </td>
   </tr>
 </table>
+
 | Use Case       | 2. View_Triage_Application  history: created 2024-09-12                                                                                                                                                 |
 |----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | The Nurse views a triage application and can determine the risk and update their position in the triage or delete their application.                                                                             |
