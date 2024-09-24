@@ -200,149 +200,7 @@ Users are given approximate timeline for how long it will take to be triaged
   </tr>
 </table>
 
-## Use Case #: Julian
-<table>
-  <tr>
-   <td>Use Case
-   </td>
-   <td>User Login
-<p>
-<strong>History</strong>: Created 2024-09-17
-   </td>
-  </tr>
-  <tr>
-   <td>Description
-   </td>
-   <td>Patients input their <strong>PHN</strong> (personal health number) and a password to verify their identity.
-   </td>
-  </tr>
-  <tr>
-   <td>Assumptions
-   </td>
-   <td>User has a PHN and knows their password.
-   </td>
-  </tr>
-  <tr>
-   <td>Actors
-   </td>
-   <td>Patient
-   </td>
-  </tr>
-  <tr>
-   <td>Steps
-   </td>
-   <td>
-<ol>
-<li>User clicks login</li>
-<li>User inputs PHN into correct field</li>
-<li>User inputs password into correct field</li>
-<li>User submits info</li>
-<li>System checks for matching PHN and password
-<ol>
-<li>Password does not match PHN
-<ol>
-<li>Display ‘incorrect password’</li>
-</ol>
-</li>
-<li>Password matches PHN
-<ol>
-<li>Login successful</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-   </td>
-  </tr>
-  <tr>
-   <td>Variations
-   </td>
-   <td>
-Administrator Login:
-<p>
-An admin will login with their work email address instead of their PHN.
-<p>
-Forgot Password:
-<p>
-Users can opt to recover their password via the "Forgot Password" flow.
-   </td>
-  </tr>
-  <tr>
-   <td>Non-functional
-   </td>
-   <td>Time to authenticate user data is less than 1 second. 2FA adds up to 5 seconds for SMS verification.
-   </td>
-  </tr>
-  <tr>
-   <td>Issues
-   </td>
-   <td>Potential need for 2FA for added security. Account lockout after multiple failed login attempts.
-   </td>
-  </tr>
-</table>
 
-## Use Case #: Julian
-<table>
-  <tr>
-   <td>Use Case
-   </td>
-   <td>View Clinic Capacity
-<p>
-<strong>Created: </strong>2024-09-17
-   </td>
-  </tr>
-  <tr>
-   <td>Description
-   </td>
-   <td>Shows a map or list of nearby clinics and their estimated capacity.
-   </td>
-  </tr>
-  <tr>
-   <td>Assumptions
-   </td>
-   <td>Capacity updated by healthcare prof
-<p>
-Patient has logged in
-   </td>
-  </tr>
-  <tr>
-   <td>Actors
-   </td>
-   <td>Patient
-   </td>
-  </tr>
-  <tr>
-   <td>Steps
-   </td>
-   <td>
-<ol>
-
-<li>Patient clicks ‘view clinics near me’
-
-<li>System displays nearby clinics and capacity
-</li>
-</ol>
-   </td>
-  </tr>
-  <tr>
-   <td>Variations
-   </td>
-   <td>The list/map will vary based on the patient and their location
-   </td>
-  </tr>
-  <tr>
-   <td>Non-functional
-   </td>
-   <td>Load fast
-   </td>
-  </tr>
-  <tr>
-   <td>Issues
-   </td>
-   <td>Requires location data
-   </td>
-  </tr>
-</table>
 
 ## Use Case Extension #: Aidan   
 <table>
@@ -480,6 +338,149 @@ Patient has logged in
    <td>Issues
    </td>
    <td>Should the notification offer a route to get to the ER? How in advance should the patient come to the ER before they are projected to be able to visit.
+   </td>
+  </tr>
+</table>
+## Use Case #: Julian   
+<table>
+  <tr>
+   <td>Use Case
+   </td>
+   <td>3. User Login
+<p>
+<strong>History</strong>: Created 2024-09-17 Mod 2024-09-24
+   </td>
+  </tr>
+  <tr>
+   <td>Description
+   </td>
+   <td>User input their <strong>PHN</strong> (personal health number) and a password to verify their identity.
+   </td>
+  </tr>
+  <tr>
+   <td>Assumptions
+   </td>
+   <td>User has a PHN and knows their password.
+<p>
+User has registered an account.
+   </td>
+  </tr>
+  <tr>
+   <td>Actors
+   </td>
+   <td>Patient, Nurse, GP, Call Center Op.
+   </td>
+  </tr>
+  <tr>
+   <td>Steps
+   </td>
+   <td>
+<ol>
+
+<li>User clicks login
+
+<li>User inputs PHN into correct field
+
+<li>User inputs correct password into correct field
+
+<li>User submits info
+
+<li>IF password is correct 
+<ol>
+ 
+<li>Successful login
+    ELSE 
+<ol>
+ 
+<li>Display ‘incorrect password’
+</li> 
+</ol>
+</li> 
+</ol>
+</li> 
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td>Variations
+   </td>
+   <td><strong>#2. </strong>Non-Patient Login: Actors other than patients will login with a designated “work email” instead of the <strong>PHN</strong>.
+   </td>
+  </tr>
+  <tr>
+   <td>Non-functional
+   </td>
+   <td><strong>Performance Mean:</strong> Time to authenticate user data is less than 1 second. 2FA adds up to 5 seconds for SMS verification. 
+   </td>
+  </tr>
+  <tr>
+   <td>Issues
+   </td>
+   <td>Additional security measures to consider: 2FA, account lockout after consecutive failed logins.
+   </td>
+  </tr>
+</table>
+
+
+## Use Case #: Julian
+<table>
+  <tr>
+   <td>Use Case
+   </td>
+   <td>4. View Clinic Capacity
+<p>
+<strong>Created: </strong>2024-09-17 Mod 2024-09-24
+   </td>
+  </tr>
+  <tr>
+   <td>Description
+   </td>
+   <td>Shows a map or list of nearby clinics and their estimated capacity.
+   </td>
+  </tr>
+  <tr>
+   <td>Assumptions
+   </td>
+   <td>Capacity updated by healthcare prof
+<p>
+Patient has logged in
+   </td>
+  </tr>
+  <tr>
+   <td>Actors
+   </td>
+   <td>Patient
+   </td>
+  </tr>
+  <tr>
+   <td>Steps
+   </td>
+   <td>
+<ol>
+
+<li>Patient clicks ‘view clinics near me’
+
+<li>System displays nearby clinics and capacity
+</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td>Variations
+   </td>
+   <td><strong>#2. </strong>The list/map will vary based on the patient and their location
+   </td>
+  </tr>
+  <tr>
+   <td>Non-functional
+   </td>
+   <td><strong>Performance Mean:</strong> load time should be no longer than 10 seconds
+   </td>
+  </tr>
+  <tr>
+   <td>Issues
+   </td>
+   <td>Requires location data
    </td>
   </tr>
 </table>
