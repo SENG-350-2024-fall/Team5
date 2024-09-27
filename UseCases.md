@@ -240,7 +240,8 @@ Nurse reviews and approves the triage application.
 
 <li>Write to notification ED load status.
 
-<li>IF triage determines patient is at high risk THEN
+<li>
+  <p>IF triage determines patient is at high risk THEN
     3.1 Select type of triage required: Visit ER.
 <p>
 
