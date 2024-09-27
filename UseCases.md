@@ -202,7 +202,7 @@ Users are given approximate timeline for how long it will take to be triaged
   <tr>
    <td><strong>Use Case</strong>
    </td>
-   <td>6. Patient_Notification \
+   <td>3. Patient_Notification \
 <strong>history </strong>created 2024-09-17, modified 2024-09-24
    </td>
   </tr>
@@ -427,7 +427,7 @@ Nurse reviews and approves the triage application.
   <tr>
    <td>Use Case
    </td>
-   <td>3. User Login
+   <td>4. User Login
 <p>
 <strong>History</strong>: Created 2024-09-17 Mod 2024-09-24
    </td>
@@ -507,7 +507,7 @@ User has registered an account.
   <tr>
    <td>Use Case
    </td>
-   <td>4. View Clinic Capacity
+   <td>5. View Clinic Capacity
 <p>
 <strong>Created: </strong>2024-09-17 Mod 2024-09-24
    </td>
@@ -565,7 +565,7 @@ Patient has logged in
   </tr>
 </table>
 
-| Use Case       | 2. View_Triage_Application  history: created 2024-09-12                                                                                                                                                 |
+| Use Case       | 6. View_Triage_Application  history: created 2024-09-12                                                                                                                                                 |
 |----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | The Nurse views a triage application and can determine the risk and update their position in the triage or delete their application.                                                                             |
 | Assumptions    | Nurse is logged in. Patient's triage application is correct                                                                                                                                                      |
