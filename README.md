@@ -7,6 +7,9 @@ Group Members:
 - Nolan Curtis V00990044
 - Owen de Groot V00962387
 
+NOTE: Please view all diagrams using light mode
+
+
 Patient Use Case Diagram:
 \
 ![Alt](/useCaseDiagrams/UseCaseDiagram.drawio.png)
