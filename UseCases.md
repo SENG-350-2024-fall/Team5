@@ -201,8 +201,7 @@ Users are given approximate timeline for how long it will take to be triaged
 <table>
   <tr>
    <td><strong>Use Case</strong>
-   </td>
-   <td>3. Patient_Notification \
+   <td>3. Patient_Notification    <br />
 <strong>history </strong>created 2024-09-17, modified 2024-09-24
    </td>
   </tr>
@@ -215,13 +214,10 @@ Users are given approximate timeline for how long it will take to be triaged
   <tr>
    <td><strong>Assumptions</strong>
    </td>
-   <td>Patients have completed the virtual triage.
-<p>
-Patients' contact information exists in the system database.
-<p>
-Emergency Department (ED) load status exists in the system database. 
-<p>
-Nurse reviews and approves the triage application.
+   <td>Patients have completed the virtual triage. <br />
+Patients' contact information exists in the system database. <br />
+Emergency Department (ED) load status exists in the system database. <br />
+Nurse reviews and approves the triage application. 
    </td>
   </tr>
   <tr>
@@ -236,30 +232,19 @@ Nurse reviews and approves the triage application.
    <td>
 <ol>
 
-<li>Write to notification that patient has been triaged.
+<li>Write to notification that patient has been triaged.</li>
 
-<li>Write to notification ED load status.
+<li>Write to notification ED load status. </li>
 
 <li>
-  <p>IF triage determines patient is at high risk THEN
-    3.1 Select type of triage required: Visit ER.
-<p>
-
-    ELSE IF triage determines patient is at moderate risk THEN
-<p>
-
-    3.2 Select type of triage required: Wait for ER.
-<p>
-
-    ELSE 
-<p>
-
-    3.3 Select type of triage required: 3.3.1 Contact Hotline, 3.3.2 Go to GP or 3.3.3 Over the Counter
-<ol>
-
-<li>Send notification to patient.
+  <p>IF triage determines patient is at high risk THEN </p>
+  <p>3.1 Select type of triage required: Visit ER. </p>
+  <p>ELSE IF triage determines patient is at moderate risk THEN </p>
+  <p> 3.2 Select type of triage required: Wait for ER. </p>
+  <p>ELSE</p> 
+<p>3.3 Select type of triage required: 3.3.1 Contact Hotline, 3.3.2 Go to GP or 3.3.3 Over the Counter</p>
 </li>
-</ol>
+<li>Send notification to patient.</li>
 </li>
 </ol>
    </td>
