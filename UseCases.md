@@ -1,5 +1,4 @@
 
-## Use Case #: Aidan
 <table>
   <tr>
    <td>Use Case
@@ -64,8 +63,7 @@
    </td>
   </tr>
 </table>
-
-## Use Case #: Aidan                    
+                 
 <table>
   <tr>
    <td>Use Case
@@ -137,8 +135,7 @@ Users are given approximate timeline for how long it will take to be triaged
    </td>
   </tr>
 </table>
-
-## Use Case Extension #: Aidan    
+  
 <table>
   <tr>
    <td>Use Case Extension
@@ -172,7 +169,7 @@ Users are given approximate timeline for how long it will take to be triaged
   </tr>
 </table>
 
-## Use Case Extension #: Aidan   
+   
 <table>
   <tr>
    <td>Use Case Extension
@@ -200,12 +197,12 @@ Users are given approximate timeline for how long it will take to be triaged
   </tr>
 </table>
 
-## Use Case #: Owen
+
 <table>
   <tr>
    <td><strong>Use Case</strong>
    </td>
-   <td>6. Paitent_Notification \
+   <td>6. Patient_Notification \
 <strong>history </strong>created 2024-09-17, modified 2024-09-24
    </td>
   </tr>
@@ -288,8 +285,7 @@ Nurse reviews and approves the triage application.
   </tr>
 </table>
 
-
-## Use Case Extension #: Aidan   
+  
 <table>
   <tr>
    <td>Use Case Extension
@@ -317,7 +313,7 @@ Nurse reviews and approves the triage application.
   </tr>
 </table>
 
-## Use Case Extension #: Aidan   
+   
 <table>
   <tr>
    <td>Use Case Extension
@@ -344,8 +340,7 @@ Nurse reviews and approves the triage application.
    </td>
   </tr>
 </table>
-
-## Use Case Extension #: Aidan   
+  
 <table>
   <tr>
    <td>Use Case Extension
@@ -373,7 +368,6 @@ Nurse reviews and approves the triage application.
   </tr>
 </table>
 
-## Use Case Extension #: Aidan   
 <table>
   <tr>
    <td>Use Case Extension
@@ -401,7 +395,7 @@ Nurse reviews and approves the triage application.
   </tr>
 </table>
 
-## Use Case Extension #: Aidan   
+   
 <table>
   <tr>
    <td>Use Case Extension
@@ -428,7 +422,7 @@ Nurse reviews and approves the triage application.
    </td>
   </tr>
 </table>
-## Use Case #: Julian   
+ 
 <table>
   <tr>
    <td>Use Case
@@ -509,7 +503,6 @@ User has registered an account.
 </table>
 
 
-## Use Case #: Julian
 <table>
   <tr>
    <td>Use Case
