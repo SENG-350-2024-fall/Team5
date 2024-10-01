@@ -29,7 +29,7 @@
    </td>
    <td>
 <ol>
-<li>Patient selects register account."</li>
+<li>Patient selects register account.</li>
 <li>Patient inputs their information.</li>
 <li>Government health database gets checked to confirm PHN is correct and associated properly with name and DOB.
 </li>
@@ -48,7 +48,6 @@
    <td><strong>Non-functional</strong>
    </td>
    <td><strong>Performance Mean:</strong> Time to authenticate user data is less than 1 second. <br />
-   <strong>Data Clarity:</strong> Missing data inputs are clearly shown to users, and required information is easily found. <br />
    <strong>Usability:</strong> Missing data inputs are clearly shown to users. <br />
    <strong>Usability:</strong> Required information is easily found.
    </td>
