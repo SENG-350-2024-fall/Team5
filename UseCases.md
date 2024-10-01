@@ -552,24 +552,136 @@ Patient has logged in.
 </table>
 
 
-| Use Case       | 6. View_Triage_Application  history: created 2024-09-12                                                                                                                                                 |
-|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Description    | The Nurse views a triage application and can determine the risk and update their position in the triage or delete their application.                                                                             |
-| Assumptions    | Nurse is logged in. Patient's triage application is correct                                                                                                                                                      |
-| Actors         | Nurse                                                                                                                                                                                                            |
-| Steps          | <ol><li> Nurse views a triage application </li><li> Nurse determines the correct course of action to treat the patient </li><ol type="a"><li> Nurse decides to send Patient Notification    </li><li> Nurse deletes triage application    </li><li> Nurse changes Triage order </li></ol></ol> |
-| Variations     | Nurse views the triage application and does nothing.                                                                                                                                                             |
-| Non-functional | patient information is kept secure and confidential via encryption while sent over the network                                                                                                                   |
-| Issues         | How are nurses properly alerted of triage information being sent in? What if the patient is unable to describe what they are feeling? What if a triage application is removed mistakenly                         |
+<table>
+  <tr>
+   <td><strong>Use Case</strong>
+   </td>
+   <td>6. View Triage Application
+<p>
+<strong>History:</strong> Created 2024-09-12
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Description</strong>
+   </td>
+   <td>The Nurse views a triage application and can determine the risk, update the patient's position in the triage, or delete the application.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Assumptions</strong>
+   </td>
+   <td>
+   Nurse is logged in.<br>
+   Patient's triage application is correct.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Actors</strong>
+   </td>
+   <td>Nurse
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Steps</strong>
+   </td>
+   <td>
+<ol>
+<li>Nurse views a triage application.</li>
 
-| Use Case Extension | Delete Triage Application  extends 2. View_Triage_Application                                                                                                        |
-|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Description        | Nurse determines the correct course of action to treat the patient is delete the patients triage application                                                         |
-| Steps              | <ol><li> If the Nurse determines the correct course of action to treat the patient is to delete the triage application<li> The Nurse selects the delete application option<li>  System deletes the triage application </li></ol> |
-| Issues             | Triage patient is mistakenly deleted                                                                                                                                 |
+<li>If the Nurse determines the correct course of action to treat the patient, THEN:
+<ol type="a">
+<li>If the Nurse decides to send a Patient Notification, THEN the notification is sent.</li>
+<li>If the Nurse decides to delete the triage application, THEN the application is deleted and the database is alerted.</li>
+<li>If the Nurse decides to change the Triage order, THEN the order is updated.</li>
+</ol>
+</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Variations</strong>
+   </td>
+   <td><strong>#2.</strong> If the Nurse views the triage application and does nothing, THEN no action is taken.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Non-functional</strong>
+   </td>
+   <td>Patient information is kept secure and confidential via encryption while sent over the network.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>How are nurses properly alerted of triage information being sent in? What if the patient is unable to describe what they are feeling? What if a triage application is removed mistakenly?
+   </td>
+  </tr>
+</table>
 
-| Use Case Extension | Update Triage Order  extends 2. View_Triage_Application                                                                                                                                                           |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Description        | Nurse determines the correct course of action to treat the patient is move their triage application in the triage order                                                                                           |
-| Steps              | <ol><li> If the Nurse determines the correct course of action to treat the patient is to change the triage order</li><li>  Nurse selects the update triage application option</li><li>   Nurse moves the patient in the order</li><li>  The triage order is updated </li></ul>|
-| Issues             | Nurse may not know other patients details before updating order and indirectly moving other patients                                                                                                              |
+
+
+<table>
+  <tr>
+   <td><strong>Use Case Extension</strong>
+   </td>
+   <td>Delete Triage Application <strong>extends</strong> 2. View Triage Application
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Description</strong>
+   </td>
+   <td>The Nurse determines that the correct course of action to treat the patient is to delete the patient's triage application.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Steps</strong>
+   </td>
+   <td>
+<ol>
+<li>If the Nurse determines the correct course of action to treat the patient is to delete the triage application, THEN:</li>
+<li>The Nurse selects the delete application option.</li>
+<li>System deletes the triage application.</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>Triage patient is mistakenly deleted.
+   </td>
+  </tr>
+</table>
+
+
+<table>
+  <tr>
+   <td><strong>Use Case Extension</strong>
+   </td>
+   <td>Update Triage Order <strong>extends</strong> 2. View Triage Application
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Description</strong>
+   </td>
+   <td>The Nurse determines that the correct course of action to treat the patient is to move their triage application in the triage order.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Steps</strong>
+   </td>
+   <td>
+<ol>
+<li>If the Nurse determines the correct course of action to treat the patient is to change the triage order, THEN:</li>
+<li>The Nurse selects the update triage application option.</li>
+<li>The Nurse moves the patient in the order.</li>
+<li>The triage order is updated.</li>
+</ol>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>The Nurse may not know other patients' details before updating the order and may indirectly affect other patients.
+   </td>
+  </tr>
+</table>
