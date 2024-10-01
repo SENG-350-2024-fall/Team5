@@ -414,7 +414,7 @@ Nurse reviews and approves the triage application.
   <tr>
    <td><strong>Use Case</strong>
    </td>
-   <td>4. User Login
+   <td>4. User_Login
 <p>
 <strong>history</strong> created 2024-09-17, modified 2024-09-30
    </td>
@@ -497,7 +497,7 @@ User has registered an account.
   <tr>
    <td><strong>Use Case</strong>
    </td>
-   <td>5. View Clinic Capacity
+   <td>5. View_Clinic_Capacity
 <p>
 <strong>history</strong> created 2024-09-17, modified 2024-09-30
    </td>
@@ -560,9 +560,9 @@ Patient has logged in.
   <tr>
    <td><strong>Use Case</strong>
    </td>
-   <td>6. View Triage Application
+   <td>6. View_Triage_Application
 <p>
-<strong>History:</strong> Created 2024-09-12
+<strong>history</strong> created 2024-09-12
    </td>
   </tr>
   <tr>
@@ -582,7 +582,7 @@ Patient has logged in.
   <tr>
    <td><strong>Actors</strong>
    </td>
-   <td>Nurse
+   <td>Nurse (primary)
    </td>
   </tr>
   <tr>
@@ -611,7 +611,7 @@ Patient has logged in.
   <tr>
    <td><strong>Non-functional</strong>
    </td>
-   <td>Patient information is kept secure and confidential via encryption while sent over the network.
+   <td><strong>Security:</strong> Patient information is kept secure and confidential via encryption while sent over the network.
    </td>
   </tr>
   <tr>
@@ -628,7 +628,7 @@ Patient has logged in.
   <tr>
    <td><strong>Use Case Extension</strong>
    </td>
-   <td>Delete Triage Application <strong>extends</strong> 2. View Triage Application
+   <td>Delete Triage Application <strong>extends</strong> 6. View_Triage_Application
    </td>
   </tr>
   <tr>
@@ -642,7 +642,7 @@ Patient has logged in.
    </td>
    <td>
 <ol>
-<li>If the Nurse determines the correct course of action to treat the patient is to delete the triage application, THEN:</li>
+<strong><li>If</strong> the Nurse determines the correct course of action to treat the patient is to delete the triage application, <strong>THEN:</strong></li>
 <li>The Nurse selects the delete application option.</li>
 <li>System deletes the triage application.</li>
 </ol>
@@ -661,7 +661,7 @@ Patient has logged in.
   <tr>
    <td><strong>Use Case Extension</strong>
    </td>
-   <td>Update Triage Order <strong>extends</strong> 2. View Triage Application
+   <td>Update Triage Order <strong>extends</strong> 6. View_Triage_Application
    </td>
   </tr>
   <tr>
@@ -675,10 +675,10 @@ Patient has logged in.
    </td>
    <td>
 <ol>
-<li>If the Nurse determines the correct course of action to treat the patient is to change the triage order, THEN:</li>
-<li>The Nurse selects the update triage application option.</li>
-<li>The Nurse moves the patient in the order.</li>
-<li>The triage order is updated.</li>
+<strong><li>If</strong> the Nurse determines the correct course of action to treat the patient is to change the triage order, <strong>THEN:</strong></li>
+<strong><li></strong>The Nurse selects the update triage application option.</li>
+<strong><li></strong>The Nurse moves the patient in the order.</li>
+<strong><li></strong>The triage order is updated.</li>
 </ol>
    </td>
   </tr>
