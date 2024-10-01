@@ -3,27 +3,25 @@
   <tr>
    <td><strong>Use Case</strong>
    </td>
-   <td>1. Register_Account <br /><strong>history: </strong>created 2024-09-10, modified 2024-09-30
+   <td>1. Register_Account <br /><strong>history </strong>created 2024-09-10, modified 2024-09-30
    </td>
   </tr>
   <tr>
    <td><strong>Description</strong>
    </td>
-   <td>The user creates their account, providing personal information such as their Personal Health Number (PHN), name, birthdate, contact information, emergency contact information, and possibly their place of residence, along with a password.
+   <td>Patient creates their account, where personal information is needed such as their PHN, name, birthdate, contact information, emergency contact information and possibly their place of residence, and a password.
    </td>
   </tr>
   <tr>
    <td><strong>Assumptions</strong>
    </td>
-   <td>The user accepts the terms of registration, <br />
-   The user has all the required information, <br />
-   The user does not already have an account.
+   <td>Patient accepts the terms of registration and has all the required information.
    </td>
   </tr>
   <tr>
    <td><strong>Actors</strong>
    </td>
-   <td>New account user, database, government health database.
+   <td>Patient (primary)
    </td>
   </tr>
   <tr>
@@ -31,32 +29,34 @@
    </td>
    <td>
 <ol>
-<li>User selects "Register Account."</li>
-<li>User inputs their information and submits a photo of themselves holding their care card to confirm their identity.</li>
-<li>The government health database is checked to confirm the PHN is correct and associated properly with the name and date of birth (DOB).</li>
-<li>The database for user information saves the inputted username and password for future login attempts.</li>
-<li>User is redirected to the home page.</li>
+<li>Patient selects register account."</li>
+<li>Patient inputs their information.</li>
+<li>Government health database gets checked to confirm PHN is correct and associated properly with name and DOB.
+</li>
+<li>Database for user information saves inputted username and password for future login attempts. </li>
+<li>Patient is redirected to the home page.</li>
 </ol>
    </td>
   </tr>
   <tr>
    <td><strong>Variations</strong>
    </td>
-   <td><strong>#3.</strong> The user already has an account associated with the PHN and is therefore notified that a persistent account exists, allowing them to opt for password recovery instead.
+   <td><strong>#1.</strong> Patient already has an account made under the PHN and is therefore notified that there is a persisting account and can go to forgot password instead.
    </td>
   </tr>
   <tr>
    <td><strong>Non-functional</strong>
    </td>
-   <td><strong>Authentication Time:</strong> Time to authenticate user data is less than 2 seconds. <br />
+   <td><strong>Performance Mean:</strong> Time to authenticate user data is less than 1 second. <br />
    <strong>Data Clarity:</strong> Missing data inputs are clearly shown to users, and required information is easily found. <br />
-   <strong>Photo Verification:</strong> Photo/identity verification takes less than 10 seconds.
+   <strong>Usability:</strong> Missing data inputs are clearly shown to users. <br />
+   <strong>Usability:</strong> Required information is easily found.
    </td>
   </tr>
   <tr>
    <td><strong>Issues</strong>
    </td>
-   <td>The user may input incorrect data, such as a wrong PHN, incorrect DOB, or a name not associated with the PHN.
+   <td>Patient inputs incorrect data (e.g., wrong PHN, incorrect date of birth, or name not associated with the PHN).
    </td>
   </tr>
 </table>
