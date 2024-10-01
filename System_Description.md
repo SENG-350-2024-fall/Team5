@@ -1,13 +1,35 @@
 # System Description
 
-The Mister Ed system is a comprehensive medical platform designed to streamline emergency department (ED) operations and reduce patient overload by offering virtual services. Its primary objective is to provide patients with the tools to assess their own medical needs before physically arriving at an ED, thereby optimizing resources and minimizing unnecessary visits.
+---
 
-The system allows patients to virtually register and input personal details such as their Personal Health Number (PHN), name, birthdate, and emergency contact information. This data is cross-checked with a government health database to verify the patient's identity and ensure the validity of their information. Once the account is created, patients can use the system to access various features like checking the current ED load in their area or undergoing a virtual triage assessment.
+**_Mister Ed_** is a medical platform designed to manage emergency department (ED) overcrowding and streamline patient care by providing virtual triage, remote queueing, and account management services. By leveraging technology, it offers patients the ability to assess their medical needs, access care recommendations, and optimize their visit to the ED if necessary. The system ultimately aims to reduce unnecessary ED traffic, enhance patient experience, and allocate healthcare resources more effectively.
 
-One of the key features of Mister Ed is its virtual triage system. Patients input health details such as their symptoms, pain levels, timelines, and relevant medical history. A triage algorithm, supported by nurses, evaluates this information to provide recommendations on whether the patient needs emergency care, can wait for an appointment with a primary care physician (GP), or should manage their symptoms at home with over-the-counter medication. The virtual triage system helps patients avoid unnecessary ED visits and allows healthcare providers to focus on the most critical cases.
+## Patient Registration  
+The registration process is a critical first step, allowing users to input key personal information such as **Personal Health Number (PHN)**, name, date of birth, and emergency contact details. This information is cross-referenced with a **government health database** to ensure the patient's identity and the accuracy of the data. This verification helps prevent issues related to incorrect or incomplete records, ensuring smooth access to the platform’s full suite of services.
 
-For patients who still need to visit an ED, the system provides the convenience of waiting from home. They are notified when it is time to come in for their appointment, significantly reducing the time spent in overcrowded waiting rooms. If in-person triage is necessary, patients are assessed on-site but can return home until they are ready to be seen by a medical professional.
+Patients can easily create an account through a streamlined interface, after which they can track and manage their healthcare needs. **Security** is paramount throughout this process, with the system employing encryption for all data transmissions. **Error handling mechanisms** are in place to notify users in real time of any missing or incorrect data entries.
 
-The system also addresses the administrative aspects of account management. It securely stores patient login details, encrypts all data transmitted over the network, and ensures that users receive prompt feedback if there are missing data fields or errors during registration. Additionally, Mister Ed offers solutions for recovering forgotten passwords and managing existing accounts to prevent duplicate entries.
+## Virtual Triage  
+One of the most pivotal features of _Mister Ed_ is its **virtual triage system**. By enabling patients to input detailed health information, such as symptoms, pain severity, onset timelines, and relevant medical history, the system is able to evaluate the urgency of the patient’s condition. Using an **algorithm** that is supported by healthcare professionals, _Mister Ed_ processes this information and generates personalized recommendations.
 
-Overall, the Mister Ed system’s primary goals are to improve patient experience, optimize ED workloads, and streamline the process of triage and registration. By leveraging technology, it enhances efficiency and responsiveness in emergency care, ensuring that resources are allocated effectively and patients receive appropriate care in a timely manner.
+Based on the triage results, patients are provided with guidance on whether they should:
+- **Visit an emergency department** for immediate treatment,
+- **Contact their primary care provider (GP)** for a scheduled appointment,
+- **Self-manage their condition** at home using over-the-counter treatments, or
+- **Reach out to a health advice hotline** for further assistance.
+
+This triage process not only reduces **non-urgent ED visits** but also ensures that patients who need emergency care are prioritized and directed appropriately. It also improves the **efficiency** of emergency services by redirecting patients to alternative care pathways when applicable.
+
+## Virtual Queueing  
+For patients who require in-person attention, _Mister Ed_ offers a **virtual queueing system**. This feature allows patients to remotely join the queue for ED services, enabling them to wait from the comfort of their home rather than spending hours in a crowded waiting room. Patients receive real-time updates on their position in the queue and are notified when it's time to come to the hospital.
+
+If an in-person triage assessment is needed, _Mister Ed_ facilitates this by allowing patients to attend the hospital for triage and then return home until it’s their turn to be seen by a doctor. This feature significantly reduces overcrowding in ED waiting areas, improving both patient satisfaction and the overall **flow of operations** within the hospital.
+
+## Account Management and Security  
+_Mister Ed_ also excels in managing the **administrative aspects** of healthcare access. Once a patient’s account is established, the platform securely stores all account information, including login credentials and health data. The system ensures compliance with data privacy regulations, utilizing **robust encryption standards** to safeguard all personal information transmitted over the network.
+
+Patients can update their account information as needed, and the system provides easy-to-use tools for **password recovery** and **account management**. The platform also implements **duplicate detection** systems to ensure that patients cannot create multiple accounts under the same identity, reducing potential confusion or misuse of the system.
+
+---
+
+In conclusion, _Mister Ed_ represents a significant step forward in improving emergency care management. By offering virtual triage, real-time queueing, and seamless account management, the platform optimizes the use of emergency department resources while enhancing the overall patient experience. The system's ability to guide patients to the most appropriate level of care helps alleviate the pressure on healthcare providers and ensures that patients receive timely, effective medical attention.
