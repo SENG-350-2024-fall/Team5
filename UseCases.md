@@ -1,201 +1,192 @@
 
 <table>
   <tr>
-   <td>Use Case
+   <td><strong>Use Case</strong>
    </td>
-   <td>1. Register_Account 
-<strong>history: </strong>created  2024-09-10, modified 2024-09-11
-   </td>
-  </tr>
-  <tr>
-   <td>Description
-   </td>
-   <td>user creates their account, where personal information is needed such as their PHN, name, birthdate, contact information, emergency contact information and possibly their place of residence, and a password 
+   <td>1. Register_Account <br /><strong>history: </strong>created 2024-09-10, modified 2024-09-11
    </td>
   </tr>
   <tr>
-   <td>Assumptions
+   <td><strong>Description</strong>
    </td>
-   <td>user accepts the terms of registration, has all the required information and does not already have an account
-   </td>
-  </tr>
-  <tr>
-   <td>Actors
-   </td>
-   <td>new account user, database, government health database 
+   <td>The user creates their account, providing personal information such as their Personal Health Number (PHN), name, birthdate, contact information, emergency contact information, and possibly their place of residence, along with a password.
    </td>
   </tr>
   <tr>
-   <td>Steps
+   <td><strong>Assumptions</strong>
+   </td>
+   <td>The user accepts the terms of registration, <br />
+   The user has all the required information, <br />
+   The user does not already have an account.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Actors</strong>
+   </td>
+   <td>New account user, database, government health database.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Steps</strong>
    </td>
    <td>
 <ol>
-
-<li>User selects register account
-
-<li>User inputs their information and submits photo of themselves holding their care card to confirm identity
-
-<li>Government health database gets checked to confirm PHN is correct and associated properly with name and DOB
-
-<li>Database for user information saves inputted username and password for future login attempts 
-
-<li>User is redirected to home page
-</li>
+<li>User selects "Register Account."</li>
+<li>User inputs their information and submits a photo of themselves holding their care card to confirm their identity.</li>
+<li>The government health database is checked to confirm the PHN is correct and associated properly with the name and date of birth (DOB).</li>
+<li>The database for user information saves the inputted username and password for future login attempts.</li>
+<li>User is redirected to the home page.</li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Variations
+   <td><strong>Variations</strong>
    </td>
-   <td> <strong>#3.</strong> User already has account made under the PHN and are therefore notified that there is a persisting account and can go to forgot password instead 
-   </td>
-  </tr>
-  <tr>
-   <td>Non-functional
-   </td>
-   <td>Time to authenticate user data is less than 2 seconds. Missing data inputs are clearly shown to users Required information is easily found. Photo/identity verification takes less than 10 seconds. Missing data inputs are clearly shown to users. Required information is easily found 
+   <td><strong>#3.</strong> The user already has an account associated with the PHN and is therefore notified that a persistent account exists, allowing them to opt for password recovery instead.
    </td>
   </tr>
   <tr>
-   <td>Issues
+   <td><strong>Non-functional</strong>
    </td>
-   <td>user inputs incorrect data, I.e wrong PHN or wrong DOB or name associated with PHN
+   <td><strong>Authentication Time:</strong> Time to authenticate user data is less than 2 seconds. <br />
+   <strong>Data Clarity:</strong> Missing data inputs are clearly shown to users, and required information is easily found. <br />
+   <strong>Photo Verification:</strong> Photo/identity verification takes less than 10 seconds.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>The user may input incorrect data, such as a wrong PHN, incorrect DOB, or a name not associated with the PHN.
    </td>
   </tr>
 </table>
+
+
                  
 <table>
   <tr>
-   <td>Use Case
+   <td><strong>Use Case</strong>
    </td>
-   <td>2. Create_Triage_Application <strong>history: </strong>created<strong> </strong>2024-09-12
-   </td>
-  </tr>
-  <tr>
-   <td>Description
-   </td>
-   <td>Patients inputs their relevant health information such as their symptoms, pain scales and medical history 
+   <td>2. Create_Triage_Application <br /><strong>history: </strong>created 2024-09-12
    </td>
   </tr>
   <tr>
-   <td>Assumptions
+   <td><strong>Description</strong>
    </td>
-   <td>Patients are able to properly describe their symptoms
-<p>
-Patient don’t lie about their symptoms and pain 
+   <td>Patients input their relevant health information, including symptoms, pain scales, and medical history.
    </td>
   </tr>
   <tr>
-   <td>Actors
+   <td><strong>Assumptions</strong>
    </td>
-   <td>patient, triage algorithm, Nurse 
+   <td>Patients are able to properly describe their symptoms. <br />
+   Patients do not lie about their symptoms and pain.
    </td>
   </tr>
   <tr>
-   <td>Steps
+   <td><strong>Actors</strong>
+   </td>
+   <td>Patient, triage algorithm, nurse.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Steps</strong>
    </td>
    <td>
 <ol>
-
-<li>Patient inputs their symptoms
-
-<li>Patient gives pain scales for each symptom from 1-10
-
-<li>Patient inputs time line for symptoms 
-
-<li>Patient inputs any relevant medical history like previous surgeries, medication they take or previous Injuries and sicknesses
-
-<li>Patient inputs if pain is from an injury or is a sickness or unknown 
-
-<li>Patient signs form saying everything they wrote is true 
-
-<li>Patient submits this information 
-</li>
+<li>Patient inputs their symptoms.</li>
+<li>Patient provides pain scales for each symptom from 1-10.</li>
+<li>Patient inputs the timeline for symptoms.</li>
+<li>Patient inputs any relevant medical history, such as previous surgeries, medications they take, or past injuries and illnesses.</li>
+<li>Patient indicates whether the pain is from an injury, a sickness, or is unknown.</li>
+<li>Patient signs a form stating that everything they wrote is true.</li>
+<li>Patient submits this information.</li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Variations
+   <td><strong>Variations</strong>
    </td>
-   <td><strong>#7.</strong> There is a network error in submitting the data. Required boxes are unfilled so patient is asked to fill out those required boxes
-   </td>
-  </tr>
-  <tr>
-   <td>Non-functional
-   </td>
-   <td>patient information is kept secure and confidential via encryption while sent over the network
-<p>
-Users are given approximate timeline for how long it will take to be triaged
+   <td><strong>#7.</strong> There is a network error in submitting the data. Required fields are unfilled, prompting the patient to fill out those fields.
    </td>
   </tr>
   <tr>
-   <td>Issues
+   <td><strong>Non-functional</strong>
    </td>
-   <td>How are nurses properly alerted of triage information being sent in? What if the patient is unable to describe what they are feeling?  
+   <td><strong>Security:</strong> Patient information is kept secure and confidential via encryption while transmitted over the network. <br />
+   <strong>Timeliness:</strong> Users are provided with an approximate timeline for how long it will take to be triaged.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>How are nurses properly alerted of triage information being submitted? What if the patient is unable to describe their symptoms effectively?
    </td>
   </tr>
 </table>
+
   
 <table>
   <tr>
-   <td>Use Case Extension
+   <td><strong>Use Case Extension</strong>
    </td>
-   <td>Edit_Application  <strong>extends</strong> 2. Create_Triage_Application
-   </td>
-  </tr>
-  <tr>
-   <td>Description
-   </td>
-   <td>The Patient may wish to update their triage application if their symptoms or pain
+   <td>Edit_Application <strong>extends</strong> 2. Create_Triage_Application
    </td>
   </tr>
   <tr>
-   <td>Steps
+   <td><strong>Description</strong>
    </td>
-   <td><strong>#1. If </strong>the user's symptoms change <strong>then </strong>they can change them
-<p>
-<strong>#2. If </strong>the user's pain changes <strong>then </strong>they edit the pain scale
-<p>
-<strong>#3. If</strong> a better timeline for symptoms is remembered <strong>then</strong> the the timeline is updated
-<p>
-<strong>#6. If </strong>any information was updated <strong>then</strong> the user must resubmit their triage application and the database plus nurse will be alerted of this change
+   <td>The patient may wish to update their triage application if their symptoms or pain change.
    </td>
   </tr>
   <tr>
-   <td>Issues
+   <td><strong>Steps</strong>
    </td>
-   <td>How should a changed triage application affect a patient's already given triage? Do newly updated triages need to be reviewed again? 
+   <td>
+<strong>#1.</strong> If the user's symptoms change, <strong>then</strong> they can update them. <br />
+<strong>#2.</strong> If the user's pain changes, <strong>then</strong> they can edit the pain scale. <br />
+<strong>#3.</strong> If a more accurate timeline for symptoms is remembered, <strong>then</strong> the timeline should be updated. <br />
+<strong>#4.</strong> If any information was updated, <strong>then</strong> the user must resubmit their triage application, and the database plus nurse will be alerted of this change.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>How should a changed triage application affect a patient's previously submitted triage? Do newly updated triages need to be reviewed again?
    </td>
   </tr>
 </table>
+
 
    
 <table>
   <tr>
-   <td>Use Case Extension
+   <td><strong>Use Case Extension</strong>
    </td>
-   <td>Delete_Application  <strong>extends</strong> 2. Create_Triage_Application
-   </td>
-  </tr>
-  <tr>
-   <td>Description
-   </td>
-   <td>The Patient may wish to delete their triage application if they no longer want to be triaged
+   <td>Delete_Application <strong>extends</strong> 2. Create_Triage_Application
    </td>
   </tr>
   <tr>
-   <td>Steps
+   <td><strong>Description</strong>
    </td>
-   <td><strong>#6. If</strong> the user wishes to delete their application <strong>then</strong> the application can be deleted and the database will be alerted of this deletion
+   <td>The patient may wish to delete their triage application if they no longer want to be triaged.
    </td>
   </tr>
   <tr>
-   <td>Issues
+   <td><strong>Steps</strong>
    </td>
-   <td>What kind of alerts should be given to a user when they wish to delete their triage? Should there be a comment box for users to input their reasons for deleting their application?
+   <td>
+<strong>#1.</strong> If the user wishes to delete their application, <strong>then</strong> the application can be deleted, and the database will be alerted of this deletion.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>What kind of alerts should be given to a user when they wish to delete their triage application? Should there be a comment box for users to input their reasons for deleting their application?
    </td>
   </tr>
 </table>
+
 
 
 <table>
@@ -274,109 +265,116 @@ Nurse reviews and approves the triage application.
   
 <table>
   <tr>
-   <td>Use Case Extension
+   <td><strong>Use Case Extension</strong>
    </td>
-   <td>Go to GP  <strong>extends</strong> 6. Patient_Notification
-   </td>
-  </tr>
-  <tr>
-   <td>Description
-   </td>
-   <td>The virtual triage program and nurse have decided the best course of action for the patient is to visit a GP and therefore the patient must be notified of this decision
+   <td>Go to GP <strong>extends</strong> 6. Patient_Notification
    </td>
   </tr>
   <tr>
-   <td>Steps
+   <td><strong>Description</strong>
    </td>
-   <td><strong>#3.3.1 If</strong> the best course of action for the patient has been decided to go to a GP <strong>then</strong> a notification will be sent to the patient with other provided information like possible GPs in their area.
+   <td>The virtual triage program and nurse have decided the best course of action for the patient is to visit a GP; therefore, the patient must be notified of this decision.
    </td>
   </tr>
   <tr>
-   <td>Issues
+   <td><strong>Steps</strong>
    </td>
-   <td>Should the system give the patient a list of possible General Practitioners to visit? Will it just provide Clinics? What criteria should be used for choosing which GP the patient should visit? Should the triage application be deleted or saved for use by the GP?
+   <td>
+<strong>#1.</strong> If the best course of action for the patient has been decided to go to a GP, <strong>then</strong> a notification will be sent to the patient with other provided information like possible GPs in their area.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>Should the system provide the patient with a list of possible General Practitioners to visit? Will it only provide clinics? What criteria should be used for choosing which GP the patient should visit? Should the triage application be deleted or saved for use by the GP?
    </td>
   </tr>
 </table>
 
+
    
 <table>
   <tr>
-   <td>Use Case Extension
+   <td><strong>Use Case Extension</strong>
    </td>
-   <td>Contact Hotline  <strong>extends</strong> 6. Patient_Notification
-   </td>
-  </tr>
-  <tr>
-   <td>Description
-   </td>
-   <td>The virtual triage program and nurse have decided the best course of action for the patient is to call a hotline and therefore the patient must be notified of this decision
+   <td>Contact Hotline <strong>extends</strong> 6. Patient_Notification
    </td>
   </tr>
   <tr>
-   <td>Steps
+   <td><strong>Description</strong>
    </td>
-   <td><strong>#3.3.2 If</strong> the best course of action for the patient has been decided to call a hotline <strong>then</strong> a notification will be sent to the patient with other provided information like possible hotline phone numbers.
+   <td>The virtual triage program and nurse have decided the best course of action for the patient is to call a hotline; therefore, the patient must be notified of this decision.
    </td>
   </tr>
   <tr>
-   <td>Issues
+   <td><strong>Steps</strong>
    </td>
-   <td>Should the system give the patient a list of possible hotlines to call? What criteria should be used for choosing which hotlines are provided to the patient? Should the triage application be available to send to the hotline operator?
+   <td>
+<strong>#1.</strong> If the best course of action for the patient has been decided to call a hotline, <strong>then</strong> a notification will be sent to the patient with other provided information like possible hotline phone numbers.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>Should the system provide the patient with a list of possible hotlines to call? What criteria should be used for choosing which hotlines are provided to the patient? Should the triage application be available to send to the hotline operator?
    </td>
   </tr>
 </table>
+
   
 <table>
   <tr>
-   <td>Use Case Extension
+   <td><strong>Use Case Extension</strong>
    </td>
    <td>Over the Counter <strong>extends</strong> 6. Patient_Notification
    </td>
   </tr>
   <tr>
-   <td>Description
+   <td><strong>Description</strong>
    </td>
-   <td>The virtual triage program and nurse have decided the best course of action for the patient is to get over the counter medication and therefore the patient must be notified of this decision
-   </td>
-  </tr>
-  <tr>
-   <td>Steps
-   </td>
-   <td><strong>#3.3.3 If</strong> the best course of action for the patient has been decided to get over the counter medication <strong>then</strong> a notification will be sent to the patient with the types of medication reccomended and possible pharmacies to visit.
+   <td>The virtual triage program and nurse have decided the best course of action for the patient is to get over-the-counter medication; therefore, the patient must be notified of this decision.
    </td>
   </tr>
   <tr>
-   <td>Issues
+   <td><strong>Steps</strong>
    </td>
-   <td>Should the system give the patient a list of possible pharmacies in their area? What would the maximum distance or number of pharmacies recommended be? Should the nurse or doctor providing the drug/medication reccomendedations be able to recommend certain brands? How many options should be provided to the patient?
+   <td>
+<strong>#1.</strong> If the best course of action for the patient has been decided to get over-the-counter medication, <strong>then</strong> a notification will be sent to the patient with the types of medication recommended and possible pharmacies to visit.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>Should the system provide the patient with a list of possible pharmacies in their area? What would the maximum distance or number of pharmacies recommended be? Should the nurse or doctor providing the drug/medication recommendations be able to recommend certain brands? How many options should be provided to the patient?
    </td>
   </tr>
 </table>
 
+
 <table>
   <tr>
-   <td>Use Case Extension
+   <td><strong>Use Case Extension</strong>
    </td>
    <td>Visit ER <strong>extends</strong> 6. Patient_Notification
    </td>
   </tr>
   <tr>
-   <td>Description
+   <td><strong>Description</strong>
    </td>
-   <td>The virtual triage program and nurse have decided the best course of action for the patient is to visit the ER immediatly
-   </td>
-  </tr>
-  <tr>
-   <td>Steps
-   </td>
-   <td><strong>#3.1. If</strong> the best course of action for the patient has been decided to visit the ER immediatly <strong>then</strong> a notification will be sent to the patient stating they should visit the ER immediately.
+   <td>The virtual triage program and nurse have decided the best course of action for the patient is to visit the ER immediately.
    </td>
   </tr>
   <tr>
-   <td>Issues
+   <td><strong>Steps</strong>
    </td>
-   <td>Should the notification offer a route to get to the ER? If the issue is sever enough should an ambulance be called?
+   <td>
+<strong>#1.</strong> If the best course of action for the patient has been decided to visit the ER immediately, <strong>then</strong> a notification will be sent to the patient stating they should visit the ER immediately.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>Should the notification offer a route to get to the ER? If the issue is severe enough, should an ambulance be called?
    </td>
   </tr>
 </table>
@@ -384,48 +382,50 @@ Nurse reviews and approves the triage application.
    
 <table>
   <tr>
-   <td>Use Case Extension
+   <td><strong>Use Case Extension</strong>
    </td>
    <td>Wait for ER <strong>extends</strong> 6. Patient_Notification
    </td>
   </tr>
   <tr>
-   <td>Description
+   <td><strong>Description</strong>
    </td>
-   <td>The virtual triage program and nurse have decided the best course of action for the patient is to wait at home while being triaged in the ER
-   </td>
-  </tr>
-  <tr>
-   <td>Steps
-   </td>
-   <td><strong>#3.2. If</strong> the best course of action for the patient has been decided to wait for the ER <strong>then</strong> a notification will be sent to the patient stating how long they should wait until coming into the ER.
+   <td>The virtual triage program and nurse have decided the best course of action for the patient is to wait at home while being triaged in the ER.
    </td>
   </tr>
   <tr>
-   <td>Issues
+   <td><strong>Steps</strong>
    </td>
-   <td>Should the notification offer a route to get to the ER? How in advance should the patient come to the ER before they are projected to be able to visit.
+   <td>
+<strong>#1.</strong> If the best course of action for the patient has been decided to wait for the ER, <strong>then</strong> a notification will be sent to the patient stating how long they should wait until coming into the ER.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>Should the notification offer a route to get to the ER? How in advance should the patient come to the ER before they are projected to be able to visit?
    </td>
   </tr>
 </table>
+
  
 <table>
   <tr>
-   <td>Use Case
+   <td><strong>Use Case</strong>
    </td>
    <td>4. User Login
 <p>
-<strong>History</strong>: Created 2024-09-17 Mod 2024-09-24
+<strong>History</strong>: Created 2024-09-17, Modified 2024-09-24
    </td>
   </tr>
   <tr>
-   <td>Description
+   <td><strong>Description</strong>
    </td>
-   <td>User input their <strong>PHN</strong> (personal health number) and a password to verify their identity.
+   <td>User inputs their <strong>PHN</strong> (personal health number) and a password to verify their identity.
    </td>
   </tr>
   <tr>
-   <td>Assumptions
+   <td><strong>Assumptions</strong>
    </td>
    <td>User has a PHN and knows their password.
 <p>
@@ -433,33 +433,33 @@ User has registered an account.
    </td>
   </tr>
   <tr>
-   <td>Actors
+   <td><strong>Actors</strong>
    </td>
-   <td>Patient, Nurse, GP, Call Center Op.
+   <td>Patient, Nurse, GP, Call Center Operator.
    </td>
   </tr>
   <tr>
-   <td>Steps
+   <td><strong>Steps</strong>
    </td>
    <td>
 <ol>
 
-<li>User clicks login
+<li>User clicks login.
 
-<li>User inputs PHN into correct field
+<li>User inputs PHN into the correct field.
 
-<li>User inputs correct password into correct field
+<li>User inputs the correct password into the correct field.
 
-<li>User submits info
+<li>User submits info.
 
 <li>IF password is correct 
 <ol>
  
-<li>Successful login
+<li>Successful login.
     ELSE 
 <ol>
  
-<li>Display ‘incorrect password’
+<li>Display ‘incorrect password’.
 </li> 
 </ol>
 </li> 
@@ -469,19 +469,19 @@ User has registered an account.
    </td>
   </tr>
   <tr>
-   <td>Variations
+   <td><strong>Variations</strong>
    </td>
-   <td><strong>#2. </strong>Non-Patient Login: Actors other than patients will login with a designated “work email” instead of the <strong>PHN</strong>.
+   <td><strong>#2.</strong> Non-Patient Login: Actors other than patients will log in with a designated “work email” instead of the <strong>PHN</strong>.
    </td>
   </tr>
   <tr>
-   <td>Non-functional
+   <td><strong>Non-functional</strong>
    </td>
    <td><strong>Performance Mean:</strong> Time to authenticate user data is less than 1 second. 2FA adds up to 5 seconds for SMS verification. 
    </td>
   </tr>
   <tr>
-   <td>Issues
+   <td><strong>Issues</strong>
    </td>
    <td>Additional security measures to consider: 2FA, account lockout after consecutive failed logins.
    </td>
@@ -491,65 +491,66 @@ User has registered an account.
 
 <table>
   <tr>
-   <td>Use Case
+   <td><strong>Use Case</strong>
    </td>
    <td>5. View Clinic Capacity
 <p>
-<strong>Created: </strong>2024-09-17 Mod 2024-09-24
+<strong>Created:</strong> 2024-09-17, Modified 2024-09-24
    </td>
   </tr>
   <tr>
-   <td>Description
+   <td><strong>Description</strong>
    </td>
    <td>Shows a map or list of nearby clinics and their estimated capacity.
    </td>
   </tr>
   <tr>
-   <td>Assumptions
+   <td><strong>Assumptions</strong>
    </td>
-   <td>Capacity updated by healthcare prof
+   <td>Capacity is updated by healthcare professionals.
 <p>
-Patient has logged in
+Patient has logged in.
    </td>
   </tr>
   <tr>
-   <td>Actors
+   <td><strong>Actors</strong>
    </td>
    <td>Patient
    </td>
   </tr>
   <tr>
-   <td>Steps
+   <td><strong>Steps</strong>
    </td>
    <td>
 <ol>
 
-<li>Patient clicks ‘view clinics near me’
+<li>Patient clicks ‘view clinics near me’.
 
-<li>System displays nearby clinics and capacity
+<li>System displays nearby clinics and capacity.
 </li>
 </ol>
    </td>
   </tr>
   <tr>
-   <td>Variations
+   <td><strong>Variations</strong>
    </td>
-   <td><strong>#2. </strong>The list/map will vary based on the patient and their location
-   </td>
-  </tr>
-  <tr>
-   <td>Non-functional
-   </td>
-   <td><strong>Performance Mean:</strong> load time should be no longer than 10 seconds
+   <td><strong>#2.</strong> The list/map will vary based on the patient and their location.
    </td>
   </tr>
   <tr>
-   <td>Issues
+   <td><strong>Non-functional</strong>
    </td>
-   <td>Requires location data
+   <td><strong>Performance Mean:</strong> Load time should be no longer than 10 seconds.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Issues</strong>
+   </td>
+   <td>Requires location data.
    </td>
   </tr>
 </table>
+
 
 | Use Case       | 6. View_Triage_Application  history: created 2024-09-12                                                                                                                                                 |
 |----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
