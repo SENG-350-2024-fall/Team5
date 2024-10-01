@@ -214,7 +214,8 @@ Nurse reviews and approves the triage application.
   <tr>
    <td><strong>Actors</strong>
    </td>
-   <td>Patient (primary), Nurse (secondary)
+   <td>Patient (primary) <br />
+     Nurse (secondary)
    </td>
   </tr>
   <tr>
@@ -267,7 +268,7 @@ Nurse reviews and approves the triage application.
   <tr>
    <td><strong>Use Case Extension</strong>
    </td>
-   <td>Go to GP <strong>extends</strong> 6. Patient_Notification
+   <td>Go to GP <strong>extends</strong> 3. Patient_Notification
    </td>
   </tr>
   <tr>
@@ -280,7 +281,7 @@ Nurse reviews and approves the triage application.
    <td><strong>Steps</strong>
    </td>
    <td>
-<strong>#1.</strong> If the best course of action for the patient has been decided to go to a GP, <strong>then</strong> a notification will be sent to the patient with other provided information like possible GPs in their area.
+<strong>#3.3.1.</strong> <strong>If</strong> the best course of action for the patient has been decided to go to a GP, <strong>then</strong> a notification will be sent to the patient with other provided information like possible GPs in their area.
    </td>
   </tr>
   <tr>
@@ -297,7 +298,7 @@ Nurse reviews and approves the triage application.
   <tr>
    <td><strong>Use Case Extension</strong>
    </td>
-   <td>Contact Hotline <strong>extends</strong> 6. Patient_Notification
+   <td>Contact Hotline <strong>extends</strong> 3. Patient_Notification
    </td>
   </tr>
   <tr>
@@ -310,7 +311,7 @@ Nurse reviews and approves the triage application.
    <td><strong>Steps</strong>
    </td>
    <td>
-<strong>#1.</strong> If the best course of action for the patient has been decided to call a hotline, <strong>then</strong> a notification will be sent to the patient with other provided information like possible hotline phone numbers.
+<strong>#3.3.2.</strong> <strong>If</strong> the best course of action for the patient has been decided to call a hotline, <strong>then</strong> a notification will be sent to the patient with other provided information like possible hotline phone numbers.
    </td>
   </tr>
   <tr>
@@ -326,7 +327,7 @@ Nurse reviews and approves the triage application.
   <tr>
    <td><strong>Use Case Extension</strong>
    </td>
-   <td>Over the Counter <strong>extends</strong> 6. Patient_Notification
+   <td>Over the Counter <strong>extends</strong> 3. Patient_Notification
    </td>
   </tr>
   <tr>
@@ -339,7 +340,7 @@ Nurse reviews and approves the triage application.
    <td><strong>Steps</strong>
    </td>
    <td>
-<strong>#1.</strong> If the best course of action for the patient has been decided to get over-the-counter medication, <strong>then</strong> a notification will be sent to the patient with the types of medication recommended and possible pharmacies to visit.
+<strong>#3.3.3.</strong> <strong>If</strong> the best course of action for the patient has been decided to get over-the-counter medication, <strong>then</strong> a notification will be sent to the patient with the types of medication recommended and possible pharmacies to visit.
    </td>
   </tr>
   <tr>
@@ -355,7 +356,7 @@ Nurse reviews and approves the triage application.
   <tr>
    <td><strong>Use Case Extension</strong>
    </td>
-   <td>Visit ER <strong>extends</strong> 6. Patient_Notification
+   <td>Visit ER <strong>extends</strong> 3. Patient_Notification
    </td>
   </tr>
   <tr>
@@ -368,7 +369,7 @@ Nurse reviews and approves the triage application.
    <td><strong>Steps</strong>
    </td>
    <td>
-<strong>#1.</strong> If the best course of action for the patient has been decided to visit the ER immediately, <strong>then</strong> a notification will be sent to the patient stating they should visit the ER immediately.
+<strong>#3.1.</strong> <strong>If</strong> the best course of action for the patient has been decided to visit the ER immediately, <strong>then</strong> a notification will be sent to the patient stating they should visit the ER immediately.
    </td>
   </tr>
   <tr>
@@ -384,7 +385,7 @@ Nurse reviews and approves the triage application.
   <tr>
    <td><strong>Use Case Extension</strong>
    </td>
-   <td>Wait for ER <strong>extends</strong> 6. Patient_Notification
+   <td>Wait for ER <strong>extends</strong> 3. Patient_Notification
    </td>
   </tr>
   <tr>
@@ -397,7 +398,7 @@ Nurse reviews and approves the triage application.
    <td><strong>Steps</strong>
    </td>
    <td>
-<strong>#1.</strong> If the best course of action for the patient has been decided to wait for the ER, <strong>then</strong> a notification will be sent to the patient stating how long they should wait until coming into the ER.
+<strong>#3.2.</strong> <strong>If</strong> the best course of action for the patient has been decided to wait for the ER, <strong>then</strong> a notification will be sent to the patient stating how long they should wait until coming into the ER.
    </td>
   </tr>
   <tr>
