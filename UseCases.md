@@ -3,7 +3,7 @@
   <tr>
    <td><strong>Use Case</strong>
    </td>
-   <td>1. Register_Account <br /><strong>history: </strong>created 2024-09-10, modified 2024-09-11
+   <td>1. Register_Account <br /><strong>history: </strong>created 2024-09-10, modified 2024-09-30
    </td>
   </tr>
   <tr>
@@ -193,7 +193,7 @@
   <tr>
    <td><strong>Use Case</strong>
    <td>3. Patient_Notification    <br />
-<strong>history </strong>created 2024-09-17, modified 2024-09-24
+<strong>history </strong>created 2024-09-17, modified 2024-09-30
    </td>
   </tr>
   <tr>
@@ -415,7 +415,7 @@ Nurse reviews and approves the triage application.
    </td>
    <td>4. User Login
 <p>
-<strong>History</strong>: Created 2024-09-17, Modified 2024-09-24
+<strong>History</strong>: Created 2024-09-17, Modified 2024-09-30
    </td>
   </tr>
   <tr>
@@ -495,7 +495,7 @@ User has registered an account.
    </td>
    <td>5. View Clinic Capacity
 <p>
-<strong>Created:</strong> 2024-09-17, Modified 2024-09-24
+<strong>Created:</strong> 2024-09-17, Modified 2024-09-30
    </td>
   </tr>
   <tr>
