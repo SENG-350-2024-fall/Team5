@@ -66,7 +66,7 @@
   <tr>
    <td><strong>Use Case</strong>
    </td>
-   <td>2. Create_Triage_Application <br /><strong>history: </strong>created 2024-09-12
+   <td>2. Create_Triage_Application <br /><strong>history </strong>created 2024-09-12.
    </td>
   </tr>
   <tr>
@@ -85,7 +85,8 @@
   <tr>
    <td><strong>Actors</strong>
    </td>
-   <td>Patient, triage algorithm, nurse.
+   <td>Patient (primary) <br />
+     Nurse
    </td>
   </tr>
   <tr>
@@ -106,7 +107,7 @@
   <tr>
    <td><strong>Variations</strong>
    </td>
-   <td><strong>#7.</strong> There is a network error in submitting the data. Required fields are unfilled, prompting the patient to fill out those fields.
+   <td><strong>#1.</strong> There is a network error in submitting the data. Required fields are unfilled, prompting the patient to fill out those fields.
    </td>
   </tr>
   <tr>
