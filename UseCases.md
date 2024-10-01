@@ -416,7 +416,7 @@ Nurse reviews and approves the triage application.
    </td>
    <td>4. User Login
 <p>
-<strong>History</strong>: Created 2024-09-17, Modified 2024-09-30
+<strong>history</strong> created 2024-09-17, modified 2024-09-30
    </td>
   </tr>
   <tr>
@@ -436,7 +436,10 @@ User has registered an account.
   <tr>
    <td><strong>Actors</strong>
    </td>
-   <td>Patient, Nurse, GP, Call Center Operator.
+   <td>Patient (primary) <br />
+     Nurse <br />
+     GP <br />
+     Call Center Operator
    </td>
   </tr>
   <tr>
@@ -496,7 +499,7 @@ User has registered an account.
    </td>
    <td>5. View Clinic Capacity
 <p>
-<strong>Created:</strong> 2024-09-17, Modified 2024-09-30
+<strong>history</strong> created 2024-09-17, modified 2024-09-30
    </td>
   </tr>
   <tr>
@@ -516,7 +519,7 @@ Patient has logged in.
   <tr>
    <td><strong>Actors</strong>
    </td>
-   <td>Patient
+   <td>Patient (primary)
    </td>
   </tr>
   <tr>
