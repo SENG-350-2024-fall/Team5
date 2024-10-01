@@ -66,7 +66,7 @@
   <tr>
    <td><strong>Use Case</strong>
    </td>
-   <td>2. Create_Triage_Application <br /><strong>history </strong>created 2024-09-12.
+   <td>2. Create_Triage_Application <br /><strong>history </strong>created 2024-09-12
    </td>
   </tr>
   <tr>
