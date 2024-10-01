@@ -281,7 +281,7 @@ Nurse reviews and approves the triage application.
    <td><strong>Steps</strong>
    </td>
    <td>
-<strong>#3.3.1.</strong> <strong>If</strong> the best course of action for the patient has been decided to go to a GP, <strong>then</strong> a notification will be sent to the patient with other provided information like possible GPs in their area.
+<strong>#3.3.2.</strong> <strong>If</strong> the best course of action for the patient has been decided to go to a GP, <strong>then</strong> a notification will be sent to the patient with other provided information like possible GPs in their area.
    </td>
   </tr>
   <tr>
@@ -311,7 +311,7 @@ Nurse reviews and approves the triage application.
    <td><strong>Steps</strong>
    </td>
    <td>
-<strong>#3.3.2.</strong> <strong>If</strong> the best course of action for the patient has been decided to call a hotline, <strong>then</strong> a notification will be sent to the patient with other provided information like possible hotline phone numbers.
+<strong>#3.3.1.</strong> <strong>If</strong> the best course of action for the patient has been decided to call a hotline, <strong>then</strong> a notification will be sent to the patient with other provided information like possible hotline phone numbers.
    </td>
   </tr>
   <tr>
