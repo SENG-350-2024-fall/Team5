@@ -146,7 +146,7 @@
 <strong>#1.</strong> If the user's symptoms change, <strong>then</strong> they can update them. <br />
 <strong>#2.</strong> If the user's pain changes, <strong>then</strong> they can edit the pain scale. <br />
 <strong>#3.</strong> If a more accurate timeline for symptoms is remembered, <strong>then</strong> the timeline should be updated. <br />
-<strong>#4.</strong> If any information was updated, <strong>then</strong> the user must resubmit their triage application, and the database plus nurse will be alerted of this change.
+<strong>#6.</strong> If any information was updated, <strong>then</strong> the user must resubmit their triage application, and the database plus nurse will be alerted of this change.
    </td>
   </tr>
   <tr>
@@ -176,7 +176,7 @@
    <td><strong>Steps</strong>
    </td>
    <td>
-<strong>#1.</strong> If the user wishes to delete their application, <strong>then</strong> the application can be deleted, and the database will be alerted of this deletion.
+<strong>#6.</strong> If the user wishes to delete their application, <strong>then</strong> the application can be deleted, and the database will be alerted of this deletion.
    </td>
   </tr>
   <tr>
