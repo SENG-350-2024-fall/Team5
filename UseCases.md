@@ -107,7 +107,7 @@
   <tr>
    <td><strong>Variations</strong>
    </td>
-   <td><strong>#1.</strong> There is a network error in submitting the data. Required fields are unfilled, prompting the patient to fill out those fields.
+   <td><strong>#7.</strong> There is a network error in submitting the data. Required fields are unfilled, prompting the patient to fill out those fields.
    </td>
   </tr>
   <tr>
