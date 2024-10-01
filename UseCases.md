@@ -244,7 +244,7 @@ Nurse reviews and approves the triage application.
   <tr>
    <td><strong>Variations</strong>
    </td>
-   <td><strong>#1</strong>. Patients may be notified via automated phone call, <strong>or</strong> automated text message, <strong>or</strong> app notification banner.
+   <td><strong>#4</strong>. Patients may be notified via automated phone call, <strong>or</strong> automated text message, <strong>or</strong> app notification banner.
    </td>
   </tr>
   <tr>
