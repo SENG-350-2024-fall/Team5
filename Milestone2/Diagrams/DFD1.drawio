@@ -1,9 +1,66 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" version="24.7.12">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" version="24.7.17">
   <diagram name="Page-1" id="g4PY5eGOAMVwyb2hx560">
-    <mxGraphModel>
+    <mxGraphModel dx="2916" dy="1189" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-16" value="PHN, Password" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="-rPrMi9mVUUpKUwKcgZm-7" target="-rPrMi9mVUUpKUwKcgZm-15">
+          <mxGeometry x="-0.125" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-24" value="Credentials" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="-rPrMi9mVUUpKUwKcgZm-7" target="-rPrMi9mVUUpKUwKcgZm-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-7" value="Patient" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="570" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-17" value="Account" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="-rPrMi9mVUUpKUwKcgZm-15" target="-rPrMi9mVUUpKUwKcgZm-7">
+          <mxGeometry x="0.2272" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-19" value="PHN, Password" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="-rPrMi9mVUUpKUwKcgZm-15" target="-rPrMi9mVUUpKUwKcgZm-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-15" value="1. Register_Account" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="320" y="340" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-22" value="Confirmation/Denial" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="-rPrMi9mVUUpKUwKcgZm-18" target="-rPrMi9mVUUpKUwKcgZm-21">
+          <mxGeometry x="0.2389" y="-38" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="355" y="590" />
+              <mxPoint x="338" y="590" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-18" value="Logins" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="520" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-23" value="Credential Check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="-rPrMi9mVUUpKUwKcgZm-21" target="-rPrMi9mVUUpKUwKcgZm-18">
+          <mxGeometry x="-0.2388" y="-28" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-26" value="Confirmation/Denial" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="-rPrMi9mVUUpKUwKcgZm-21" target="-rPrMi9mVUUpKUwKcgZm-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-21" value="4. User_login" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="320" y="640" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-27" value="Login Credentials" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-140" y="360" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-28" value="PHN (Patient)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="-rPrMi9mVUUpKUwKcgZm-27">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-29" value="Work Provided Identifier (Else)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="-rPrMi9mVUUpKUwKcgZm-27">
+          <mxGeometry y="60" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="-rPrMi9mVUUpKUwKcgZm-30" value="Password" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="-rPrMi9mVUUpKUwKcgZm-27">
+          <mxGeometry y="90" width="140" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
