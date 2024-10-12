@@ -1,9 +1,8 @@
 "use client";
-import { Button, Card, Label, TextInput } from "flowbite-react";
+import { Button, Label, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { loginData } from "../mockedData/loginData";
 import { useRouter } from "next/navigation";
-
 
 export default function Page() {
   const [username, setUsername] = useState<string>("");
@@ -13,10 +12,12 @@ export default function Page() {
   const tryLogin = () => {
     //CHECK DATABASE IF PASSWORD AND PHN MATCH UP
     //RN mocking database
-    const attemptedLogin = {username: username, password: password};
+    // EXAMPLE FOR USING ENV VARIABLES: const LOCALURL = process.env.LOCALURL;
+    const attemptedLogin = { username: username, password: password };
     if (
-      loginData.map((obj) => JSON.stringify(obj)).includes(JSON.stringify(attemptedLogin)
-      )
+      loginData
+        .map((obj) => JSON.stringify(obj))
+        .includes(JSON.stringify(attemptedLogin))
     ) {
       console.log("redirecting");
       router.push("/home");
@@ -28,7 +29,7 @@ export default function Page() {
   };
 
   return (
-    <div className = "container flex items-center justify-center mx-auto ">
+    <div className="container flex items-center justify-center mx-auto ">
       <form className="flex flex-col gap-4">
         <div>
           <div className="mb-2 block">
@@ -53,9 +54,7 @@ export default function Page() {
             required
           />
         </div>
-        <Button onClick={tryLogin}>
-          Submit
-        </Button>
+        <Button onClick={tryLogin}>Submit</Button>
       </form>
     </div>
   );
