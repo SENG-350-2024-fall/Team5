@@ -13,7 +13,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [
-    flowbite.plugin(),
-  ],
+  plugins: [flowbite.plugin()],
 };
