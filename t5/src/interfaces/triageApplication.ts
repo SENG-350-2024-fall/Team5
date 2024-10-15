@@ -1,4 +1,3 @@
-
 export interface TRIAGE_APPLICATION {
   tid?: number;
   pid: number;
