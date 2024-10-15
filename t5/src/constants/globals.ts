@@ -1,0 +1,1 @@
+export const TRIAGE_APPLICATION_STATUS = "PENDING";
