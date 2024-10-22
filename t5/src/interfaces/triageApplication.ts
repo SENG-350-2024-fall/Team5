@@ -9,10 +9,10 @@ export interface TRIAGE_APPLICATION {
 }
 
 export interface SYMPTOM {
-  sid: number;
+  sid?: number;
   name: string;
   pain_scale: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
-  description: string | "" | null;
+  other_info: string | null;
   time_started: Date | null;
   body_location:
     | "HEAD"
@@ -31,6 +31,5 @@ export interface SYMPTOM {
     | "LEG"
     | "FOOT"
     | "TOE"
-    | ""
-    | null;
+    | "OTHER";
 }

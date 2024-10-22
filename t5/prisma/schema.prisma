@@ -54,7 +54,7 @@ model HealthCareWorkerWorksAtOffice {
 
 model TriageApplication {
   tid Int @id @default(autoincrement())
-  patient Patient @relation(fields: [patientID], references: [pid])
+  patient Patient @relation(fields: [patientID], references: [pid], onDelete: Cascade)
   patientID Int @unique
   time_created DateTime
   status String
@@ -65,7 +65,7 @@ model TriageApplication {
 
 model Symptom {
   sid Int @id @default(autoincrement())
-  triage_application TriageApplication @relation(fields: [triage_application_id], references: [tid])
+  triage_application TriageApplication @relation(fields: [triage_application_id], references: [tid], onDelete: Cascade)
   triage_application_id Int 
   name String
   pain_scale Int
