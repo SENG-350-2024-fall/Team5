@@ -20,7 +20,6 @@ export const SYMPTOMBODYLOCATIONS = [
   "OTHER",
 ];
 
-
 export let TID = 4;
 export let PID = 4;
 export let SID = 4;

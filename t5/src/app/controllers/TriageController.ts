@@ -5,15 +5,19 @@ import {
   TRIAGE_APPLICATION,
   SYMPTOM,
 } from "../../interfaces/triageApplication";
-import { writeToJsonFile, loadJsonIntoObject } from "../../helpers/interactWithJSONFile";
+import {
+  writeToJsonFile,
+  loadJsonIntoObject,
+} from "../../helpers/interactWithJSONFile";
 
 const TriageApplicationFile = "triageApplication.json";
 
 export default class TriageController {
-
   public static async getTriageApplicationById(tid: number) {
     try {
-      const triageApplications = loadJsonIntoObject(TriageApplicationFile) as Array<TRIAGE_APPLICATION>;
+      const triageApplications = loadJsonIntoObject(
+        TriageApplicationFile,
+      ) as Array<TRIAGE_APPLICATION>;
       console.log(triageApplications);
       let triageApplication;
       if (!triageApplications) {
@@ -55,7 +59,9 @@ export default class TriageController {
         patient_history: patient_history,
         patient_medication: patient_medication,
       };
-      let existingData = loadJsonIntoObject("triageApplication.json") as Array<TRIAGE_APPLICATION>;
+      let existingData = loadJsonIntoObject(
+        "triageApplication.json",
+      ) as Array<TRIAGE_APPLICATION>;
       if (existingData) {
         existingData.push(triageApplicationData);
         writeToJsonFile(TriageApplicationFile, existingData);
@@ -79,10 +85,29 @@ export default class TriageController {
     pain_scale?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10,
     other_info?: string,
     time_started?: Date,
-    body_location?: "HEAD" | "NECK" | "SHOULDER" | "ARM" | "ELBOW" | "FOREARM" | "HAND" | "FINGER" | "CHEST" | "ABDOMEN" | "HIP" | "THIGH" | "KNEE" | "LEG" | "FOOT" | "TOE" | "OTHER",
+    body_location?:
+      | "HEAD"
+      | "NECK"
+      | "SHOULDER"
+      | "ARM"
+      | "ELBOW"
+      | "FOREARM"
+      | "HAND"
+      | "FINGER"
+      | "CHEST"
+      | "ABDOMEN"
+      | "HIP"
+      | "THIGH"
+      | "KNEE"
+      | "LEG"
+      | "FOOT"
+      | "TOE"
+      | "OTHER",
   ) {
     try {
-      let triageApplications = loadJsonIntoObject(TriageApplicationFile) as Array<TRIAGE_APPLICATION>;
+      let triageApplications = loadJsonIntoObject(
+        TriageApplicationFile,
+      ) as Array<TRIAGE_APPLICATION>;
       let symptom;
       for (let TA of triageApplications) {
         if (TA.symptoms) {
@@ -127,8 +152,10 @@ export default class TriageController {
       const time_started = symptom.time_started
         ? symptom.time_started
         : new Date();
-      const symptomData = {...symptom, time_started: time_started};
-      let triageApplications = loadJsonIntoObject(TriageApplicationFile) as Array<TRIAGE_APPLICATION>;
+      const symptomData = { ...symptom, time_started: time_started };
+      let triageApplications = loadJsonIntoObject(
+        TriageApplicationFile,
+      ) as Array<TRIAGE_APPLICATION>;
       let triageApplication;
       for (let TA of triageApplications) {
         if (TA.tid === tid) {
@@ -167,7 +194,9 @@ export default class TriageController {
       return { message: "Invalid status", status: 400 };
     }
     try {
-      let triageApplications = loadJsonIntoObject(TriageApplicationFile) as Array<TRIAGE_APPLICATION>;
+      let triageApplications = loadJsonIntoObject(
+        TriageApplicationFile,
+      ) as Array<TRIAGE_APPLICATION>;
       let triageApplication;
       for (let TA of triageApplications) {
         if (TA.tid === tid) {
@@ -193,7 +222,9 @@ export default class TriageController {
 
   public static async getSymptomById(sid: number) {
     try {
-      let triageApplications = loadJsonIntoObject(TriageApplicationFile) as Array<TRIAGE_APPLICATION>;
+      let triageApplications = loadJsonIntoObject(
+        TriageApplicationFile,
+      ) as Array<TRIAGE_APPLICATION>;
       let symptom;
       for (let TA of triageApplications) {
         if (TA.symptoms) {
@@ -223,8 +254,10 @@ export default class TriageController {
   }
 
   public static async deleteSymptom(sid: number) {
-    try{
-      let triageApplications = loadJsonIntoObject(TriageApplicationFile) as Array<TRIAGE_APPLICATION>;
+    try {
+      let triageApplications = loadJsonIntoObject(
+        TriageApplicationFile,
+      ) as Array<TRIAGE_APPLICATION>;
       let symptom;
       for (let TA of triageApplications) {
         if (TA.symptoms) {
@@ -257,7 +290,9 @@ export default class TriageController {
 
   public static async getSymptomsByTriageApplication(tid: number) {
     try {
-      const triageApplications = (await TriageController.getTriageApplicationById(tid)).data as TRIAGE_APPLICATION;
+      const triageApplications = (
+        await TriageController.getTriageApplicationById(tid)
+      ).data as TRIAGE_APPLICATION;
       if (!triageApplications) {
         return { message: "No Triage Applications in database", status: 404 };
       }
@@ -275,7 +310,9 @@ export default class TriageController {
 
   public static async deleteTriageApplication(tid: number) {
     try {
-      let triageApplications = loadJsonIntoObject(TriageApplicationFile) as Array<TRIAGE_APPLICATION>;
+      let triageApplications = loadJsonIntoObject(
+        TriageApplicationFile,
+      ) as Array<TRIAGE_APPLICATION>;
       let triageApplication;
       for (let TA of triageApplications) {
         if (TA.tid === tid) {
@@ -286,7 +323,9 @@ export default class TriageController {
       if (!triageApplication) {
         return { message: "Triage Application not found", status: 404 };
       }
-      const newTriageApplications = triageApplications.filter((TA) => TA.tid !== tid);
+      const newTriageApplications = triageApplications.filter(
+        (TA) => TA.tid !== tid,
+      );
       writeToJsonFile(TriageApplicationFile, newTriageApplications);
       return {
         message: "Triage Application deleted",

@@ -6,6 +6,5 @@ import TriageController from "../../controllers/TriageController";
 const triageController = new TriageController();
 
 export default function Page() {
-  
   return <h1>Triage Application Page</h1>;
 }
