@@ -1,18 +1,18 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from "@prisma/client";
 
 const prismaClientSingleton = () => {
-  return new PrismaClient()
-}
+  return new PrismaClient();
+};
 
 declare const globalThis: {
   prismaGlobal: ReturnType<typeof prismaClientSingleton>;
 } & typeof global;
 
-const Prisma = globalThis.prismaGlobal ?? prismaClientSingleton()
+const Prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
 try {
-    Prisma.$connect()
+  Prisma.$connect();
 } catch (error) {
-    console.error("Error connecting db", error)
+  console.error("Error connecting db", error);
 }
 
-export default Prisma
+export default Prisma;
