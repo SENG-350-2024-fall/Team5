@@ -19,3 +19,8 @@ export const SYMPTOMBODYLOCATIONS = [
   "TOE",
   "OTHER",
 ];
+
+
+export let TID = 4;
+export let PID = 4;
+export let SID = 4;

@@ -1,0 +1,22 @@
+{
+    "patients": [
+        {
+            "pid": 1,
+            "first_name": "John",
+            "last_name": "Doe",
+            "DOB": "September 17, 2002",
+            "password": "password",
+            "PHN": "1234567890",
+            "address": "1234 Elm Street"
+        },
+        {
+            "pid": 2,
+            "first_name": "Doe",
+            "last_name": "John",
+            "DOB": "January 13, 1982",
+            "password": "password",
+            "PHN": "0987654321",
+            "address": "1234 Markham Road"
+        }
+    ]
+}

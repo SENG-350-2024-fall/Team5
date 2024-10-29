@@ -1,0 +1,57 @@
+{
+    "triage_applications": [
+        {
+            "tid": 1,
+            "pid": 1,
+            "time_created": "2024-10-29",
+            "status": "PENDING",
+            "patient_history": "Surgey on head 2 years ago",
+            "patient_medication":"I take paracetamol",
+            "symptoms": [
+                {
+                    "sid": 1,
+                    "name": "Headache",
+                    "pain_scale": 5,
+                    "other_info": "I have a headache",
+                    "time_started": "September 17, 2024",
+                    "body_location": "HEAD"
+                }
+            ]
+        },
+        {
+            "tid": 2,
+            "pid": 2,
+            "time_created": "2024-10-29",
+            "status": "PENDING",
+            "patient_history": "I have a stomach ache and fell off my bike",
+            "patient_medication": "I took tums and advil. I also take cortisol",
+            "symptoms": [
+                {
+                    "sid": 2,
+                    "name": "Stomach ache",
+                    "pain_scale": 7,
+                    "other_info": "I ate purple beef",
+                    "time_started": "October 28, 2024",
+                    "body_location": "ABDOMEN"
+                },
+                {
+                    "sid": 3,
+                    "name": "Broken Finger",
+                    "pain_scale": 9,
+                    "other_info": "I fell off my bike",
+                    "time_started": "October 28, 2024",
+                    "body_location": "FINGER"
+                }
+            ]
+        },
+        {
+            "tid": 3,
+            "pid": 3,
+            "time_created": "2024-10-29",
+            "status": "PENDING",
+            "patient_history": "",
+            "patient_medication": "",
+            "symptoms": []
+        }
+    ]
+}
