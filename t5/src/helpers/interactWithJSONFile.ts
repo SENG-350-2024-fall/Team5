@@ -23,9 +23,7 @@ export const writeToJsonFile = async (filePath: string, data: Data) => {
     writeToJsonFile("data.json", data);
 */
 
-export const loadJsonIntoObject = async(
-  filePath: string,
-) => {
+export const loadJsonIntoObject = async (filePath: string) => {
   try {
     const jsonData = await fs.promises.readFile(filePath, "utf8"); // Synchronously read file content
     const data = await JSON.parse(jsonData); // Parse JSON content into an object
