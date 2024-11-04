@@ -4,6 +4,7 @@ import { TRIAGE_APPLICATION, SYMPTOM } from "../interfaces/triageApplication";
 import { PATIENT } from "../interfaces/patient";
 import { HEALTH_CARE_WORKER } from "../interfaces/healthCareWorker";
 import { OFFICE } from "../interfaces/office";
+import { LOGIN } from "../mockedData/loginData";
 
 interface Data {
   [key: string]: any;
@@ -38,6 +39,7 @@ export const loadJsonIntoObject = (
   | Array<HEALTH_CARE_WORKER>
   | Array<OFFICE>
   | Array<PATIENT>
+  | Array<LOGIN>
   | null => {
   try {
     const jsonData = fs.readFileSync(filePath, "utf8"); // Synchronously read file content
@@ -46,7 +48,8 @@ export const loadJsonIntoObject = (
       | Array<SYMPTOM>
       | Array<HEALTH_CARE_WORKER>
       | Array<OFFICE>
-      | Array<PATIENT>; // Parse JSON content into an object
+      | Array<PATIENT> // Parse JSON content into an object
+      | Array<LOGIN>;
     return data;
   } catch (error) {
     console.error("Error reading or parsing JSON file:", error);
