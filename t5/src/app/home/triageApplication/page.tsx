@@ -1,34 +1,25 @@
 "use client";
-import { Button, Label, TextInput } from "flowbite-react";
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-//import TriageController from "../../controllers/TriageController";
-//const triageController = new TriageController();
-import { offices } from '../../../mockedData/offices'; // Adjust the path as necessary
+import { Button } from "flowbite-react";
+import React, { useState } from "react";
 import { OFFICE } from '../../../interfaces/office'; // Adjust path as needed
-
-
 
 export default function Page() {
   const [selectedOffice, setSelectedOffice] = useState<OFFICE | null>(null);
 
-  const handleOfficeClick = (office: OFFICE) => {
-    setSelectedOffice(office);
+  const fetchSelectedOffice = async () => {
+    try {
+      const response = await fetch('/api/getHelp');
+      const data = await response.json();
+      setSelectedOffice(data);
+    } catch (error) {
+      console.error("Failed to fetch office:", error);
+    }
   };
 
   return (
     <div>
       <h1>Triage Application Page</h1>
-      <h2>Offices</h2>
-      <div>
-        {offices.map((office, index) => (
-          <div key={index}>
-            <Button onClick={() => handleOfficeClick(office)}>
-              {office.name}
-            </Button>
-          </div>
-        ))}
-      </div>
+      <Button onClick={fetchSelectedOffice}>Show Treatment</Button>
 
       {selectedOffice && (
         <div>
