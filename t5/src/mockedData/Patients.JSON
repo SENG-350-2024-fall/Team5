@@ -17,6 +17,24 @@
       "password": "password",
       "PHN": "0987654321",
       "address": "1234 Markham Road"
+    },
+    {
+      "first_name": "Nolan",
+      "last_name": "Curtis",
+      "DOB": "1998-09-30",
+      "password": "123",
+      "PHN": "12345678",
+      "address": "home",
+      "pid": 3
+    },
+    {
+      "first_name": "hi",
+      "last_name": "hi",
+      "DOB": "0001-01-01",
+      "password": "123",
+      "PHN": "123",
+      "address": "123",
+      "pid": 4
     }
   ]
 }
