@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column; /* Arrange items in a column */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0; /* Remove default margin */
+            background: url('Background.webp') no-repeat center center fixed; /* Medical-themed background */
+            background-size: cover; /* Cover the entire viewport */
+        }
+        .content {
+            position: relative; /* Positioning context for the overlay */
+            z-index: 1; /* Bring the content above the blurred background */
+            text-align: center; /* Center-align text */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 1.0); /* White with transparency */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+        }
+        h1 {
+            margin-bottom: 20px; /* Add space below the heading */
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px; /* Space between buttons */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; /* Increase font size for better visibility */
+            transition: background-color 0.3s; /* Smooth transition on hover */
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome to the Home Page!</h1>
+        <button id="createAppBtn">Create Application</button>
+        <button id="updateAppBtn">Update Application</button>
+        <button id="checkNotificationBtn">Check Notification (temp)</button>
+    </div>
+
+    <script>
+        // Button functionality (to be implemented later)
+        document.getElementById('createAppBtn').addEventListener('click', function() {
+            window.location.href = 'CreateApplication.html';
+            // Redirect or open a new page if needed
+        });
+
+        document.getElementById('updateAppBtn').addEventListener('click', function() {
+            //alert('Update Application functionality to be implemented.');
+            window.location.href = 'UpdateApplication.html';
+            // Redirect or open a new page if needed
+        });
+
+        document.getElementById('checkNotificationBtn').addEventListener('click', function() {
+            alert('Check Notification functionality to be implemented.');
+            // Redirect or open a new page if needed
+            // window.location.href = 'notifications.html';
+        });
+    </script>
+</body>
+</html>

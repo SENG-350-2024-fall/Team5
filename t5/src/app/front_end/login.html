@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Set a fixed width for the container */
+            max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+            display: flex; /* Use flexbox for centering */
+            flex-direction: column; /* Arrange items in a column */
+            align-items: center; /* Center items horizontally */
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%; /* Set width to fill the container */
+            max-width: 100%; /* Ensure it doesn't exceed the container */
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+    
+</head>
+<body>
+    <div class="login-container">
+        <h2>Enter Credentials</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            
+        </form>
+        <p id="error-message" style="color:red;"></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+    
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            // Fetch user data from the JSON file
+            fetch('users.json')
+                .then(response => response.json())
+                .then(users => {
+                    // Check if the username and password match any entry
+                    const user = users.find(u => u.username === username && u.password === password);
+                    if (user) {
+                        // Send a POST request to log the login event
+                        fetch('http://127.0.0.1:3000/login', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ username: username }),
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data.message); // Log the response message
+                            // Redirect to home page on successful login
+                            window.location.href = 'home.html';
+                        })
+                        .catch(error => {
+                            console.error('Error logging login event:', error);
+                        });
+                    } else {
+                        document.getElementById('error-message').innerText = 'Invalid username or password.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching user data:', error);
+                    document.getElementById('error-message').innerText = 'Error loading user data.';
+                });
+        });
+    </script>
+    
+</body>
+</html>
