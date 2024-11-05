@@ -2,20 +2,16 @@
 import { Button } from "flowbite-react";
 import React, { useState } from "react";
 import { OFFICE } from '../../../interfaces/office';
+import { getTreatmentAndOffice } from '../../controllers/getHelpController'; // Import the controller
 
 export default function Page() {
   const [selectedOffice, setSelectedOffice] = useState<OFFICE | null>(null);
   const [treatment, setTreatment] = useState<string | null>(null);
 
-  const fetchTreatmentAndOffice = async () => {
-    try {
-      const response = await fetch('/api/getHelp');
-      const data = await response.json();
-      setTreatment(data.treatment);
-      setSelectedOffice(data.office);
-    } catch (error) {
-      console.error("Failed to fetch treatment and office:", error);
-    }
+  const fetchTreatmentAndOffice = () => {
+    const { treatment, office } = getTreatmentAndOffice();
+    setTreatment(treatment);
+    setSelectedOffice(office);
   };
 
   return (
@@ -44,4 +40,3 @@ export default function Page() {
     </div>
   );
 }
-
