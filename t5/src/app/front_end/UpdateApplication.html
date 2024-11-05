@@ -1,319 +1,360 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Update Medical Triage Application</title>
     <style>
-        /* Include the same CSS as CreateApplication */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            position: relative;
-            background-image: url('Background.webp');
-            background-size: cover;
-            background-position: center;
-            opacity: 1;
-        }
-        .container {
-            width: 100%;
-            max-width: 500px;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .app-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px; /* Space between applications */
-        }
-        h1, h2 {
-            text-align: center;
-            color: #007bff;
-        }
-        .field {
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .field label, .slider-value {
-            margin-right: 10px;
-        }
-        .field input[type="text"],
-        .field input[type="range"] {
-            width: 70%;
-            max-width: 400px;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .confirm-button {
-            display: block;
-            margin: 20px auto;
-            width: 90%;
-            max-width: 400px;
-            background-color: #007bff;
-            color: #fff;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .confirm-button:hover {
-            background-color: #0056b3;
-        }
-        .hidden {
-            display: none;
-        }
-        /* Cancel Button Styling */
-        .cancel-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: #ff0000;
-        }
-        .cancel-button:hover {
-            color: #cc0000;
-        }
-        /* Popup Styling */
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-            visibility: hidden;
-        }
-        .popup-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        /* Character Count Styling */
-        .char-count {
-            font-size: 14px;
-            color: #666;
-        }
-        .warning {
-            color: #cc0000; /* Red color for warning */
-        }
-        .delete-button {
-            background-color: #dc3545; /* Red background for delete */
-            color: white;              /* White text color */
-            width: 30px;               /* Fixed width */
-            height: 30px;              /* Fixed height */
-            border-radius: 50%;        /* Make it circular */
-            border: none;              /* Remove border */
-            cursor: pointer;           /* Pointer on hover */
-            font-size: 16px;           /* Adjust font size */
-            display: flex;             /* Center the text */
-            justify-content: center;   /* Center horizontally */
-            align-items: center;       /* Center vertically */
-        }
-        .delete-button:hover {
-            background-color: #c82333; /* Darker red on hover */
-        }
+      /* Include the same CSS as CreateApplication */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        background-image: url("Background.webp");
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+      }
+      .container {
+        width: 100%;
+        max-width: 500px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .app-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px; /* Space between applications */
+      }
+      h1,
+      h2 {
+        text-align: center;
+        color: #007bff;
+      }
+      .field {
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .field label,
+      .slider-value {
+        margin-right: 10px;
+      }
+      .field input[type="text"],
+      .field input[type="range"] {
+        width: 70%;
+        max-width: 400px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .confirm-button {
+        display: block;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 400px;
+        background-color: #007bff;
+        color: #fff;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .confirm-button:hover {
+        background-color: #0056b3;
+      }
+      .hidden {
+        display: none;
+      }
+      /* Cancel Button Styling */
+      .cancel-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: #ff0000;
+      }
+      .cancel-button:hover {
+        color: #cc0000;
+      }
+      /* Popup Styling */
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        visibility: hidden;
+      }
+      .popup-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      /* Character Count Styling */
+      .char-count {
+        font-size: 14px;
+        color: #666;
+      }
+      .warning {
+        color: #cc0000; /* Red color for warning */
+      }
+      .delete-button {
+        background-color: #dc3545; /* Red background for delete */
+        color: white; /* White text color */
+        width: 30px; /* Fixed width */
+        height: 30px; /* Fixed height */
+        border-radius: 50%; /* Make it circular */
+        border: none; /* Remove border */
+        cursor: pointer; /* Pointer on hover */
+        font-size: 16px; /* Adjust font size */
+        display: flex; /* Center the text */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+      }
+      .delete-button:hover {
+        background-color: #c82333; /* Darker red on hover */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Update Medical Triage Application</h1>
+      <h2>Select an Application to Update</h2>
+      <div id="application-list"></div>
 
-<div class="container">
-    <h1>Update Medical Triage Application</h1>
-    <h2>Select an Application to Update</h2>
-    <div id="application-list"></div>
-
-    <div id="form-container" class="hidden">
+      <div id="form-container" class="hidden">
         <h2>Update Application</h2>
-        
+
         <div class="field">
-            <label for="name-input">Triage Name:</label>
-            <input type="text" id="name-input" maxlength="50" placeholder="Enter Triage Name...">
-        </div>
-        
-        <div class="field">
-            <label for="text-input">Patient Symptoms:</label>
-            <input type="text" id="text-input" maxlength="100" placeholder="Enter symptoms...">
-            <p id="char-count" class="char-count">100 characters left</p>
+          <label for="name-input">Triage Name:</label>
+          <input
+            type="text"
+            id="name-input"
+            maxlength="50"
+            placeholder="Enter Triage Name..."
+          />
         </div>
 
         <div class="field">
-            <label for="severity-slider">Severity (1-10):</label>
-            <span id="slider-value" class="slider-value">5</span>
-            <input type="range" id="severity-slider" min="1" max="10" step="1" oninput="updateSliderValue(this.value)">
+          <label for="text-input">Patient Symptoms:</label>
+          <input
+            type="text"
+            id="text-input"
+            maxlength="100"
+            placeholder="Enter symptoms..."
+          />
+          <p id="char-count" class="char-count">100 characters left</p>
+        </div>
+
+        <div class="field">
+          <label for="severity-slider">Severity (1-10):</label>
+          <span id="slider-value" class="slider-value">5</span>
+          <input
+            type="range"
+            id="severity-slider"
+            min="1"
+            max="10"
+            step="1"
+            oninput="updateSliderValue(this.value)"
+          />
         </div>
 
         <!-- Checkbox Example -->
         <div class="field">
-            <label for="allergy-check">Known Allergies:</label>
-            <input type="checkbox" id="allergy-check"> Yes
+          <label for="allergy-check">Known Allergies:</label>
+          <input type="checkbox" id="allergy-check" /> Yes
         </div>
 
+        <button class="confirm-button" onclick="updateApplication()">
+          Update Application
+        </button>
+        <input type="hidden" id="timestamp-input" />
+      </div>
 
-        <button class="confirm-button" onclick="updateApplication()">Update Application</button>
-        <input type="hidden" id="timestamp-input">
+      <!-- Cancel Button -->
+      <button class="cancel-button" onclick="showCancelPopup()">✖</button>
     </div>
 
-    <!-- Cancel Button -->
-    <button class="cancel-button" onclick="showCancelPopup()">✖</button>
-</div>
-
-<!-- Popup for Cancel Confirmation -->
-<div id="cancel-popup" class="popup">
-    <div class="popup-content">
+    <!-- Popup for Cancel Confirmation -->
+    <div id="cancel-popup" class="popup">
+      <div class="popup-content">
         <h2>Are you sure you want to cancel?</h2>
-        <button class="confirm-button" onclick="cancelUpdate()">Yes, Cancel</button>
-        <button class="confirm-button" onclick="hideCancelPopup()">No, Go Back</button>
+        <button class="confirm-button" onclick="cancelUpdate()">
+          Yes, Cancel
+        </button>
+        <button class="confirm-button" onclick="hideCancelPopup()">
+          No, Go Back
+        </button>
+      </div>
     </div>
-</div>
 
-<script>
-    // Load applications on page load
-    loadApplications();
+    <script>
+      // Load applications on page load
+      loadApplications();
 
-    function loadApplications() {
+      function loadApplications() {
         fetch("triage_data.json")
-            .then(response => response.json())
-            .then(data => {
-                const appList = document.getElementById('application-list');
-                appList.innerHTML = '';
-                data.forEach((app) => {
-                    const appItem = document.createElement('div');
-                    appItem.classList.add('app-item'); // Add class for styling
+          .then((response) => response.json())
+          .then((data) => {
+            const appList = document.getElementById("application-list");
+            appList.innerHTML = "";
+            data.forEach((app) => {
+              const appItem = document.createElement("div");
+              appItem.classList.add("app-item"); // Add class for styling
 
-                    appItem.innerHTML = `
+              appItem.innerHTML = `
                         <button class="confirm-button" onclick="selectApplication('${app.name}')">${app.name}</button>
                         <button class="confirm-button delete-button" onclick="deleteApplication('${app.name}')">X</button>
                     `;
-                    appList.appendChild(appItem);
-                });
-            })
-            .catch(error => console.error('Error loading applications:', error));
-    }
+              appList.appendChild(appItem);
+            });
+          })
+          .catch((error) =>
+            console.error("Error loading applications:", error),
+          );
+      }
 
-
-    function selectApplication(name) {
+      function selectApplication(name) {
         fetch("triage_data.json")
-            .then(response => response.json())
-            .then(data => {
-                const selectedApp = data.find(app => app.name === name);
-                if (selectedApp) {
-                    document.getElementById('name-input').value = selectedApp.name;
-                    document.getElementById('text-input').value = selectedApp.symptoms;
-                    document.getElementById('severity-slider').value = selectedApp.severity;
-                    document.getElementById('slider-value').textContent = selectedApp.severity;
-                    document.getElementById('allergy-check').checked = selectedApp.hasAllergies; // Set checkbox state
-                    document.getElementById('form-container').classList.remove('hidden');
-                }
-            })
-            .catch(error => console.error('Error loading application:', error));
-    }
+          .then((response) => response.json())
+          .then((data) => {
+            const selectedApp = data.find((app) => app.name === name);
+            if (selectedApp) {
+              document.getElementById("name-input").value = selectedApp.name;
+              document.getElementById("text-input").value =
+                selectedApp.symptoms;
+              document.getElementById("severity-slider").value =
+                selectedApp.severity;
+              document.getElementById("slider-value").textContent =
+                selectedApp.severity;
+              document.getElementById("allergy-check").checked =
+                selectedApp.hasAllergies; // Set checkbox state
+              document
+                .getElementById("form-container")
+                .classList.remove("hidden");
+            }
+          })
+          .catch((error) => console.error("Error loading application:", error));
+      }
 
-    function updateSliderValue(value) {
-        document.getElementById('slider-value').textContent = value;
-    }
+      function updateSliderValue(value) {
+        document.getElementById("slider-value").textContent = value;
+      }
 
-    function updateApplication() {
+      function updateApplication() {
         const updatedData = {
-            name: document.getElementById('name-input').value,
-            symptoms: document.getElementById('text-input').value,
-            severity: document.getElementById('severity-slider').value,
-            hasAllergies: document.getElementById('allergy-check').checked,
-            timestamp: new Date().toISOString()  // Timestamp added here
+          name: document.getElementById("name-input").value,
+          symptoms: document.getElementById("text-input").value,
+          severity: document.getElementById("severity-slider").value,
+          hasAllergies: document.getElementById("allergy-check").checked,
+          timestamp: new Date().toISOString(), // Timestamp added here
         };
 
         fetch("triage_data.json")
-            .then(response => response.json())
-            .then(data => {
-                const appIndex = data.findIndex(app => app.name === updatedData.name);
-                if (appIndex !== -1) {
-                    data[appIndex] = updatedData; // Update the application in the array
+          .then((response) => response.json())
+          .then((data) => {
+            const appIndex = data.findIndex(
+              (app) => app.name === updatedData.name,
+            );
+            if (appIndex !== -1) {
+              data[appIndex] = updatedData; // Update the application in the array
 
-                    // Send updated data to the server
-                    fetch('http://localhost:3000/updateApplication', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ name: updatedData.name, data: updatedData })
-                    })
-                    .then(response => response.json())
-                    .then(result => {
-                        if (result.status === 'resolved') {
-                            loadApplications(); // Refresh application list
-                            alert("Triage Edit Successful");
-                            window.location.href = "home.html"; // Ensure this is correctly formatted
-                        } else {
-                            alert("Error updating application: " + result.message);
-                        }
-                    })
-                    .catch(error => console.error('Error updating application:', error));
-                } else {
-                    alert("Application not found.");
-                }
-            })
-            .catch(error => console.error('Error loading applications:', error));
-    }
-
-
-    function deleteApplication(name) {
-        if (confirm(`Are you sure you want to delete the application: ${name}?`)) {
-            fetch('http://localhost:3000/deleteApplication', {
-                method: 'DELETE',
+              // Send updated data to the server
+              fetch("http://localhost:3000/updateApplication", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json'
+                  "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ name: name }) // Send the name to delete
+                body: JSON.stringify({
+                  name: updatedData.name,
+                  data: updatedData,
+                }),
+              })
+                .then((response) => response.json())
+                .then((result) => {
+                  if (result.status === "resolved") {
+                    loadApplications(); // Refresh application list
+                    alert("Triage Edit Successful");
+                    window.location.href = "home.html"; // Ensure this is correctly formatted
+                  } else {
+                    alert("Error updating application: " + result.message);
+                  }
+                })
+                .catch((error) =>
+                  console.error("Error updating application:", error),
+                );
+            } else {
+              alert("Application not found.");
+            }
+          })
+          .catch((error) =>
+            console.error("Error loading applications:", error),
+          );
+      }
+
+      function deleteApplication(name) {
+        if (
+          confirm(`Are you sure you want to delete the application: ${name}?`)
+        ) {
+          fetch("http://localhost:3000/deleteApplication", {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: name }), // Send the name to delete
+          })
+            .then((response) => response.json())
+            .then((result) => {
+              if (result.status === "resolved") {
+                alert("Application deleted successfully!");
+                loadApplications(); // Refresh the application list
+              } else {
+                alert("Error deleting application: " + result.message);
+              }
             })
-            .then(response => response.json())
-            .then(result => {
-                if (result.status === 'resolved') {
-                    alert("Application deleted successfully!");
-                    loadApplications(); // Refresh the application list
-                } else {
-                    alert("Error deleting application: " + result.message);
-                }
-            })
-            .catch(error => console.error('Error deleting application:', error));
+            .catch((error) =>
+              console.error("Error deleting application:", error),
+            );
         }
-    }
+      }
 
-    // Cancel Popup Functions
-    function showCancelPopup() {
-        document.getElementById('cancel-popup').style.visibility = 'visible';
-    }
+      // Cancel Popup Functions
+      function showCancelPopup() {
+        document.getElementById("cancel-popup").style.visibility = "visible";
+      }
 
-    function hideCancelPopup() {
-        document.getElementById('cancel-popup').style.visibility = 'hidden';
-    }
+      function hideCancelPopup() {
+        document.getElementById("cancel-popup").style.visibility = "hidden";
+      }
 
-    function cancelUpdate() {
+      function cancelUpdate() {
         window.location.href = "home.html";
-    }
-</script>
-
-</body>
+      }
+    </script>
+  </body>
 </html>

@@ -1,319 +1,344 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Medical Triage Application</title>
     <style>
-        /* General Styling */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            position: relative;
-            background-image: url('Background.webp');
-            background-size: cover;
-            background-position: center;
-            opacity: 1;
-        }
-        .container {
-            width: 100%;
-            max-width: 500px;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        h1, h2 {
-            text-align: center;
-            color: #007bff;
-        }
-        .field {
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .field label, .slider-value {
-            margin-right: 10px;
-        }
-        .field input[type="text"],
-        .field input[type="range"] {
-            width: 70%;
-            max-width: 400px;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .confirm-button {
-            display: block;
-            margin: 20px auto;
-            width: 90%;
-            max-width: 400px;
-            background-color: #007bff;
-            color: #fff;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .confirm-button:hover {
-            background-color: #0056b3;
-        }
-        .progress-bar {
-            width: 100%;
-            height: 5px;
-            background-color: #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-        .progress-bar-fill {
-            height: 100%;
-            width: 0;
-            background-color: #007bff;
-            transition: width 0.4s;
-        }
-        .hidden {
-            display: none;
-        }
-        /* Cancel Button Styling */
-        .cancel-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: #ff0000;
-        }
-        .cancel-button:hover {
-            color: #cc0000;
-        }
-        /* Popup Styling */
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-            visibility: hidden;
-        }
-        .popup-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .popup-content button {
-            margin-top: 10px;
-        }
-        /* Character Count Styling */
-        .char-count {
-            font-size: 14px;
-            color: #666;
-        }
-        .warning {
-            color: #cc0000; /* Red color for warning */
-        }
+      /* General Styling */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        background-image: url("Background.webp");
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+      }
+      .container {
+        width: 100%;
+        max-width: 500px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      h1,
+      h2 {
+        text-align: center;
+        color: #007bff;
+      }
+      .field {
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .field label,
+      .slider-value {
+        margin-right: 10px;
+      }
+      .field input[type="text"],
+      .field input[type="range"] {
+        width: 70%;
+        max-width: 400px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .confirm-button {
+        display: block;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 400px;
+        background-color: #007bff;
+        color: #fff;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .confirm-button:hover {
+        background-color: #0056b3;
+      }
+      .progress-bar {
+        width: 100%;
+        height: 5px;
+        background-color: #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+      .progress-bar-fill {
+        height: 100%;
+        width: 0;
+        background-color: #007bff;
+        transition: width 0.4s;
+      }
+      .hidden {
+        display: none;
+      }
+      /* Cancel Button Styling */
+      .cancel-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: #ff0000;
+      }
+      .cancel-button:hover {
+        color: #cc0000;
+      }
+      /* Popup Styling */
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        visibility: hidden;
+      }
+      .popup-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .popup-content button {
+        margin-top: 10px;
+      }
+      /* Character Count Styling */
+      .char-count {
+        font-size: 14px;
+        color: #666;
+      }
+      .warning {
+        color: #cc0000; /* Red color for warning */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Medical Triage Application</h1>
 
-<div class="container">
-    <h1>Medical Triage Application</h1>
-
-    <!-- Progress Bar -->
-    <div class="progress-bar">
+      <!-- Progress Bar -->
+      <div class="progress-bar">
         <div id="progress-bar-fill" class="progress-bar-fill"></div>
-    </div>
+      </div>
 
-    <!-- Step 1: Text and Slider Fields -->
-    <div id="step-1" class="state">
+      <!-- Step 1: Text and Slider Fields -->
+      <div id="step-1" class="state">
         <h2>Enter Patient Symptoms and Severity</h2>
 
         <!-- Name Field -->
         <div class="field">
-            <label for="name-input">Triage Name:</label>
-            <input type="text" id="name-input" maxlength="50" placeholder="Enter Triage Name...">
+          <label for="name-input">Triage Name:</label>
+          <input
+            type="text"
+            id="name-input"
+            maxlength="50"
+            placeholder="Enter Triage Name..."
+          />
         </div>
-        
+
         <!-- Text Field Example with Character Count -->
         <div class="field">
-            <label for="text-input">Patient Symptoms:</label>
-            <input type="text" id="text-input" maxlength="100" placeholder="Enter symptoms...">
-            <p id="char-count" class="char-count">100 characters left</p>
+          <label for="text-input">Patient Symptoms:</label>
+          <input
+            type="text"
+            id="text-input"
+            maxlength="100"
+            placeholder="Enter symptoms..."
+          />
+          <p id="char-count" class="char-count">100 characters left</p>
         </div>
 
         <!-- Slider Example -->
         <div class="field">
-            <label for="severity-slider">Severity (1-10):</label>
-            <span id="slider-value" class="slider-value">5</span>
-            <input type="range" id="severity-slider" min="1" max="10" step="1" oninput="updateSliderValue(this.value)">
+          <label for="severity-slider">Severity (1-10):</label>
+          <span id="slider-value" class="slider-value">5</span>
+          <input
+            type="range"
+            id="severity-slider"
+            min="1"
+            max="10"
+            step="1"
+            oninput="updateSliderValue(this.value)"
+          />
         </div>
 
         <!-- Button to Proceed -->
         <button class="confirm-button" onclick="moveToStep2()">Next</button>
-    </div>
+      </div>
 
-    <!-- Step 2: Checkbox Fields -->
-    <div id="step-2" class="state hidden">
+      <!-- Step 2: Checkbox Fields -->
+      <div id="step-2" class="state hidden">
         <h2>Additional Information</h2>
-        
+
         <!-- Checkbox Example -->
         <div class="field">
-            <label for="allergy-check">Known Allergies:</label>
-            <input type="checkbox" id="allergy-check"> Yes
+          <label for="allergy-check">Known Allergies:</label>
+          <input type="checkbox" id="allergy-check" /> Yes
         </div>
 
         <!-- Button to Proceed -->
         <button class="confirm-button" onclick="moveToStep3()">Next</button>
-    </div>
+      </div>
 
-    <!-- Step 3: Ready to Submit -->
-    <div id="step-3" class="state hidden">
+      <!-- Step 3: Ready to Submit -->
+      <div id="step-3" class="state hidden">
         <h2>Ready to Submit</h2>
         <p>All fields are completed. Ready to submit?</p>
-        <button class="confirm-button" onclick="processAndSubmit()">Submit Application</button>
-        <button class="confirm-button" onclick="moveToStep1()">Verify Fields</button>
-        <input type="hidden" id="timestamp-input">
-    </div>
+        <button class="confirm-button" onclick="processAndSubmit()">
+          Submit Application
+        </button>
+        <button class="confirm-button" onclick="moveToStep1()">
+          Verify Fields
+        </button>
+        <input type="hidden" id="timestamp-input" />
+      </div>
 
-    <!-- Processing and Done States -->
-    <div id="processing" class="state hidden">
+      <!-- Processing and Done States -->
+      <div id="processing" class="state hidden">
         <p>Processing application...</p>
-    </div>
+      </div>
 
-    <div id="done" class="state hidden">
+      <div id="done" class="state hidden">
         <p>Application submitted successfully. Thank you!</p>
+      </div>
+
+      <!-- Cancel Button -->
+      <button class="cancel-button" onclick="showCancelPopup()">✖</button>
     </div>
 
-    <!-- Cancel Button -->
-    <button class="cancel-button" onclick="showCancelPopup()">✖</button>
-</div>
-
-<!-- Popup for Cancel Confirmation -->
-<div id="cancel-popup" class="popup">
-    <div class="popup-content">
+    <!-- Popup for Cancel Confirmation -->
+    <div id="cancel-popup" class="popup">
+      <div class="popup-content">
         <h2>Are you sure you want to cancel?</h2>
-        <button class="confirm-button" onclick="cancelCreation()">Yes, Cancel</button>
-        <button class="confirm-button" onclick="hideCancelPopup()">No, Go Back</button>
+        <button class="confirm-button" onclick="cancelCreation()">
+          Yes, Cancel
+        </button>
+        <button class="confirm-button" onclick="hideCancelPopup()">
+          No, Go Back
+        </button>
+      </div>
     </div>
-</div>
 
-<script>
-    // JavaScript State Functions with Progress Bar Updates
-    function updateProgressBar(percentage) {
-        document.getElementById('progress-bar-fill').style.width = percentage + '%';
-    }
+    <script>
+      // JavaScript State Functions with Progress Bar Updates
+      function updateProgressBar(percentage) {
+        document.getElementById("progress-bar-fill").style.width =
+          percentage + "%";
+      }
 
-    function moveToStep2() {
+      function moveToStep2() {
         updateProgressBar(50);
-        toggleStates('step-1', 'step-2');
-    }
+        toggleStates("step-1", "step-2");
+      }
 
-    function moveToStep3() {
+      function moveToStep3() {
         updateProgressBar(75);
-        toggleStates('step-2', 'step-3');
-    }
+        toggleStates("step-2", "step-3");
+      }
 
-    function updateSliderValue(value) {
-        document.getElementById('slider-value').textContent = value;
-    }
+      function updateSliderValue(value) {
+        document.getElementById("slider-value").textContent = value;
+      }
 
-    function toggleStates(hideState, showState) {
-        document.getElementById(hideState).classList.add('hidden');
-        document.getElementById(showState).classList.remove('hidden');
-    }
+      function toggleStates(hideState, showState) {
+        document.getElementById(hideState).classList.add("hidden");
+        document.getElementById(showState).classList.remove("hidden");
+      }
 
-    // Cancel Popup Functions
-    function showCancelPopup() {
-        document.getElementById('cancel-popup').style.visibility = 'visible';
-    }
+      // Cancel Popup Functions
+      function showCancelPopup() {
+        document.getElementById("cancel-popup").style.visibility = "visible";
+      }
 
-    function hideCancelPopup() {
-        document.getElementById('cancel-popup').style.visibility = 'hidden';
-    }
+      function hideCancelPopup() {
+        document.getElementById("cancel-popup").style.visibility = "hidden";
+      }
 
-    function cancelCreation() {
+      function cancelCreation() {
         alert("Application creation cancelled.");
         window.location.href = "home.html";
-    }
+      }
 
-    function moveToStep1() {
+      function moveToStep1() {
         updateProgressBar(25); // Adjust progress bar if needed
-        toggleStates('step-3', 'step-1'); // Go back to the first step with text and slider
-    }
+        toggleStates("step-3", "step-1"); // Go back to the first step with text and slider
+      }
 
+      // Character Count Functionality with Color Change
+      const textInput = document.getElementById("text-input");
+      const charCountDisplay = document.getElementById("char-count");
+      const maxLength = textInput.maxLength;
 
-    // Character Count Functionality with Color Change
-    const textInput = document.getElementById("text-input");
-    const charCountDisplay = document.getElementById("char-count");
-    const maxLength = textInput.maxLength;
-
-    textInput.addEventListener("input", () => {
+      textInput.addEventListener("input", () => {
         const remaining = maxLength - textInput.value.length;
         charCountDisplay.textContent = `${remaining} characters left`;
 
         // Change color when close to the limit
         if (remaining <= 10) {
-            charCountDisplay.classList.add("warning");
+          charCountDisplay.classList.add("warning");
         } else {
-            charCountDisplay.classList.remove("warning");
+          charCountDisplay.classList.remove("warning");
         }
-    });
+      });
 
-    async function submitTriageData(triageData) {
+      async function submitTriageData(triageData) {
         try {
-            const response = await fetch('http://localhost:3000/processOrder', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(triageData)
-            });
+          const response = await fetch("http://localhost:3000/processOrder", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(triageData),
+          });
 
-            const result = await response.json();
-            if (result.status === 'resolved') {
-                alert("Order resolved and saved successfully!");
-            } else if (result.status === 'error') {
-                alert("Error detected: " + result.message);
-                // Redirect user back to review data
-                toggleStates('step-3', 'step-2'); // Or whichever steps are applicable
-            }
+          const result = await response.json();
+          if (result.status === "resolved") {
+            alert("Order resolved and saved successfully!");
+          } else if (result.status === "error") {
+            alert("Error detected: " + result.message);
+            // Redirect user back to review data
+            toggleStates("step-3", "step-2"); // Or whichever steps are applicable
+          }
         } catch (error) {
-            console.error("Error submitting triage data:", error);
+          console.error("Error submitting triage data:", error);
         }
-    }
+      }
 
-    function processAndSubmit() {
+      function processAndSubmit() {
         const triageData = {
-            name: document.getElementById('name-input').value, // Get the name
-            symptoms: document.getElementById('text-input').value,
-            severity: document.getElementById('severity-slider').value,
-            hasAllergies: document.getElementById('allergy-check').checked,
-            timestamp: new Date().toISOString() // Capture current timestamp
+          name: document.getElementById("name-input").value, // Get the name
+          symptoms: document.getElementById("text-input").value,
+          severity: document.getElementById("severity-slider").value,
+          hasAllergies: document.getElementById("allergy-check").checked,
+          timestamp: new Date().toISOString(), // Capture current timestamp
         };
 
         submitTriageData(triageData);
         window.location.href = "home.html";
-    }
-</script>
-
-</body>
+      }
+    </script>
+  </body>
 </html>

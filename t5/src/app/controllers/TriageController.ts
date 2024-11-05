@@ -65,7 +65,7 @@ export default class TriageController {
         await writeToJsonFile(TriageApplicationFile, existingData);
       } else {
         await writeToJsonFile(TriageApplicationFile, {
-          triage_applications: [triageApplicationData],
+          triage_applications: triageApplicationData,
         });
       }
       return {
@@ -288,6 +288,7 @@ export default class TriageController {
       if (!triageApplications) {
         return { message: "No Triage Applications in database", status: 404 };
       }
+
       const symptoms = triageApplications.symptoms;
       return {
         message: "Symptoms found",
@@ -318,7 +319,7 @@ export default class TriageController {
           (TA: TRIAGE_APPLICATION) => TA.tid !== tid,
         );
       await writeToJsonFile(TriageApplicationFile, {
-        triage_applications: [newTriageApplications],
+        triage_applications: newTriageApplications,
       });
       return {
         message: "Triage Application deleted",
