@@ -1,3 +1,3 @@
 export interface TreatmentStrategy {
-  determineAction(): string;
+  Strat(): string;
 }

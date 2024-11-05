@@ -24,7 +24,7 @@ export async function GET() {
     : null;
 
   return NextResponse.json({
-    treatment: randomStrategy.strategy.determineAction(),
+    treatment: randomStrategy.strategy.Strat(),
     office: selectedOffice || { name: 'No matching office available', type: randomStrategy.type }
   });
 }

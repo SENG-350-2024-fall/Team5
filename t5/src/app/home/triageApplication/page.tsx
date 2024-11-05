@@ -2,10 +2,11 @@
 import { Button } from "flowbite-react";
 import React, { useState } from "react";
 import { OFFICE } from '../../../interfaces/office';
-import { getTreatmentAndOffice } from '../../controllers/getHelpController'; // Import the controller
+import { getTreatmentAndOffice } from '../../controllers/getHelpController';
+import { TRIAGE_APPLICATION } from "@/interfaces/triageApplication";
 import { mockTriageApplication } from "../../../mockedData/TriageApplication";
 
-
+/*
 export default function Page() {
   const [selectedOffice, setSelectedOffice] = useState<OFFICE | null>(null);
   const [treatment, setTreatment] = useState<string | null>(null);
@@ -42,13 +43,13 @@ export default function Page() {
     </div>
   );
 }
+*/
 
-/*
 export default function Page() {
   const [selectedOffice, setSelectedOffice] = useState<OFFICE | null>(null);
   const [treatment, setTreatment] = useState<string | null>(null);
 
-  // Fetch treatment and office based on mock data
+  
   const fetchTreatmentAndOffice = () => {
     const { treatment, office } = getTreatmentAndOffice(mockTriageApplication); // Pass mock data
     setTreatment(treatment);
@@ -81,4 +82,4 @@ export default function Page() {
     </div>
   );
 }
-  */
+  
