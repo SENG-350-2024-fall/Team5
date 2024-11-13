@@ -1,46 +1,16 @@
 import * as fs from "fs";
-import { loadJsonIntoObject } from "./interactWithJSONFile";
-
-// Patient Interface
-export interface Patient {
-  pid: number;
-  first_name: string;
-  last_name: string;
-  DOB: string;
-  password: string;
-  PHN: string;
-  address: string;
-}
-
-// Triage Application Interface
-export interface TriageApplication {
-  tid: number;
-  pid: number;
-  time_created: string;
-  status: "READY" | "PENDING" | string;
-  patient_history: string;
-  patient_medication: string;
-  symptoms: Symptom[];
-}
-
-// Symptom Interface
-export interface Symptom {
-  sid: number;
-  name: string;
-  pain_scale: number;
-  other_info: string;
-  time_started: string;
-  body_location: string;
-}
+import { loadJsonIntoObject } from "../../helpers/interactWithJSONFile";
+import { TRIAGE_APPLICATION, SYMPTOM } from "../../interfaces/triageApplication";
+import { PATIENT } from "../../interfaces/patient";
 
 // Triage Data Interface
 export interface TriageData {
-  triage_applications: TriageApplication[];
+  triage_applications: TRIAGE_APPLICATION[];
 }
 
 // Patient Data Interface
 export interface PatientData {
-  patients: Patient[];
+  patients: PATIENT[];
 }
 
 // Observer Interface
@@ -104,7 +74,7 @@ export class NotificationDisplay implements Observer {
   private lastStatus: string | null = null; // Add this to track the last notified status
 
   // Holds necessary patient info to be an observer
-  constructor(triageNotification: Observable, patient: Patient) {
+  constructor(triageNotification: Observable, patient: PATIENT) {
     this.observable = triageNotification;
     this.observerID = patient.pid;
     this.firstName = patient.first_name;
