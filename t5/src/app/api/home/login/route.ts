@@ -4,17 +4,12 @@ import path from 'path';
 import { NextResponse } from 'next/server';
 import {LOGIN} from '../../../../mockedData/loginData'
 
-interface User {
-  username: string;
-  password: string;
-}
-
 const usersFilePath = "src/mockedData/Login.json"
 
 
 export async function POST(req: Request) {
   try {
-    const { username, password }: User = await req.json();
+    const { username, password }: LOGIN = await req.json();
 
     // Read the users JSON file asynchronously
     const data = await fs.promises.readFile(usersFilePath, 'utf8');

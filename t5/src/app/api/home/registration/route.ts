@@ -2,34 +2,22 @@
 import fs from 'fs';
 import path from 'path';
 import { NextResponse } from 'next/server';
+import {PATIENT} from '../../../../interfaces/patient';
 
-interface Patient {
-  pid: number;
-  first_name: string;
-  last_name: string;
-  DOB: string; // Use string for date input, you can convert it later as needed
-  password: string;
-  PHN: string;
-  address: string | null;
-}
 
-interface User {
-  username: string;
-  password: string;
-}
 
 const patientsFilePath = "src/mockedData/Patients.json";
 const loginFilePath = "src/mockedData/Login.json"
 
 // Utility function to generate a new PID
-const generatePID = (existingPatients: Patient[]) => {
+const generatePID = (existingPatients: PATIENT[]) => {
   const maxPid = existingPatients.reduce((max, patient) => Math.max(max, patient.pid), 0);
   return maxPid + 1; // Increment the max PID by 1
 };
 
 export async function POST(req: Request) {
   try {
-    const newPatient: Patient = await req.json();
+    const newPatient: PATIENT = await req.json();
     const { PHN, password } = newPatient;
 
     // Read the existing patients data
