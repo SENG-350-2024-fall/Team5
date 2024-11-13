@@ -19,7 +19,7 @@ export const mockTriageApplication: TRIAGE_APPLICATION = {
     {
       sid: 2,
       name: "Chest Pain",
-      pain_scale: 8,
+      pain_scale: 5,
       other_info: "Sharp pain, especially when breathing",
       time_started: new Date('2024-11-01T09:45:00Z'),
       body_location: "CHEST"
