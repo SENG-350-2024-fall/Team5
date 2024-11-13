@@ -1,5 +1,5 @@
 export interface TRIAGE_APPLICATION {
-  tid?: number;
+  tid: number;
   pid: number;
   time_created: Date;
   status: "PENDING" | "IN_PROGRESS" | "COMPLETED";

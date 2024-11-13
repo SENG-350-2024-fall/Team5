@@ -1,5 +1,5 @@
 export interface PATIENT {
-  pid: Number;
+  pid: number;
   first_name: String;
   last_name: String;
   DOB: Date;
