@@ -1,20 +1,17 @@
 import { offices } from '../../mockedData/offices';
-import { EDVisitStrategy, GPVisitStrategy, HomeCareStrategy, HotlineStrategy } from '../../mockedData/treatmentStrategies';
 import { OFFICE } from '../../interfaces/office';
 import { TRIAGE_APPLICATION } from '../../interfaces/triageApplication';
-import { strategies } from '../../constants/strategies';
+import { strategies } from '../../constants/painLevels';
 
 
 export function getTreatmentAndOffice(triageApplication: TRIAGE_APPLICATION): { treatment: string; office: OFFICE } {
-  
-  
   // Calculate the highest pain level reported in symptoms
   const maxPainLevel = triageApplication.symptoms
     ? Math.max(
         ...triageApplication.symptoms.map((symptom) => symptom.pain_scale),
       )
     : 0;
-
+    
   // Select the first strategy where `maxPainLevel` is greater than or equal to `minPainLevel`
   const selectedStrategy = strategies.find(strategy => maxPainLevel >= strategy.minPainLevel) || strategies[strategies.length - 1];
 

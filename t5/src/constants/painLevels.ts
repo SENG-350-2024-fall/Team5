@@ -1,4 +1,4 @@
-import { EDVisitStrategy, GPVisitStrategy, HomeCareStrategy, HotlineStrategy } from '../mockedData/treatmentStrategies';
+import { EDVisitStrategy, GPVisitStrategy, HomeCareStrategy, HotlineStrategy } from './treatmentStrategies';
 
 export const strategies = [
   { minPainLevel: 8, strategy: new EDVisitStrategy() },  // Severe pain
