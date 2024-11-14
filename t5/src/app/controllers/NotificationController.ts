@@ -1,6 +1,9 @@
 import * as fs from "fs";
 import { loadJsonIntoObject } from "../../helpers/interactWithJSONFile";
-import { TRIAGE_APPLICATION, SYMPTOM } from "../../interfaces/triageApplication";
+import {
+  TRIAGE_APPLICATION,
+  SYMPTOM,
+} from "../../interfaces/triageApplication";
 import { PATIENT } from "../../interfaces/patient";
 
 // Constants for paths

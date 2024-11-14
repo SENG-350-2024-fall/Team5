@@ -1,23 +1,29 @@
 "use client";
 
-import { TID, TRIAGEAPPLICATIONSTATUS } from "../../constants/globals";
+import { TRIAGEAPPLICATIONSTATUS } from "../../constants/globals";
 import {
   TRIAGE_APPLICATION,
   SYMPTOM,
 } from "../../interfaces/triageApplication";
-import {
-  writeToJsonFile,
-  loadJsonIntoObject,
-} from "../../helpers/interactWithJSONFile";
+
+import { fetchData, postData } from "../../helpers/utilities";
 
 const TriageApplicationFile = "triageApplication.json";
 
 export default class TriageController {
+  private static async generateTID(
+    existingTriageApplications: TRIAGE_APPLICATION[],
+  ) {
+    const maxTid = existingTriageApplications.reduce(
+      (max, triageApplication) => Math.max(max, triageApplication.tid),
+      0,
+    );
+    return maxTid + 1; // Increment the max TID by 1
+  }
+
   public static async getTriageApplicationById(tid: number) {
     try {
-      const triageApplications = await loadJsonIntoObject(
-        TriageApplicationFile,
-      );
+      const triageApplications = await fetchData(TriageApplicationFile);
       let triageApplication;
       if (!triageApplications) {
         return { message: "No Triage Applications in database", status: 404 };
@@ -50,6 +56,8 @@ export default class TriageController {
   ) {
     const status = TRIAGEAPPLICATIONSTATUS;
     try {
+      let existingData = await fetchData(TriageApplicationFile);
+      const TID = await this.generateTID(existingData.triage_applications);
       const triageApplicationData: TRIAGE_APPLICATION = {
         tid: TID,
         pid: pid,
@@ -59,12 +67,11 @@ export default class TriageController {
         patient_medication: patient_medication,
         symptoms: [],
       };
-      let existingData = await loadJsonIntoObject(TriageApplicationFile);
       if (existingData) {
         existingData.triage_applications.push(triageApplicationData);
-        await writeToJsonFile(TriageApplicationFile, existingData);
+        await postData(TriageApplicationFile, existingData);
       } else {
-        await writeToJsonFile(TriageApplicationFile, {
+        await postData(TriageApplicationFile, {
           triage_applications: triageApplicationData,
         });
       }
@@ -105,7 +112,7 @@ export default class TriageController {
       | "OTHER",
   ) {
     try {
-      let triageApplications = await loadJsonIntoObject(TriageApplicationFile);
+      let triageApplications = await fetchData(TriageApplicationFile);
       let symptom;
       for (let TA of triageApplications.triage_applications) {
         if (TA.symptoms) {
@@ -129,7 +136,7 @@ export default class TriageController {
       if (!symptom) {
         return { message: "Symptom not found", status: 404 };
       }
-      await writeToJsonFile(TriageApplicationFile, triageApplications);
+      await postData(TriageApplicationFile, triageApplications);
       return {
         message: "Symptom updated",
         status: 200,
@@ -150,7 +157,7 @@ export default class TriageController {
         ? symptom.time_started
         : new Date();
       const symptomData = { ...symptom, time_started: time_started };
-      let triageApplications = await loadJsonIntoObject(TriageApplicationFile);
+      let triageApplications = await fetchData(TriageApplicationFile);
       let triageApplication;
       for (let TA of triageApplications.triage_applications) {
         if (TA.tid === tid) {
@@ -165,7 +172,7 @@ export default class TriageController {
       if (!triageApplication) {
         return { message: "Triage Application not found", status: 404 };
       }
-      await writeToJsonFile(TriageApplicationFile, triageApplications);
+      await postData(TriageApplicationFile, triageApplications);
       return {
         message: "Symptom added to Triage Application",
         status: 200,
@@ -189,7 +196,7 @@ export default class TriageController {
       return { message: "Invalid status", status: 400 };
     }
     try {
-      let triageApplications = await loadJsonIntoObject(TriageApplicationFile);
+      let triageApplications = await fetchData(TriageApplicationFile);
       let triageApplication;
       for (let TA of triageApplications.triage_applications) {
         if (TA.tid === tid) {
@@ -201,7 +208,7 @@ export default class TriageController {
       if (!triageApplication) {
         return { message: "Triage Application not found", status: 404 };
       }
-      await writeToJsonFile(TriageApplicationFile, triageApplications);
+      await postData(TriageApplicationFile, triageApplications);
       return {
         message: "Triage Application status updated",
         status: 200,
@@ -215,7 +222,7 @@ export default class TriageController {
 
   public static async getSymptomById(sid: number) {
     try {
-      let triageApplications = await loadJsonIntoObject(TriageApplicationFile);
+      let triageApplications = await fetchData(TriageApplicationFile);
       let symptom;
       for (let TA of triageApplications.triage_applications) {
         if (TA.symptoms) {
@@ -246,7 +253,7 @@ export default class TriageController {
 
   public static async deleteSymptom(sid: number) {
     try {
-      let triageApplications = await loadJsonIntoObject(TriageApplicationFile);
+      let triageApplications = await fetchData(TriageApplicationFile);
       let symptom;
       for (let TA of triageApplications.triage_applications) {
         if (TA.symptoms) {
@@ -268,7 +275,7 @@ export default class TriageController {
       if (!symptom) {
         return { message: "Symptom not found", status: 404 };
       }
-      await writeToJsonFile(TriageApplicationFile, triageApplications);
+      await postData(TriageApplicationFile, triageApplications);
       return {
         message: "Symptom deleted",
         status: 200,
@@ -303,7 +310,7 @@ export default class TriageController {
 
   public static async deleteTriageApplication(tid: number) {
     try {
-      let triageApplications = await loadJsonIntoObject(TriageApplicationFile);
+      let triageApplications = await fetchData(TriageApplicationFile);
       let triageApplication;
       for (let TA of triageApplications.triage_applications) {
         if (TA.tid === tid) {
@@ -318,7 +325,7 @@ export default class TriageController {
         triageApplications.triage_applications.filter(
           (TA: TRIAGE_APPLICATION) => TA.tid !== tid,
         );
-      await writeToJsonFile(TriageApplicationFile, {
+      await postData(TriageApplicationFile, {
         triage_applications: newTriageApplications,
       });
       return {

@@ -1,67 +1,65 @@
-{
-  "patients": [
-    {
-      "pid": 1,
-      "first_name": "John",
-      "last_name": "Doe",
-      "DOB": "September 17, 2002",
-      "password": "password",
-      "PHN": "1234567890",
-      "address": "1234 Elm Street"
-    },
-    {
-      "pid": 2,
-      "first_name": "Doe",
-      "last_name": "John",
-      "DOB": "January 13, 1982",
-      "password": "password",
-      "PHN": "0987654321",
-      "address": "1234 Markham Road"
-    },
-    {
-      "first_name": "Nolan",
-      "last_name": "Curtis",
-      "DOB": "1998-09-30",
-      "password": "123",
-      "PHN": "12345678",
-      "address": "home",
-      "pid": 3
-    },
-    {
-      "first_name": "hi",
-      "last_name": "hi",
-      "DOB": "0001-01-01",
-      "password": "123",
-      "PHN": "123",
-      "address": "123",
-      "pid": 4
-    },
-    {
-      "first_name": "test",
-      "last_name": "test",
-      "DOB": "0001-01-01",
-      "password": "123",
-      "PHN": "number",
-      "address": "home",
-      "pid": 5
-    },
-    {
-      "first_name": "test2",
-      "last_name": "test2",
-      "DOB": "2003-09-20",
-      "password": "123",
-      "PHN": "test2",
-      "address": "test2",
-      "pid": 6
-    },
-    {
-      "first_name": "curtis",
-      "last_name": "curtis",
-      "DOB": "0001-01-01",
-      "password": "123",
-      "PHN": "123888",
-      "address": "123",
-      "pid": 7
-    }
-  ]
-}
+[
+  {
+    "pid": 1,
+    "first_name": "John",
+    "last_name": "Doe",
+    "DOB": "September 17, 2002",
+    "password": "password",
+    "PHN": "1234567890",
+    "address": "1234 Elm Street"
+  },
+  {
+    "pid": 2,
+    "first_name": "Doe",
+    "last_name": "John",
+    "DOB": "January 13, 1982",
+    "password": "password",
+    "PHN": "0987654321",
+    "address": "1234 Markham Road"
+  },
+  {
+    "first_name": "Nolan",
+    "last_name": "Curtis",
+    "DOB": "1998-09-30",
+    "password": "123",
+    "PHN": "12345678",
+    "address": "home",
+    "pid": 3
+  },
+  {
+    "first_name": "hi",
+    "last_name": "hi",
+    "DOB": "0001-01-01",
+    "password": "123",
+    "PHN": "123",
+    "address": "123",
+    "pid": 4
+  },
+  {
+    "first_name": "test",
+    "last_name": "test",
+    "DOB": "0001-01-01",
+    "password": "123",
+    "PHN": "number",
+    "address": "home",
+    "pid": 5
+  },
+  {
+    "first_name": "test2",
+    "last_name": "test2",
+    "DOB": "2003-09-20",
+    "password": "123",
+    "PHN": "test2",
+    "address": "test2",
+    "pid": 6
+  },
+  {
+    "first_name": "curtis",
+    "last_name": "curtis",
+    "DOB": "0001-01-01",
+    "password": "123",
+    "PHN": "123888",
+    "address": "123",
+    "pid": 7
+  }
+]
