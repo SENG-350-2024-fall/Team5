@@ -1,31 +1,21 @@
-import {loadJsonIntoObject} from "../../helpers/interactWithJSONFile";
-   
-  import { LOGIN } from "../../mockedData/loginData"; // Adjust the path as necessary
-  
-  const LoginFile = "Login.json";
-  
-  export default class LoginController {
-    // Loads all user login data from the JSON file
-    private async loadUserLogins(): Promise<LOGIN[]> {
-      const data = await loadJsonIntoObject(LoginFile);
-      if (data === null) {
-        throw new Error("Failed to load login data");
-      }
-      return data as LOGIN[];
-    }
-  
-    // Finds a specific user by their username
-    public async findUserByUsername(username: string): Promise<LOGIN | null> {
-      const users = await this.loadUserLogins();
-      console.log("find user");
-      return users.find((user) => user.username === username) || null;
-    }
-  
-    // Validates user credentials by checking username and password
-    public async validateUser(username: string, password: string): Promise<boolean> {
-      const user = await this.findUserByUsername(username);
-      console.log("validate user");
-      return user !== null && user.password === password;
-    }
+import { LOGIN } from "../../mockedData/loginData"; // Adjust the path as necessary
+import { fetchData } from "../../helpers/utilities";
+
+const filePath = "src/mockedData/Login.json";
+export default class LoginController {
+  // Finds a specific user by their username
+  private async findUserByUsername(username: String): Promise<LOGIN | null> {
+    const userData = await fetchData(filePath);
+    const users = userData.userLogins;
+    return users.find((user: LOGIN) => user.username === username) || null;
   }
-  
+
+  // Validates user credentials by checking username and password
+  public async validateUser(
+    username: String,
+    password: String,
+  ): Promise<boolean> {
+    const user = await this.findUserByUsername(username);
+    return user !== null && user.password === password;
+  }
+}

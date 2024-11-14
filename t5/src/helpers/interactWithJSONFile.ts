@@ -1,5 +1,4 @@
-
-import * as fs from "fs";
+import fs from "fs";
 
 interface Data {
   [key: string]: any;
@@ -23,7 +22,6 @@ export const writeToJsonFile = async (filePath: string, data: Data) => {
     };
     writeToJsonFile("data.json", data);
 */
-
 
 export const loadJsonIntoObject = async (filePath: string) => {
   try {

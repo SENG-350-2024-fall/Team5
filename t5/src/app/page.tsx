@@ -1,64 +1,77 @@
-
 "use client";
 import { Button, Label, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import LoginController from "./controllers/LoginController";
+import RegistrationController from "./controllers/RegistrationController";
 
-export interface PATIENT {
-  pid: number;
-  first_name: string;
-  last_name: string;
-  DOB: Date;
-  password: string;
-  PHN: string;
-  address: string | null;
-}
+const loginController = new LoginController();
+const registrationController = new RegistrationController();
 
 export default function Page() {
   const [isRegistering, setIsRegistering] = useState(false);
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  
+
   // New state variables for registration
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [dob, setDob] = useState<string>(""); // Use string for input
   const [phn, setPhn] = useState<string>("");
   const [address, setAddress] = useState<string | null>(null);
-  
+
   const router = useRouter();
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const endpoint = isRegistering ? '/api/home/registration' : '/api/home/login';
-    
-    // Create the body based on whether registering or logging in
-    const body = isRegistering
-      ? { first_name: firstName, last_name: lastName, DOB: dob, password, PHN: phn, address }
-      : { username, password };
-    
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
-    
-    const data = await response.json();
+    //const endpoint = isRegistering ? '/api/home/registration' : '/api/home/login';
+    const endpoint = "/api";
 
-    if (response.ok) {
-      console.log("Redirecting...");
-      router.push("/home");
+    // Create the body based on whether registering or logging in
+    // const body = isRegistering
+    //   ? { first_name: firstName, last_name: lastName, DOB: new Date(dob), password, PHN: phn, address }
+    //   : { username, password };
+
+    // const response = await fetch(endpoint, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(body),
+    // });
+
+    // const data = await response.json();
+    if (!isRegistering) {
+      const response = await loginController.validateUser(username, password);
+      if (response) {
+        console.log("Redirecting...");
+        router.push("/home");
+      } else {
+        alert("Invalid username or password");
+        setPassword("");
+        setUsername("");
+      }
     } else {
-      alert(data.message);
-      setPassword("");
-      setUsername("");
-      setFirstName("");
-      setLastName("");
-      setDob("");
-      setPhn("");
-      setAddress(null);
+      const response = await registrationController.registerUser(
+        firstName,
+        lastName,
+        new Date(dob),
+        password,
+        phn,
+        address,
+      );
+      if (response.status) {
+        console.log("Redirecting...");
+        router.push("/home");
+      } else {
+        alert(response.message);
+        setPassword("");
+        setFirstName("");
+        setLastName("");
+        setDob("");
+        setPhn("");
+        setAddress(null);
+      }
     }
   };
 
@@ -67,7 +80,10 @@ export default function Page() {
       <h2 className="text-2xl font-semibold mb-4">
         {isRegistering ? "Register" : "Login"}
       </h2>
-      <form className="flex flex-col gap-4 w-full max-w-sm" onSubmit={handleFormSubmit}>
+      <form
+        className="flex flex-col gap-4 w-full max-w-sm"
+        onSubmit={handleFormSubmit}
+      >
         {isRegistering && (
           <>
             <div>
@@ -122,17 +138,19 @@ export default function Page() {
             </div>
           </>
         )}
-        <div>
-          <Label htmlFor="username" value="Username" />
-          <TextInput
-            id="username"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            maxLength={10}
-            placeholder="Your username"
-            required={!isRegistering}
-          />
-        </div>
+        {!isRegistering && (
+          <div>
+            <Label htmlFor="username" value="Username" />
+            <TextInput
+              id="username"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              maxLength={10}
+              placeholder="Your username"
+              required={!isRegistering}
+            />
+          </div>
+        )}
         <div>
           <Label htmlFor="password" value="Password" />
           <TextInput

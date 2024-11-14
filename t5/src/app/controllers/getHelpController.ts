@@ -10,7 +10,9 @@ export function getTreatmentAndOffice(triageApplication: TRIAGE_APPLICATION): { 
   
   // Calculate the highest pain level reported in symptoms
   const maxPainLevel = triageApplication.symptoms
-    ? Math.max(...triageApplication.symptoms.map(symptom => symptom.pain_scale))
+    ? Math.max(
+        ...triageApplication.symptoms.map((symptom) => symptom.pain_scale),
+      )
     : 0;
 
   // Select the first strategy where `maxPainLevel` is greater than or equal to `minPainLevel`
@@ -22,10 +24,18 @@ export function getTreatmentAndOffice(triageApplication: TRIAGE_APPLICATION): { 
   // Randomly select an office from matching ones, or provide a default if none match
   const selectedOffice = matchingOffices.length
     ? matchingOffices[Math.floor(Math.random() * matchingOffices.length)]
-    : { name: 'No matching office available', type: selectedStrategy.strategy.office_type, location: '', days_open: '', hours_open: '', phone_number: '', ave_wait_time: 0 };
+    : {
+        name: "No matching office available",
+        type: selectedStrategy.strategy.office_type,
+        location: "",
+        days_open: "",
+        hours_open: "",
+        phone_number: "",
+        ave_wait_time: 0,
+      };
 
   return {
     treatment: selectedStrategy.strategy.Strat(),
-    office: selectedOffice as OFFICE
+    office: selectedOffice as OFFICE,
   };
 }

@@ -13,8 +13,9 @@ export default function Page() {
   return (
     <div>
       <h1>Home Page</h1>
-      <Button onClick={navigateToTriageApplication}>Go to Triage Applications</Button>
+      <Button onClick={navigateToTriageApplication}>
+        Go to Triage Applications
+      </Button>
     </div>
   );
-
 }
