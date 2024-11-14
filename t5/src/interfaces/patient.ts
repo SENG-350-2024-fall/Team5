@@ -1,9 +1,9 @@
 export interface PATIENT {
-  pid: Number;
-  first_name: String;
-  last_name: String;
+  pid: number;
+  first_name: string;
+  last_name: string;
   DOB: Date;
-  password: String;
-  PHN: String;
-  address: String | null;
+  password: string;
+  PHN: string;
+  address: string | null;
 }

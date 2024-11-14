@@ -3,6 +3,10 @@ import { loadJsonIntoObject } from "../../helpers/interactWithJSONFile";
 import { TRIAGE_APPLICATION, SYMPTOM } from "../../interfaces/triageApplication";
 import { PATIENT } from "../../interfaces/patient";
 
+// Constants for paths
+
+
+
 // Triage Data Interface
 export interface TriageData {
   triage_applications: TRIAGE_APPLICATION[];
@@ -75,7 +79,7 @@ export class NotificationDisplay implements Observer {
 
   // Holds necessary patient info to be an observer
   constructor(triageNotification: Observable, patient: PATIENT) {
-    this.observable = triageNotification;
+    this.observable = triageNotification;                           // TALK to aidan about Patients interace (String/Number wrappers)
     this.observerID = patient.pid;
     this.firstName = patient.first_name;
     this.lastName = patient.last_name;
@@ -98,7 +102,7 @@ export class NotificationDisplay implements Observer {
             console.log(
               `\nHello, ${this.firstName} ${this.lastName}, your triage status is ${triage.status}.`,
             );
-            if (triage.status === "READY") {
+            if (triage.status === "COMPLETED") {
               console.log(
                 "Please visit the emergency department at your convenience or dial 911.\n",
               );
@@ -108,7 +112,7 @@ export class NotificationDisplay implements Observer {
               );
             }
           }
-          break;
+          break;        // return object containing message, status, id -> talk to AIDAN
         }
       }
     } catch (error) {
