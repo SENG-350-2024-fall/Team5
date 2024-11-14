@@ -1,21 +1,8 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/main
 import { offices } from '../../mockedData/offices';
 import { OFFICE } from '../../interfaces/office';
-<<<<<<< HEAD
 import { SYMPTOM, TRIAGE_APPLICATION } from '../../interfaces/triageApplication';
 import { strategies } from '../../constants/painLevels';
-//import { getTriageApplicationById } from './TriageController';
-=======
-import { TRIAGE_APPLICATION } from '../../interfaces/triageApplication';
-import { strategies } from '../../constants/strategies';
->>>>>>> origin/main
 
-const TriageApplicationFile = "triageApplication.json";
-
-<<<<<<< HEAD
 // Helper function to calculate max pain level
 function getMaxPainLevel(symptoms: Array<SYMPTOM> | undefined): number {
   if (!symptoms || symptoms.length === 0) return 0;
@@ -29,21 +16,6 @@ function getStrategyForPainLevel(maxPainLevel: number) {
     strategies[strategies.length - 1] // Default to the last strategy if none match
   );
 }
-=======
-export function getTreatmentAndOffice(triageApplication: TRIAGE_APPLICATION): { treatment: string; office: OFFICE } {
-  // Calculate the highest pain level reported in symptoms
-  const maxPainLevel = triageApplication.symptoms
-    ? Math.max(
-        ...triageApplication.symptoms.map((symptom) => symptom.pain_scale),
-      )
-    : 0;
-
-  // Select the first strategy where `maxPainLevel` is greater than or equal to `minPainLevel`
-  const selectedStrategy = strategies.find(strategy => maxPainLevel >= strategy.minPainLevel) || strategies[strategies.length - 1];
-
-  // Filter for offices that match the selected strategy's `office_type`
-  const matchingOffices = offices.filter((office) => office.office_type === selectedStrategy.strategy.office_type);
->>>>>>> origin/main
 
 // Helper function to filter offices based on the selected strategy
 function getMatchingOffices(strategy: typeof strategies[0]) {
