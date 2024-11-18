@@ -3,7 +3,7 @@ import {
   GPVisitStrategy,
   HomeCareStrategy,
   HotlineStrategy,
-} from "../mockedData/treatmentStrategies";
+} from "./treatmentStrategies";
 
 export const strategies = [
   { minPainLevel: 8, strategy: new EDVisitStrategy() }, // Severe pain

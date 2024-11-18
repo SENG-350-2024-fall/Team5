@@ -1,10 +1,4 @@
 import { offices } from "../../mockedData/offices";
-import {
-  EDVisitStrategy,
-  GPVisitStrategy,
-  HomeCareStrategy,
-  HotlineStrategy,
-} from "../../mockedData/treatmentStrategies";
 import { OFFICE } from "../../interfaces/office";
 import { TRIAGE_APPLICATION } from "../../interfaces/triageApplication";
 import { strategies } from "../../constants/strategies";
