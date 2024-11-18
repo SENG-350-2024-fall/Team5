@@ -4,7 +4,9 @@ import { fetchData } from "../../helpers/utilities";
 const filePath = "src/mockedData/Login.json";
 export default class LoginController {
   // Finds a specific user by their username
-  private static async findUserByUsername(username: String): Promise<LOGIN | null> {
+  private static async findUserByUsername(
+    username: String,
+  ): Promise<LOGIN | null> {
     const userData = await fetchData(filePath);
     const users = userData.userLogins;
     return users.find((user: LOGIN) => user.username === username) || null;

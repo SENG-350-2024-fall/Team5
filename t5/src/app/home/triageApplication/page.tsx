@@ -12,7 +12,9 @@ export default function Page() {
 
   const fetchTreatmentAndOffice = async () => {
     const triageApplication = await TriageController.getAllTriageApplications(); // Call the controller method
-    const { treatment, office } = await getHelpController.getTreatmentAndOffice(triageApplication.data as TRIAGE_APPLICATION); // Pass mock data
+    const { treatment, office } = await getHelpController.getTreatmentAndOffice(
+      triageApplication.data as TRIAGE_APPLICATION,
+    ); // Pass mock data
     setTreatment(treatment);
     setSelectedOffice(office);
   };

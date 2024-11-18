@@ -1,8 +1,7 @@
 import { PATIENT } from "../../interfaces/patient";
 import { fetchData } from "../../helpers/utilities";
 
-
-const TriageApplicationFile =  "TriageApplication.json";
+const TriageApplicationFile = "TriageApplication.json";
 // Observer Interface
 export interface Observer {
   update(): void;
@@ -65,7 +64,7 @@ export class NotificationDisplay implements Observer {
 
   // Holds necessary patient info to be an observer
   constructor(triageNotification: Observable, patient: PATIENT) {
-    this.observable = triageNotification;                           // TALK to aidan about Patients interace (String/Number wrappers)
+    this.observable = triageNotification; // TALK to aidan about Patients interace (String/Number wrappers)
     this.observerID = patient.pid;
     this.firstName = patient.first_name;
     this.lastName = patient.last_name;
@@ -80,23 +79,29 @@ export class NotificationDisplay implements Observer {
       for (const TriageApplication of triageData.triage_applications) {
         //Check if observer id matches application pid
         if (this.observerID == TriageApplication.pid) {
-          let returnMessage = '' as String;
+          let returnMessage = "" as String;
           if (TriageApplication.status !== this.lastStatus) {
             this.lastStatus = TriageApplication.status; // Update last known status
             console.log(
               `\nHello, ${this.firstName} ${this.lastName}, your triage status is ${TriageApplication.status}.`,
             );
-            returnMessage = returnMessage.concat(`\nHello, ${this.firstName} ${this.lastName}, your triage status is ${TriageApplication.status}.`);
+            returnMessage = returnMessage.concat(
+              `\nHello, ${this.firstName} ${this.lastName}, your triage status is ${TriageApplication.status}.`,
+            );
             if (TriageApplication.status === "COMPLETED") {
               console.log(
                 "Please visit the emergency department at your convenience or dial 911.\n",
               );
-              returnMessage = returnMessage.concat(`\nPlease visit the emergency department at your convenience or dial 911.\n`);
+              returnMessage = returnMessage.concat(
+                `\nPlease visit the emergency department at your convenience or dial 911.\n`,
+              );
             } else {
               console.log(
                 "Please wait until your application has been evaluated to receive an appointment time.\n",
               );
-              returnMessage = returnMessage.concat(`\nPlease wait until your application has been evaluated to receive an appointment time.\n`);
+              returnMessage = returnMessage.concat(
+                `\nPlease wait until your application has been evaluated to receive an appointment time.\n`,
+              );
             }
           }
           return { message: returnMessage, status: 200 };

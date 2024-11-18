@@ -341,7 +341,8 @@ export default class TriageController {
       }
       const newTriageApplications: TRIAGE_APPLICATION[] =
         triageApplications.triage_applications.filter(
-          (TriageApplication: TRIAGE_APPLICATION) => TriageApplication.tid !== tid,
+          (TriageApplication: TRIAGE_APPLICATION) =>
+            TriageApplication.tid !== tid,
         );
       await postData(TriageApplicationFile, {
         triage_applications: newTriageApplications,
