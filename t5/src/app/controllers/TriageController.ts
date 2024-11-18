@@ -8,7 +8,7 @@ import {
 
 import { fetchData, postData } from "../../helpers/utilities";
 
-const TriageApplicationFile = "triageApplication.json";
+const TriageApplicationFile = "TriageApplication.json";
 
 export default class TriageController {
   private static async generateTID(
@@ -28,9 +28,9 @@ export default class TriageController {
       if (!triageApplications) {
         return { message: "No Triage Applications in database", status: 404 };
       }
-      for (const TA of triageApplications.triage_applications) {
-        if (TA.tid === tid) {
-          triageApplication = TA;
+      for (const TriageApplication of triageApplications.triage_applications) {
+        if (TriageApplication.tid === tid) {
+          triageApplication = TriageApplication;
           break;
         }
       }
@@ -47,6 +47,24 @@ export default class TriageController {
       return { message: error, status: 400 };
     }
   }
+
+  public static async getAllTriageApplications() {
+    try {
+      const triageApplications = await fetchData(TriageApplicationFile);
+      if (!triageApplications) {
+        return { message: "No Triage Applications in database", status: 404 };
+      }
+      return {
+        message: "Triage Applications found",
+        status: 200,
+        data: triageApplications.triage_applications,
+      };
+    } catch (error: any) {
+      console.log(error);
+      return { message: error, status: 400 };
+    }
+  }
+
   public static async createTriageApplication(
     TID: number,
     pid: number,
@@ -114,9 +132,9 @@ export default class TriageController {
     try {
       let triageApplications = await fetchData(TriageApplicationFile);
       let symptom;
-      for (let TA of triageApplications.triage_applications) {
-        if (TA.symptoms) {
-          for (let s of TA.symptoms) {
+      for (let TriageApplication of triageApplications.triage_applications) {
+        if (TriageApplication.symptoms) {
+          for (let s of TriageApplication.symptoms) {
             if (s.sid === sid) {
               symptom = s;
               s.sid = sid;
@@ -159,13 +177,13 @@ export default class TriageController {
       const symptomData = { ...symptom, time_started: time_started };
       let triageApplications = await fetchData(TriageApplicationFile);
       let triageApplication;
-      for (let TA of triageApplications.triage_applications) {
-        if (TA.tid === tid) {
-          if (!TA.symptoms) {
-            TA.symptoms = [];
+      for (let TriageApplication of triageApplications.triage_applications) {
+        if (TriageApplication.tid === tid) {
+          if (!TriageApplication.symptoms) {
+            TriageApplication.symptoms = [];
           }
-          TA.symptoms.push(symptomData);
-          triageApplication = TA;
+          TriageApplication.symptoms.push(symptomData);
+          triageApplication = TriageApplication;
           break;
         }
       }
@@ -198,10 +216,10 @@ export default class TriageController {
     try {
       let triageApplications = await fetchData(TriageApplicationFile);
       let triageApplication;
-      for (let TA of triageApplications.triage_applications) {
-        if (TA.tid === tid) {
-          TA.status = status;
-          triageApplication = TA;
+      for (let TriageApplication of triageApplications.triage_applications) {
+        if (TriageApplication.tid === tid) {
+          TriageApplication.status = status;
+          triageApplication = TriageApplication;
           break;
         }
       }
@@ -224,9 +242,9 @@ export default class TriageController {
     try {
       let triageApplications = await fetchData(TriageApplicationFile);
       let symptom;
-      for (let TA of triageApplications.triage_applications) {
-        if (TA.symptoms) {
-          for (let s of TA.symptoms) {
+      for (let TriageApplication of triageApplications.triage_applications) {
+        if (TriageApplication.symptoms) {
+          for (let s of TriageApplication.symptoms) {
             if (s.sid === sid) {
               symptom = s;
               break;
@@ -255,18 +273,18 @@ export default class TriageController {
     try {
       let triageApplications = await fetchData(TriageApplicationFile);
       let symptom;
-      for (let TA of triageApplications.triage_applications) {
-        if (TA.symptoms) {
-          for (let s of TA.symptoms) {
+      for (let TriageApplication of triageApplications.triage_applications) {
+        if (TriageApplication.symptoms) {
+          for (let s of TriageApplication.symptoms) {
             if (s.sid === sid) {
               symptom = s;
               break;
             }
           }
-          const newSymptoms: SYMPTOM[] = TA.symptoms.filter(
+          const newSymptoms: SYMPTOM[] = TriageApplication.symptoms.filter(
             (s: SYMPTOM) => s.sid !== sid,
           );
-          TA.symptoms = newSymptoms;
+          TriageApplication.symptoms = newSymptoms;
           if (symptom) {
             break;
           }
@@ -312,9 +330,9 @@ export default class TriageController {
     try {
       let triageApplications = await fetchData(TriageApplicationFile);
       let triageApplication;
-      for (let TA of triageApplications.triage_applications) {
-        if (TA.tid === tid) {
-          triageApplication = TA;
+      for (let TriageApplication of triageApplications.triage_applications) {
+        if (TriageApplication.tid === tid) {
+          triageApplication = TriageApplication;
           break;
         }
       }
@@ -323,7 +341,7 @@ export default class TriageController {
       }
       const newTriageApplications: TRIAGE_APPLICATION[] =
         triageApplications.triage_applications.filter(
-          (TA: TRIAGE_APPLICATION) => TA.tid !== tid,
+          (TriageApplication: TRIAGE_APPLICATION) => TriageApplication.tid !== tid,
         );
       await postData(TriageApplicationFile, {
         triage_applications: newTriageApplications,

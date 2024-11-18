@@ -7,7 +7,7 @@ const patientsFilePath = "src/mockedData/Patients.json";
 const loginFilePath = "src/mockedData/Login.json";
 
 export default class RegistrationController {
-  private generatePID(existingPatients: PATIENT[]) {
+  private static generatePID(existingPatients: PATIENT[]) {
     const maxPid = existingPatients.reduce(
       (max, patient) => Math.max(max, patient.pid),
       0,
@@ -15,10 +15,10 @@ export default class RegistrationController {
     return maxPid + 1; // Increment the max PID by 1
   }
 
-  private async registerPatient(newPatient: PATIENT) {
+  private static async registerPatient(newPatient: PATIENT) {
     const patientsData = await fetchData(patientsFilePath);
     const patients = patientsData.patients || [];
-    console.log("patients: ", patients);
+    // console.log("patients: ", patients);
     const existingPatient: PATIENT | undefined = patients.find(
       (patient: PATIENT) => patient.PHN === newPatient.PHN,
     );
@@ -33,10 +33,10 @@ export default class RegistrationController {
     return patients;
   }
 
-  private async registerLogin(PHN: String, password: String) {
+  private static async registerLogin(PHN: String, password: String) {
     const loginData = await fetchData(loginFilePath);
     const userLogins = loginData.userLogins || [];
-    console.log("registerLogin: ", userLogins);
+    // console.log("registerLogin: ", userLogins);
 
     // Check if the username already exists in login
     const existingLogin: LOGIN | undefined = userLogins.find(
@@ -51,13 +51,13 @@ export default class RegistrationController {
     return userLogins;
   }
 
-  public async registerUser(
-    first_name: String,
-    last_name: String,
+  public static async registerUser(
+    first_name: string,
+    last_name: string,
     DOB: Date,
-    password: String,
-    PHN: String,
-    address: String | null,
+    password: string,
+    PHN: string,
+    address: string | null,
   ) {
     try {
       //creating newPatient object
@@ -86,7 +86,7 @@ export default class RegistrationController {
       await postData(loginFilePath, userLogins);
       return { message: "Registration successful", status: true };
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return { message: "Failed registering user", status: false };
     }
   }

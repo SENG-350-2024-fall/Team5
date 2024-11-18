@@ -5,9 +5,6 @@ import { useRouter } from "next/navigation";
 import LoginController from "./controllers/LoginController";
 import RegistrationController from "./controllers/RegistrationController";
 
-const loginController = new LoginController();
-const registrationController = new RegistrationController();
-
 export default function Page() {
   const [isRegistering, setIsRegistering] = useState(false);
   const [username, setUsername] = useState<string>("");
@@ -42,7 +39,7 @@ export default function Page() {
 
     // const data = await response.json();
     if (!isRegistering) {
-      const response = await loginController.validateUser(username, password);
+      const response = await LoginController.validateUser(username, password);
       if (response) {
         console.log("Redirecting...");
         router.push("/home");
@@ -52,7 +49,7 @@ export default function Page() {
         setUsername("");
       }
     } else {
-      const response = await registrationController.registerUser(
+      const response = await RegistrationController.registerUser(
         firstName,
         lastName,
         new Date(dob),

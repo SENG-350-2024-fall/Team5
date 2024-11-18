@@ -1,25 +1,8 @@
-import * as fs from "fs";
-import { loadJsonIntoObject } from "../../helpers/interactWithJSONFile";
-import {
-  TRIAGE_APPLICATION,
-  SYMPTOM,
-} from "../../interfaces/triageApplication";
 import { PATIENT } from "../../interfaces/patient";
-
-// Constants for paths
-
+import { fetchData } from "../../helpers/utilities";
 
 
-// Triage Data Interface
-export interface TriageData {
-  triage_applications: TRIAGE_APPLICATION[];
-}
-
-// Patient Data Interface
-export interface PatientData {
-  patients: PATIENT[];
-}
-
+const TriageApplicationFile =  "TriageApplication.json";
 // Observer Interface
 export interface Observer {
   update(): void;
@@ -92,30 +75,31 @@ export class NotificationDisplay implements Observer {
   public async update() {
     // Logic to notify patient that their appointment is READY/PENDING
     try {
-      const triageData: TriageData = await loadJsonIntoObject(
-        "./TriageApplications.json",
-      );
+      const triageData = await fetchData(TriageApplicationFile);
       // Iterate through each triage application in application DB
-      for (let j = 0; j < triageData.triage_applications.length; j++) {
-        const triage = triageData.triage_applications[j];
+      for (const TriageApplication of triageData.triage_applications) {
         //Check if observer id matches application pid
-        if (this.observerID == triage.pid) {
-          if (triage.status !== this.lastStatus) {
-            this.lastStatus = triage.status; // Update last known status
+        if (this.observerID == TriageApplication.pid) {
+          let returnMessage = '' as String;
+          if (TriageApplication.status !== this.lastStatus) {
+            this.lastStatus = TriageApplication.status; // Update last known status
             console.log(
-              `\nHello, ${this.firstName} ${this.lastName}, your triage status is ${triage.status}.`,
+              `\nHello, ${this.firstName} ${this.lastName}, your triage status is ${TriageApplication.status}.`,
             );
-            if (triage.status === "COMPLETED") {
+            returnMessage = returnMessage.concat(`\nHello, ${this.firstName} ${this.lastName}, your triage status is ${TriageApplication.status}.`);
+            if (TriageApplication.status === "COMPLETED") {
               console.log(
                 "Please visit the emergency department at your convenience or dial 911.\n",
               );
+              returnMessage = returnMessage.concat(`\nPlease visit the emergency department at your convenience or dial 911.\n`);
             } else {
               console.log(
                 "Please wait until your application has been evaluated to receive an appointment time.\n",
               );
+              returnMessage = returnMessage.concat(`\nPlease wait until your application has been evaluated to receive an appointment time.\n`);
             }
           }
-          break;        // return object containing message, status, id -> talk to AIDAN
+          return { message: returnMessage, status: 200 };
         }
       }
     } catch (error) {

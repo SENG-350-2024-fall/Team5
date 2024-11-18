@@ -2,18 +2,17 @@
 import { Button } from "flowbite-react";
 import React, { useState } from "react";
 import { OFFICE } from "../../../interfaces/office";
-import { getTreatmentAndOffice } from "../../controllers/getHelpController";
+import getHelpController from "../../controllers/getHelpController";
 import { TRIAGE_APPLICATION } from "@/interfaces/triageApplication";
-import { mockTriageApplication } from "../../../mockedData/TriageApplication";
-
-
+import TriageController from "@/app/controllers/TriageController";
 
 export default function Page() {
   const [selectedOffice, setSelectedOffice] = useState<OFFICE | null>(null);
   const [treatment, setTreatment] = useState<string | null>(null);
 
-  const fetchTreatmentAndOffice = () => {
-    const { treatment, office } = getTreatmentAndOffice(mockTriageApplication); // Pass mock data
+  const fetchTreatmentAndOffice = async () => {
+    const triageApplication = await TriageController.getAllTriageApplications(); // Call the controller method
+    const { treatment, office } = await getHelpController.getTreatmentAndOffice(triageApplication.data as TRIAGE_APPLICATION); // Pass mock data
     setTreatment(treatment);
     setSelectedOffice(office);
   };
