@@ -11,7 +11,7 @@ export default function Page() {
   const router = useRouter();
   const [selectedOffice, setSelectedOffice] = useState<OFFICE | null>(null);
   const [treatment, setTreatment] = useState<string | null>(null);
-  
+
   const navigateToTriageApplication = () => {
     router.push("/home/triageApplication"); // Path to the Triage Application page
   };
@@ -24,7 +24,6 @@ export default function Page() {
     setTreatment(treatment);
     setSelectedOffice(office);
   };
-
 
   return (
     <div>
