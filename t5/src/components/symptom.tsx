@@ -104,87 +104,103 @@ const Symptom = ({ tid, callback }: SymptomProps) => {
       <h1>Symptom</h1>
       <label>
         Symptom Name:
-        <input onChange={(e) => {console.log(e.target.value); setName(e.target.value)}} />
+        <input
+          onChange={(e) => {
+            console.log(e.target.value);
+            setName(e.target.value);
+          }}
+        />
       </label>
       <div>
-      <Dropdown
-        className="absolute"
-        label={painScale?`Selected Pain: ${painScale} (0 no pain 10 unbearable pain)`:"Select Pain Scale (0 no pain 10 unbearable pain)"}
-        dismissOnClick={true}
-      >
-        {SYMPTOMPAINSCALE.map((item, index) => (
-          <Dropdown.Item
-            key={index}
-            onClick={() =>
-                setPainScale(
-                item as
-                0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10,
-              )
-            }
-          >
-            {item}
-          </Dropdown.Item>
-        ))}
-      </Dropdown>
+        <Dropdown
+          className="absolute"
+          label={
+            painScale
+              ? `Selected Pain: ${painScale} (0 no pain 10 unbearable pain)`
+              : "Select Pain Scale (0 no pain 10 unbearable pain)"
+          }
+          dismissOnClick={true}
+        >
+          {SYMPTOMPAINSCALE.map((item, index) => (
+            <Dropdown.Item
+              key={index}
+              onClick={() =>
+                setPainScale(item as 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10)
+              }
+            >
+              {item}
+            </Dropdown.Item>
+          ))}
+        </Dropdown>
       </div>
       <div>
-      <Dropdown
-        className="absolute"
-        label={bodyLocation || "Select Body Location"}
-        dismissOnClick={true}
-      >
-        {SYMPTOMBODYLOCATIONS.map((item, index) => (
-          <Dropdown.Item
-            key={index}
-            onClick={() =>
-              setBodyLocation(
-                item as
-                  | "HEAD"
-                  | "NECK"
-                  | "SHOULDER"
-                  | "ARM"
-                  | "ELBOW"
-                  | "FOREARM"
-                  | "HAND"
-                  | "FINGER"
-                  | "CHEST"
-                  | "ABDOMEN"
-                  | "HIP"
-                  | "THIGH"
-                  | "KNEE"
-                  | "LEG"
-                  | "FOOT"
-                  | "TOE"
-                  | "OTHER",
-              )
-            }
-          >
-            {item}
-          </Dropdown.Item>
-        ))}
-      </Dropdown>
+        <Dropdown
+          className="absolute"
+          label={bodyLocation || "Select Body Location"}
+          dismissOnClick={true}
+        >
+          {SYMPTOMBODYLOCATIONS.map((item, index) => (
+            <Dropdown.Item
+              key={index}
+              onClick={() =>
+                setBodyLocation(
+                  item as
+                    | "HEAD"
+                    | "NECK"
+                    | "SHOULDER"
+                    | "ARM"
+                    | "ELBOW"
+                    | "FOREARM"
+                    | "HAND"
+                    | "FINGER"
+                    | "CHEST"
+                    | "ABDOMEN"
+                    | "HIP"
+                    | "THIGH"
+                    | "KNEE"
+                    | "LEG"
+                    | "FOOT"
+                    | "TOE"
+                    | "OTHER",
+                )
+              }
+            >
+              {item}
+            </Dropdown.Item>
+          ))}
+        </Dropdown>
       </div>
       <div>
-      <label>
-        Date Started (YYYY-MM-DD):
-        <input onChange={(e) => {console.log(e.target.value); setTimeStarted(e.target.value)}} />
-      </label>
+        <label>
+          Date Started (YYYY-MM-DD):
+          <input
+            onChange={(e) => {
+              console.log(e.target.value);
+              setTimeStarted(e.target.value);
+            }}
+          />
+        </label>
       </div>
       <div>
-      <label>
-        Other Information:
-        <input onChange={(e) => {console.log(e.target.value); setOtherInfo(e.target.value)}} />
-      </label>
+        <label>
+          Other Information:
+          <input
+            onChange={(e) => {
+              console.log(e.target.value);
+              setOtherInfo(e.target.value);
+            }}
+          />
+        </label>
       </div>
       <div>
-      <button
-        disabled={disabeled}
-        onClick={() =>
-          createSymptom(name, painScale, otherInfo, bodyLocation, timeStarted)
-        }
-      >
-        Confirm Symptom
-      </button>
+        <button
+          disabled={disabeled}
+          onClick={() =>
+            createSymptom(name, painScale, otherInfo, bodyLocation, timeStarted)
+          }
+        >
+          Confirm Symptom
+        </button>
       </div>
     </div>
   );

@@ -42,7 +42,7 @@ export default function Page() {
         patientHistory,
       );
       if (response.status === 200) {
-        router.push('/home');
+        router.push("/home");
       } else {
         alert(response.message);
       }
@@ -55,30 +55,30 @@ export default function Page() {
     <div>
       <h1>Triage Application Page</h1>
       <div>
-      <label>
-        Input any medication you take:
-        <input onChange={(e) => setPatientMedication(e.target.value)} />
-      </label>
+        <label>
+          Input any medication you take:
+          <input onChange={(e) => setPatientMedication(e.target.value)} />
+        </label>
       </div>
       <div>
-      <label>
-        Input any relevant medical history:
-        <input onChange={(e) => setPatientHistory(e.target.value)} />
-      </label>
+        <label>
+          Input any relevant medical history:
+          <input onChange={(e) => setPatientHistory(e.target.value)} />
+        </label>
       </div>
       <div>
-      <Button onClick={() => null}>Add Symptom</Button>
+        <Button onClick={() => null}>Add Symptom</Button>
       </div>
       <div>
-      <Symptom
-        tid={tid ?? 4}
-        callback={(newSID) => setSids([...sids, newSID])}
-      />
+        <Symptom
+          tid={tid ?? 4}
+          callback={(newSID) => setSids([...sids, newSID])}
+        />
       </div>
       <div>
-      <Button onClick={SubmitTriageApplication}>
-        Submit Triage Application
-      </Button>
+        <Button onClick={SubmitTriageApplication}>
+          Submit Triage Application
+        </Button>
       </div>
     </div>
   );
