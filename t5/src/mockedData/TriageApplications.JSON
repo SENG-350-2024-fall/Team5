@@ -3,7 +3,7 @@
     {
       "tid": 1,
       "pid": 1,
-      "time_created": "2024-10-29",
+      "time_created": "2024-10-26",
       "status": "PENDING",
       "patient_history": "Surgey on head 2 years ago",
       "patient_medication": "I take paracetamol",
@@ -12,7 +12,7 @@
     {
       "tid": 2,
       "pid": 2,
-      "time_created": "2024-10-29",
+      "time_created": "2024-10-27",
       "status": "PENDING",
       "patient_history": "I have a stomach ache and fell off my bike",
       "patient_medication": "I took tums and advil. I also take cortisol",
