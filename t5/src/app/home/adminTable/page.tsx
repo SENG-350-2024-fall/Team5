@@ -8,6 +8,7 @@ const TriageApplicationsPage = () => {
 
   const statuses = ['PENDING', 'IN_PROGRESS', 'COMPLETED'];
 
+  // Handle status change for each application
   const handleStatusChange = async (tid: string, newStatus: string) => {
     try {
       const response = await fetch('/api/adminTable', {
@@ -32,6 +33,31 @@ const TriageApplicationsPage = () => {
       );
     } catch (error) {
       console.error('Error updating status:', error);
+    }
+  };
+
+  // Handle delete action for each application
+  const handleDelete = async (tid: string) => {
+    try {
+      const response = await fetch(`/api/deleteApp/${tid}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Error deleting application:', errorData);
+        return;
+      }
+
+      const data = await response.json();
+      console.log(data.message);
+
+      // Remove the deleted application from the state
+      setTriageApplications((prevApps) =>
+        prevApps.filter((app) => app.tid !== tid)
+      );
+    } catch (error) {
+      console.error('Error deleting application:', error);
     }
   };
 
@@ -70,6 +96,7 @@ const TriageApplicationsPage = () => {
               <th>PID</th>
               <th>Status</th>
               <th>Creation Date</th>
+              <th>Actions</th> {/* Column for delete button */}
             </tr>
           </thead>
           <tbody>
@@ -90,6 +117,9 @@ const TriageApplicationsPage = () => {
                   </select>
                 </td>
                 <td>{app.time_created}</td>
+                <td>
+                  <button onClick={() => handleDelete(app.tid)}>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>
