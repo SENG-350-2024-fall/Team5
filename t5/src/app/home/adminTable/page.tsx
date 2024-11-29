@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from 'react';
 
 const TriageApplicationsPage = () => {
@@ -6,8 +6,36 @@ const TriageApplicationsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const statuses = ['PENDING', 'IN_PROGRESS', 'COMPLETED'];
+
+  const handleStatusChange = async (tid: string, newStatus: string) => {
+    try {
+      const response = await fetch('/api/adminTable', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ tid, status: newStatus }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Error updating status:', errorData);
+        return;
+      }
+
+      const updatedApp = await response.json();
+      setTriageApplications((prevApps) =>
+        prevApps.map((app) =>
+          app.tid === updatedApp.application.tid ? updatedApp.application : app
+        )
+      );
+    } catch (error) {
+      console.error('Error updating status:', error);
+    }
+  };
+
   useEffect(() => {
-    // Fetch triage applications from the API
     const fetchTriageApplications = async () => {
       try {
         const res = await fetch('/api/adminTable');
@@ -15,7 +43,7 @@ const TriageApplicationsPage = () => {
           throw new Error('Failed to fetch triage applications');
         }
         const data = await res.json();
-        setTriageApplications(data.data); // Set the triage applications
+        setTriageApplications(data.data);
       } catch (err) {
         setError('Error fetching triage applications');
       } finally {
@@ -49,7 +77,18 @@ const TriageApplicationsPage = () => {
               <tr key={app.tid}>
                 <td>{app.tid}</td>
                 <td>{app.pid}</td>
-                <td>{app.status}</td>
+                <td>
+                  <select
+                    value={app.status}
+                    onChange={(e) => handleStatusChange(app.tid, e.target.value)}
+                  >
+                    {statuses.map((status) => (
+                      <option key={status} value={status}>
+                        {status}
+                      </option>
+                    ))}
+                  </select>
+                </td>
                 <td>{app.time_created}</td>
               </tr>
             ))}

@@ -4,7 +4,7 @@
       "tid": 1,
       "pid": 1,
       "time_created": "2024-10-26",
-      "status": "PENDING",
+      "status": "IN_PROGRESS",
       "patient_history": "Surgey on head 2 years ago",
       "patient_medication": "I take paracetamol",
       "symptoms": []

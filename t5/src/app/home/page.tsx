@@ -3,7 +3,6 @@ import { Button, Label, TextInput } from "flowbite-react";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { OFFICE } from "../../interfaces/office";
-import getHelpController from "../controllers/getHelpController";
 import { TRIAGE_APPLICATION } from "@/interfaces/triageApplication";
 import TriageController from "@/app/controllers/TriageController";
 
@@ -16,14 +15,6 @@ export default function Page() {
     router.push("/home/triageApplication"); // Path to the Triage Application page
   };
 
-  const fetchTreatmentAndOffice = async () => {
-    const triageApplication = await TriageController.getAllTriageApplications(); // Call the controller method
-    const { treatment, office } = await getHelpController.getTreatmentAndOffice(
-      triageApplication.data as TRIAGE_APPLICATION,
-    ); // Pass mock data
-    setTreatment(treatment);
-    setSelectedOffice(office);
-  };
 
 
   return (
@@ -34,9 +25,9 @@ export default function Page() {
       </Button>
       <div>
         <h1>Triage Application Page</h1>
-        <Button onClick={fetchTreatmentAndOffice}>
+        
           Show Treatment and Office
-        </Button>
+        
 
         {treatment && (
           <div>
