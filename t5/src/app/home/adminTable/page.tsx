@@ -38,6 +38,12 @@ const TriageApplicationsPage = () => {
 
   // Handle delete action for each application
   const handleDelete = async (tid: string) => {
+    // Show confirmation dialog before proceeding
+    const isConfirmed = window.confirm('Are you sure you want to delete this triage application?');
+    
+    if (!isConfirmed) {
+      return; // If not confirmed, don't proceed
+    }
     try {
       const response = await fetch(`/api/deleteApp/${tid}`, {
         method: 'DELETE',
