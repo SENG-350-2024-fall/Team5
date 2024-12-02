@@ -6,6 +6,7 @@ import { OFFICE } from "../../interfaces/office";
 import getHelpController from "../controllers/getHelpController";
 import { TRIAGE_APPLICATION } from "@/interfaces/triageApplication";
 import TriageController from "@/app/controllers/TriageController";
+import WaitTime from "../../components/waitTime";
 
 export default function Page() {
   const router = useRouter();
@@ -31,6 +32,11 @@ export default function Page() {
       <Button onClick={navigateToTriageApplication}>
         Go to Triage Applications
       </Button>
+
+      <div>
+        <h2> Current ER Wait Time</h2>
+        <WaitTime />
+      </div>
       <div>
         <h1>Triage Application Page</h1>
         <Button onClick={fetchTreatmentAndOffice}>
