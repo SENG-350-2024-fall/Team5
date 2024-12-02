@@ -8,7 +8,7 @@ import {
 
 import { fetchData, postData } from "../../helpers/utilities";
 
-const TriageApplicationFile = "TriageApplication.json";
+const TriageApplicationFile = "src/mockedData/TriageApplications.JSON";
 
 export default class TriageController {
   private static async generateTID(
@@ -48,6 +48,33 @@ export default class TriageController {
     }
   }
 
+  public static async updateTriageApplicationById(
+    tid: number,
+    patientMedication?: string,
+    patientHistory?: string,
+  ) {
+    try {
+      let existingData = await fetchData(TriageApplicationFile);
+      for (let triageApplication of existingData.triage_applications) {
+        if (triageApplication.tid === tid) {
+          triageApplication.patient_medication =
+            patientMedication ?? triageApplication.patient_medication;
+          triageApplication.patient_history =
+            patientHistory ?? triageApplication.patient_history;
+          break;
+        }
+      }
+      await postData(TriageApplicationFile, existingData);
+      return {
+        message: "Triage Application created",
+        status: 200,
+      };
+    } catch (error: any) {
+      console.log(error);
+      return { message: error, status: 400 };
+    }
+  }
+
   public static async getAllTriageApplications() {
     try {
       const triageApplications = await fetchData(TriageApplicationFile);
@@ -66,7 +93,6 @@ export default class TriageController {
   }
 
   public static async createTriageApplication(
-    TID: number,
     pid: number,
     time_created: Date,
     patient_history?: string | null,
@@ -96,7 +122,7 @@ export default class TriageController {
       return {
         message: "Triage Application created",
         status: 200,
-        data: triageApplicationData,
+        data: TID,
       };
     } catch (error: any) {
       console.log(error);
@@ -168,12 +194,39 @@ export default class TriageController {
 
   public static async addSymptomToTriageApplication(
     tid: number,
-    symptom: SYMPTOM,
+    name: string,
+    pain_scale?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10,
+    other_info?: string,
+    time_started?: Date,
+    body_location?:
+      | "HEAD"
+      | "NECK"
+      | "SHOULDER"
+      | "ARM"
+      | "ELBOW"
+      | "FOREARM"
+      | "HAND"
+      | "FINGER"
+      | "CHEST"
+      | "ABDOMEN"
+      | "HIP"
+      | "THIGH"
+      | "KNEE"
+      | "LEG"
+      | "FOOT"
+      | "TOE"
+      | "OTHER",
   ) {
     try {
-      const time_started = symptom.time_started
-        ? symptom.time_started
-        : new Date();
+      const sid = Math.floor(Math.random() * 1000);
+      const symptom: SYMPTOM = {
+        sid: sid,
+        name: name,
+        pain_scale: pain_scale ? pain_scale : 0,
+        other_info: other_info ? other_info : "",
+        time_started: time_started ? time_started : new Date(),
+        body_location: body_location ? body_location : "OTHER",
+      };
       const symptomData = { ...symptom, time_started: time_started };
       let triageApplications = await fetchData(TriageApplicationFile);
       let triageApplication;
@@ -194,7 +247,7 @@ export default class TriageController {
       return {
         message: "Symptom added to Triage Application",
         status: 200,
-        data: triageApplication,
+        data: { triageApplication, sid },
       };
     } catch (error: any) {
       console.log(error);

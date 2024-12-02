@@ -1,5 +1,6 @@
 import { PATIENT } from "../../interfaces/patient";
 import { fetchData } from "../../helpers/utilities";
+import { callbackify } from "util";
 
 const TriageApplicationFile = "TriageApplication.json";
 // Observer Interface
@@ -19,12 +20,17 @@ export class TriageNotification implements Observable {
   private observers: Observer[] = [];
 
   // Availability Tactic: ping() - simulates sending periodic ping requests to the ED load status external service, checking that it works by retrieving load status data
-  public ping() {
-    setInterval(() => {
+  public ping(callback: (message: string) => void) {
+    const intervalID = setInterval(() => {
       // Generate a random wait time between 1 and 3 hours to simulate getting ED load status from external serice
       const waitTime = Math.floor(Math.random() * 3) + 1;
-      console.log(`Current ED wait time is approximately ${waitTime} hour(s).`);
+
+      const message = `Current ED wait time is approximately ${waitTime} hour(s).`;
+      // console.log(`Current ED wait time is approximately ${waitTime} hour(s).`);
+      callback(message);
     }, 5 * 1000);
+
+    return intervalID; // Return for cleanup
   }
 
   // Will be updated such that when the triage status of an application is changed, observer (patient) will be notified
