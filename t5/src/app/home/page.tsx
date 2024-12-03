@@ -6,6 +6,7 @@ import { OFFICE } from "../../interfaces/office";
 import { TRIAGE_APPLICATION } from "@/interfaces/triageApplication";
 import TriageController from "@/app/controllers/TriageController";
 import WaitTime from "../../components/waitTime";
+import TriageNotificationComponent from "../../components/triageNotification";
 
 export default function Page() {
   const router = useRouter();
@@ -27,6 +28,10 @@ export default function Page() {
       <div>
         <h2> Current ER Wait Time</h2>
         <WaitTime />
+      </div>
+      <div>
+        <h2> Triage Notifications</h2>
+        <TriageNotificationComponent />
       </div>
       <div>
         <h1>Triage Application Page</h1>

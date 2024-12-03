@@ -2,7 +2,7 @@ import { PATIENT } from "../../interfaces/patient";
 import { fetchData } from "../../helpers/utilities";
 import { callbackify } from "util";
 
-const TriageApplicationFile = "TriageApplication.json";
+const TriageApplicationFile = "src/mockedData/TriageApplication.json";
 // Observer Interface
 export interface Observer {
   update(): void;
@@ -67,13 +67,15 @@ export class NotificationDisplay implements Observer {
   private firstName: string;
   private lastName: string;
   private lastStatus: string | null = null; // Add this to track the last notified status
+  private notifyMessage: (message: string) => void;
 
   // Holds necessary patient info to be an observer
-  constructor(triageNotification: Observable, patient: PATIENT) {
+  constructor(triageNotification: Observable, patient: PATIENT, notifyMessage: (message: string) => void) {
     this.observable = triageNotification; // TALK to aidan about Patients interace (String/Number wrappers)
     this.observerID = patient.pid;
     this.firstName = patient.first_name;
     this.lastName = patient.last_name;
+    this.notifyMessage = notifyMessage;
     triageNotification.addObserver(this);
   }
 
@@ -85,32 +87,33 @@ export class NotificationDisplay implements Observer {
       for (const TriageApplication of triageData.triage_applications) {
         //Check if observer id matches application pid
         if (this.observerID == TriageApplication.pid) {
-          let returnMessage = "" as String;
+          let returnMessage = "" as string;
           if (TriageApplication.status !== this.lastStatus) {
             this.lastStatus = TriageApplication.status; // Update last known status
-            console.log(
+            /*console.log(
               `\nHello, ${this.firstName} ${this.lastName}, your triage status is ${TriageApplication.status}.`,
-            );
+            ); */
             returnMessage = returnMessage.concat(
               `\nHello, ${this.firstName} ${this.lastName}, your triage status is ${TriageApplication.status}.`,
             );
             if (TriageApplication.status === "COMPLETED") {
-              console.log(
+              /* console.log(
                 "Please visit the emergency department at your convenience or dial 911.\n",
-              );
+              ); */
               returnMessage = returnMessage.concat(
                 `\nPlease visit the emergency department at your convenience or dial 911.\n`,
               );
             } else {
-              console.log(
+              /* console.log(
                 "Please wait until your application has been evaluated to receive an appointment time.\n",
-              );
+              ); */
               returnMessage = returnMessage.concat(
                 `\nPlease wait until your application has been evaluated to receive an appointment time.\n`,
               );
             }
           }
-          return { message: returnMessage, status: 200 };
+          // return { message: returnMessage, status: 200 };
+          this.notifyMessage(returnMessage);
         }
       }
     } catch (error) {
