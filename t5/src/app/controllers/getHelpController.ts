@@ -1,7 +1,10 @@
-import { offices } from '../../mockedData/offices';
-import { OFFICE } from '../../interfaces/office';
-import { SYMPTOM, TRIAGE_APPLICATION } from '../../interfaces/triageApplication';
-import { strategies } from '../../constants/painLevels';
+import { offices } from "../../mockedData/offices";
+import { OFFICE } from "../../interfaces/office";
+import {
+  SYMPTOM,
+  TRIAGE_APPLICATION,
+} from "../../interfaces/triageApplication";
+import { strategies } from "../../constants/painLevels";
 
 // Helper function to calculate max pain level
 function getMaxPainLevel(symptoms: Array<SYMPTOM> | undefined): number {
@@ -18,12 +21,17 @@ function getStrategyForPainLevel(maxPainLevel: number) {
 }
 
 // Helper function to filter offices based on the selected strategy
-function getMatchingOffices(strategy: typeof strategies[0]) {
-  return offices.filter((office) => office.office_type === strategy.strategy.office_type);
+function getMatchingOffices(strategy: (typeof strategies)[0]) {
+  return offices.filter(
+    (office) => office.office_type === strategy.strategy.office_type,
+  );
 }
 
 // Helper function to select a random office or provide a default if none match
-function selectRandomOffice(matchingOffices: OFFICE[], strategy: typeof strategies[0]): OFFICE {
+function selectRandomOffice(
+  matchingOffices: OFFICE[],
+  strategy: (typeof strategies)[0],
+): OFFICE {
   if (matchingOffices.length === 0) {
     return {
       name: "No matching office available",
@@ -39,7 +47,10 @@ function selectRandomOffice(matchingOffices: OFFICE[], strategy: typeof strategi
 }
 
 // Main function to get treatment and office
-export function getTreatmentAndOffice(triageApplication: TRIAGE_APPLICATION): { treatment: string; office: OFFICE } {
+export function getTreatmentAndOffice(triageApplication: TRIAGE_APPLICATION): {
+  treatment: string;
+  office: OFFICE;
+} {
   const maxPainLevel = getMaxPainLevel(triageApplication.symptoms); // Calculate max pain level
   const selectedStrategy = getStrategyForPainLevel(maxPainLevel); // Get the corresponding strategy
   const matchingOffices = getMatchingOffices(selectedStrategy); // Get offices that match the strategy

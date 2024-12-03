@@ -27,7 +27,7 @@ export default function Page() {
       setTimeCreated(creationDate);
       setStatus("PENDING");
       const response = await TriageController.createTriageApplication(
-        1,
+        6,
         creationDate,
       );
       if (response.status === 200) {

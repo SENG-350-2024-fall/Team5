@@ -5,5 +5,10 @@ export interface OFFICE {
   phone_number: String | null;
   ave_wait_time: Date | null;
   name: String;
-  office_type: "Call center" | "Pharmacy" | "Clinic" | "Emergency room" | "None";
+  office_type:
+    | "Call center"
+    | "Pharmacy"
+    | "Clinic"
+    | "Emergency room"
+    | "None";
 }

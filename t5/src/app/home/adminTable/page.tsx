@@ -1,57 +1,59 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const TriageApplicationsPage = () => {
   const [triageApplications, setTriageApplications] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const statuses = ['PENDING', 'IN_PROGRESS', 'COMPLETED'];
+  const statuses = ["PENDING", "IN_PROGRESS", "COMPLETED"];
 
   // Handle status change for each application
   const handleStatusChange = async (tid: string, newStatus: string) => {
     try {
-      const response = await fetch('/api/adminTable', {
-        method: 'POST',
+      const response = await fetch("/api/adminTable", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ tid, status: newStatus }),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error('Error updating status:', errorData);
+        console.error("Error updating status:", errorData);
         return;
       }
 
       const updatedApp = await response.json();
       setTriageApplications((prevApps) =>
         prevApps.map((app) =>
-          app.tid === updatedApp.application.tid ? updatedApp.application : app
-        )
+          app.tid === updatedApp.application.tid ? updatedApp.application : app,
+        ),
       );
     } catch (error) {
-      console.error('Error updating status:', error);
+      console.error("Error updating status:", error);
     }
   };
 
   // Handle delete action for each application
   const handleDelete = async (tid: string) => {
     // Show confirmation dialog before proceeding
-    const isConfirmed = window.confirm('Are you sure you want to delete this triage application?');
-    
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete this triage application?",
+    );
+
     if (!isConfirmed) {
       return; // If not confirmed, don't proceed
     }
     try {
       const response = await fetch(`/api/deleteApp/${tid}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error('Error deleting application:', errorData);
+        console.error("Error deleting application:", errorData);
         return;
       }
 
@@ -60,24 +62,24 @@ const TriageApplicationsPage = () => {
 
       // Remove the deleted application from the state
       setTriageApplications((prevApps) =>
-        prevApps.filter((app) => app.tid !== tid)
+        prevApps.filter((app) => app.tid !== tid),
       );
     } catch (error) {
-      console.error('Error deleting application:', error);
+      console.error("Error deleting application:", error);
     }
   };
 
   useEffect(() => {
     const fetchTriageApplications = async () => {
       try {
-        const res = await fetch('/api/adminTable');
+        const res = await fetch("/api/adminTable");
         if (!res.ok) {
-          throw new Error('Failed to fetch triage applications');
+          throw new Error("Failed to fetch triage applications");
         }
         const data = await res.json();
         setTriageApplications(data.data);
       } catch (err) {
-        setError('Error fetching triage applications');
+        setError("Error fetching triage applications");
       } finally {
         setLoading(false);
       }
@@ -113,7 +115,9 @@ const TriageApplicationsPage = () => {
                 <td>
                   <select
                     value={app.status}
-                    onChange={(e) => handleStatusChange(app.tid, e.target.value)}
+                    onChange={(e) =>
+                      handleStatusChange(app.tid, e.target.value)
+                    }
                   >
                     {statuses.map((status) => (
                       <option key={status} value={status}>

@@ -1,8 +1,9 @@
 import { PATIENT } from "../../interfaces/patient";
 import { fetchData } from "../../helpers/utilities";
 import { callbackify } from "util";
+import TriageController from "@/app/controllers/TriageController";
 
-const TriageApplicationFile = "src/mockedData/TriageApplication.json";
+const TriageApplicationFile = "src/mockedData/TriageApplication.JSON";
 // Observer Interface
 export interface Observer {
   update(): void;
@@ -67,24 +68,24 @@ export class NotificationDisplay implements Observer {
   private firstName: string;
   private lastName: string;
   private lastStatus: string | null = null; // Add this to track the last notified status
-  private notifyMessage: (message: string) => void;
+  //private notifyMessage: (message: string) => void;
 
   // Holds necessary patient info to be an observer
-  constructor(triageNotification: Observable, patient: PATIENT, notifyMessage: (message: string) => void) {
+  constructor(triageNotification: Observable, patient: PATIENT) {
     this.observable = triageNotification; // TALK to aidan about Patients interace (String/Number wrappers)
     this.observerID = patient.pid;
     this.firstName = patient.first_name;
     this.lastName = patient.last_name;
-    this.notifyMessage = notifyMessage;
+    // this.notifyMessage = notifyMessage;
     triageNotification.addObserver(this);
   }
 
   public async update() {
     // Logic to notify patient that their appointment is READY/PENDING
     try {
-      const triageData = await fetchData(TriageApplicationFile);
+      const triageData = await TriageController.getAllTriageApplications();
       // Iterate through each triage application in application DB
-      for (const TriageApplication of triageData.triage_applications) {
+      for (const TriageApplication of triageData.data) {
         //Check if observer id matches application pid
         if (this.observerID == TriageApplication.pid) {
           let returnMessage = "" as string;
@@ -113,7 +114,7 @@ export class NotificationDisplay implements Observer {
             }
           }
           // return { message: returnMessage, status: 200 };
-          this.notifyMessage(returnMessage);
+          return returnMessage;
         }
       }
     } catch (error) {

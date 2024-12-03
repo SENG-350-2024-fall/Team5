@@ -17,7 +17,6 @@ export default function Page() {
     router.push("/home/triageApplication"); // Path to the Triage Application page
   };
 
-
   return (
     <div>
       <h1>Home Page</h1>
@@ -35,17 +34,13 @@ export default function Page() {
       </div>
       <div>
         <h1>Triage Application Page</h1>
-        
-          Show Treatment and Office
-        
-
+        Show Treatment and Office
         {treatment && (
           <div>
             <h3>Recommended Treatment</h3>
             <p>{treatment}</p>
           </div>
         )}
-
         {selectedOffice && (
           <div>
             <h3>Office Details</h3>

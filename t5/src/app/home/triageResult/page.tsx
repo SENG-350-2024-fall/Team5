@@ -15,14 +15,14 @@ export default function Page() {
       setError("Please enter a valid numeric PID.");
       return;
     }
-  
+
     console.log("Making API call with PID:", pid); // Log to see if the function is being triggered
     try {
       const response = await fetch(`/api/getAppByPid?pid=${pid}`);
       console.log("API response:", response); // Log the response object
       const result = await response.json();
       console.log("API result:", result); // Log the parsed result
-  
+
       if (response.ok) {
         setTreatment(result.data.treatment);
         setSelectedOffice(result.data.office);
@@ -39,7 +39,7 @@ export default function Page() {
       setSelectedOffice(null);
     }
   };
-  
+
   return (
     <div>
       <h1>Triage Result Page</h1>
@@ -92,7 +92,8 @@ export default function Page() {
             <strong>Hours Open:</strong> {selectedOffice.hours_open || "N/A"}
           </p>
           <p>
-            <strong>Phone Number:</strong> {selectedOffice.phone_number || "N/A"}
+            <strong>Phone Number:</strong>{" "}
+            {selectedOffice.phone_number || "N/A"}
           </p>
         </div>
       )}
