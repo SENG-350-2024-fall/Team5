@@ -122,7 +122,8 @@ const TriageApplicationsPage = () => {
                     ))}
                   </select>
                 </td>
-                <td>{app.time_created}</td>
+                <td>{new Date(app.time_created).toISOString().slice(0, 10)}</td>
+
                 <td>
                   <button onClick={() => handleDelete(app.tid)}>Delete</button>
                 </td>
